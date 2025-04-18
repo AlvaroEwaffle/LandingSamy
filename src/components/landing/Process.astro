@@ -1,0 +1,83 @@
+---
+interface ProcessStep {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+const processSteps: ProcessStep[] = [
+  {
+    title: "Levantamiento de Necesidades",
+    description: "Analizamos en profundidad los objetivos de aprendizaje, el público objetivo y los recursos disponibles para diseñar una solución personalizada.",
+    icon: "ri-search-line"
+  },
+  {
+    title: "Diseño Instruccional",
+    description: "Desarrollamos una estrategia pedagógica efectiva, definiendo contenidos, actividades y métodos de evaluación alineados con tus objetivos.",
+    icon: "ri-draft-line"
+  },
+  {
+    title: "Producción Multimedia",
+    description: "Creamos contenido interactivo y atractivo utilizando las últimas tecnologías en video, animación y recursos digitales.",
+    icon: "ri-movie-line"
+  },
+  {
+    title: "Montaje en Plataforma",
+    description: "Implementamos tu programa en nuestra plataforma LMS, asegurando una experiencia de usuario fluida y accesible.",
+    icon: "ri-computer-line"
+  },
+  {
+    title: "Evaluación y Mejora Continua",
+    description: "Monitoreamos el desempeño y recopilamos feedback para optimizar constantemente la efectividad del programa.",
+    icon: "ri-line-chart-line"
+  },
+  {
+    title: "Soporte y Capacitación",
+    description: "Brindamos soporte técnico continuo y capacitación al equipo para garantizar el éxito en la implementación y uso de la plataforma.",
+    icon: "ri-customer-service-line"
+  }
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <!-- Title Section -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">
+        Nuestro Proceso de Desarrollo
+      </h2>
+      <div class="w-24 h-1 bg-accent mx-auto"></div>
+    </div>
+
+    <!-- Steps Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {processSteps.map((step, index) => (
+        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+          <!-- Step Number -->
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center mr-4">
+              <span class="text-accent font-bold">{index + 1}</span>
+            </div>
+            <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
+              <i class={`${step.icon} text-accent text-xl`}></i>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <h3 class="text-xl font-bold text-primary mb-3">{step.title}</h3>
+          <p class="text-gray-600">{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+</style>
+
+<!-- Add Remix Icons CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" /> 

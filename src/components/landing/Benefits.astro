@@ -1,0 +1,82 @@
+---
+interface Benefit {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+const benefits: Benefit[] = [
+  {
+    title: "Programas Personalizados",
+    description: "Diseñamos soluciones de capacitación adaptadas a los objetivos específicos de tu organización",
+    icon: "🎯"
+  },
+  {
+    title: "Modalidades Flexibles",
+    description: "Ofrecemos formación e-learning, b-learning y presencial según tus necesidades",
+    icon: "🔄"
+  },
+  {
+    title: "Plataforma LMS",
+    description: "Accede a nuestra plataforma de aprendizaje intuitiva y personalizable",
+    icon: "💻"
+  },
+  {
+    title: "Seguimiento Detallado",
+    description: "Informes y análisis detallados del progreso y resultados de aprendizaje",
+    icon: "📊"
+  },
+  {
+    title: "Contenido Interactivo",
+    description: "Material didáctico multimedia y actividades prácticas que maximizan el aprendizaje",
+    icon: "🎮"
+  },
+  {
+    title: "Soporte Continuo",
+    description: "Acompañamiento técnico y pedagógico durante todo el proceso formativo",
+    icon: "🤝"
+  },
+  {
+    title: "Certificaciones",
+    description: "Emisión de certificados digitales y validación de competencias adquiridas",
+    icon: "🏆"
+  },
+  {
+    title: "Implementación Ágil",
+    description: "Puesta en marcha rápida y eficiente de tus programas de formación",
+    icon: "🚀"
+  }
+];
+---
+
+<section class="py-16 bg-white relative overflow-hidden">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-10 pointer-events-none">
+    <img src="/assets/patronblancobajaopacidad.png" alt="" class="w-full h-full object-cover" />
+  </div>
+  
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+        📊 Beneficios de trabajar con Ewaffle
+      </h2>
+      <div class="w-24 h-1 bg-accent mx-auto rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {
+        benefits.map((benefit) => (
+          <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div class="text-4xl mb-4">{benefit.icon}</div>
+            <h3 class="text-xl font-semibold text-secondary mb-3">
+              {benefit.title}
+            </h3>
+            <p class="text-text-dark">
+              {benefit.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section> 

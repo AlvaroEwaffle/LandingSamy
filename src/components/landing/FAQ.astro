@@ -1,0 +1,77 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+const faqs: FAQItem[] = [
+  {
+    question: "¿Qué modalidades de capacitación ofrecen?",
+    answer: "Ofrecemos tres modalidades: e-learning (100% online), b-learning (combinación de online y presencial) y presencial. Adaptamos la modalidad según las necesidades de tu organización y objetivos de aprendizaje."
+  },
+  {
+    question: "¿Cuánto tiempo toma implementar un programa?",
+    answer: "El tiempo de implementación varía según la complejidad y alcance del programa. Típicamente, podemos tener un programa básico funcionando en 2-3 semanas, mientras que programas más complejos pueden tomar 4-6 semanas."
+  },
+  {
+    question: "¿Cómo aseguran la calidad del aprendizaje?",
+    answer: "Implementamos un sistema integral de aseguramiento de calidad que incluye: contenido desarrollado por expertos, evaluaciones continuas, seguimiento personalizado, métricas de engagement y encuestas de satisfacción."
+  },
+  {
+    question: "¿Qué tipo de soporte técnico ofrecen?",
+    answer: "Proporcionamos soporte técnico 24/7 para la plataforma LMS, asistencia en vivo durante las sesiones sincrónicas, y un equipo dedicado de success managers para asegurar una experiencia fluida."
+  },
+  {
+    question: "¿Los programas son personalizables?",
+    answer: "Sí, todos nuestros programas son altamente personalizables. Adaptamos el contenido, la metodología, la imagen corporativa y los objetivos específicos según las necesidades de tu organización."
+  },
+  {
+    question: "¿Emiten certificaciones al finalizar los cursos?",
+    answer: "Sí, emitimos certificados digitales verificables al completar los programas. También podemos integrar certificaciones específicas de la industria o personalizar los certificados según los requerimientos de tu organización."
+  }
+];
+---
+
+<section class="py-16 bg-white relative overflow-hidden">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-10 pointer-events-none">
+    <img src="/assets/patronblancofullopacidad.png" alt="" class="w-full h-full object-cover" />
+  </div>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+        💬 Preguntas Frecuentes
+      </h2>
+      <div class="w-24 h-1 bg-accent mx-auto rounded-full"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+      <div class="grid gap-6">
+        {
+          faqs.map((faq) => (
+            <div class="bg-white rounded-lg shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300">
+              <div class="p-6">
+                <div class="flex items-start">
+                  <div class="flex-shrink-0 mt-1">
+                    <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center">
+                      <span class="text-secondary text-xl">❓</span>
+                    </div>
+                  </div>
+                  <div class="ml-4">
+                    <h3 class="text-xl font-semibold text-primary mb-2">
+                      {faq.question}
+                    </h3>
+                    <p class="text-text-dark leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section> 
