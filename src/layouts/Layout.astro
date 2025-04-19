@@ -35,6 +35,17 @@ const keywords = [
 <!DOCTYPE html>
 <html lang="es">
 	<head>
+		<!-- Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-M5H5SWQ"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-M5H5SWQRPZ', {
+				page_path: window.location.pathname,
+			});
+		</script>
+
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/png" href="/favicon.png" />
@@ -108,6 +119,16 @@ const keywords = [
 	</head>
 	<body>
 		<slot />
+
+		<!-- Google Analytics Page View Tracking -->
+		<script>
+			document.addEventListener('astro:page-load', () => {
+				// Update GA on client-side navigation
+				gtag('config', 'G-M5H5SWQRPZ', {
+					page_path: window.location.pathname,
+				});
+			});
+		</script>
 	</body>
 </html>
 
