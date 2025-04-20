@@ -1,58 +1,141 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
 }
 
-const { title, description = "Ewaffle - Formación que transforma. Programas de capacitación de alto impacto para universidades, centros educativos y empresas." } = Astro.props;
+const {
+  title = "Ewaffle | Expertos en E-learning y Diseño Instruccional",
+  description = "Desarrollamos soluciones e-learning personalizadas con diseño instruccional experto, producción multimedia y gamificación. Potencia el aprendizaje de tu organización.",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, "https://www.ewaffle.cl");
+
+const socialImageURL = new URL("/assets/logoewchico.png", canonicalURL);
+
+const keywords = [
+  "e-learning",
+  "diseño instruccional",
+  "capacitación online",
+  "producción multimedia",
+  "gamificación",
+  "plataforma LMS",
+  "aprendizaje digital",
+  "desarrollo e-learning",
+  "cursos online",
+  "educación corporativa",
+  "formación empresarial",
+  "contenido interactivo",
+  "aprendizaje virtual",
+  "capacitación corporativa",
+  "diseño instruccional chile",
+];
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5H5SWQRPZ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-M5H5SWQRPZ");
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="/assets/logoewchico.png" />
+    <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
     <title>{title}</title>
+    <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(", ")} />
+    <meta name="author" content="Ewaffle" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Ewaffle" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={socialImageURL} />
+
+    <!-- Additional Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Ewaffle",
+        "url": "https://www.ewaffle.cl",
+        "logo": "https://www.ewaffle.cl/assets/logoewchico.png",
+        "description": "Expertos en desarrollo de soluciones e-learning, diseño instruccional y producción multimedia para empresas y organizaciones educativas.",
+        "sameAs": [
+          "https://www.instagram.com/ewaffle.cl/",
+          "https://linkedin.com/company/ewaffle"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Santiago",
+          "addressRegion": "RM",
+          "addressCountry": "CL"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "contacto@ewaffle.cl"
+        }
+      }
+    </script>
+
+    <!-- Remix Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- Social Media Links -->
+    <link rel="me" href="https://www.instagram.com/ewaffle.cl/" />
+    <link rel="me" href="https://linkedin.com/company/ewaffle" />
   </head>
   <body>
     <slot />
+
+    
   </body>
 </html>
 
-<style is:global>
-  :root {
-    --primary-color: #1A4C8B;
-    --secondary-color: #2874C6;
-    --accent-color: #FF5599;
-    --accent-yellow: #FFD93B;
-    --background-color: #F5F5F5;
-    --text-color: #333333;
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
+<style>
+  html,
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
+    margin: 0;
+    width: 100%;
+    height: 100%;
   }
-
-  a {
-    color: var(--secondary-color);
-    text-decoration: none;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-</style> 
+</style>
