@@ -7,7 +7,7 @@ interface Props {
 const { title = "🌟 Impulsa el talento de tu organización con Ewaffle", subtitle = "🎉 Formación e-learning rápida, de calidad y adaptable a tu realidad" } = Astro.props;
 ---
 
-<section class="relative min-h-screen flex items-center justify-center text-center bg-gradient-to-b from-primary to-primary/90">
+<section class="relative min-h-[80vh] flex items-center justify-center text-center bg-gradient-to-b from-primary to-primary/90">
   <div class="relative z-30 max-w-7xl mt-20 px-4 sm:px-6 lg:px-8">
     <!-- Logo -->
     <div class="mb-8 flex justify-center">
@@ -18,6 +18,23 @@ const { title = "🌟 Impulsa el talento de tu organización con Ewaffle", subti
       />
     </div>
 
+    <!-- Webinar Invitation Banner -->
+    <div class="mb-8 bg-yellow/10 backdrop-blur-sm rounded-2xl p-6 max-w-3xl mx-auto border border-white/20">
+      <h2 class="text-white text-2xl font-bold mb-3">🚀 Nuevo Curso en Vivo: IA para E-learning</h2>
+      
+      <p class="text-white/90 text-lg mb-4">
+        
+        Aprende a mejorar tus diseños instruccionales con herramientas más creativas en nuestro nuevo curso en vivo.
+      </p>
+      <a 
+        href="/curso-ia" 
+        target="_self"
+        class="inline-flex items-center justify-center px-6 py-3 bg-yellow text-primary rounded-full font-semibold text-base hover:bg-yellow/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+      >
+        Conoce el curso y reserva tu lugar
+      </a>
+    </div>
+
     <h1 class="text-yellow text-3xl md:text-3xl mb-4 drop-shadow-lg">
       {subtitle}
     </h1>
@@ -26,7 +43,7 @@ const { title = "🌟 Impulsa el talento de tu organización con Ewaffle", subti
       En Ewaffle creamos programas de capacitación en modalidad e-learning de alto impacto para universidades, centros educativos y empresas que buscan potenciar las habilidades de sus estudiantes y trabajadores.
     </p>
     
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
       <a 
         href="https://www.fidelidapp.cl/agendalanding/68028f6bd368134c0d8551f7" 
         class="inline-flex items-center justify-center px-8 py-4 bg-accent text-white rounded-full font-semibold text-lg hover:bg-secondary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"

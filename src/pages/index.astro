@@ -12,20 +12,23 @@ import Footer from '../components/landing/Footer.astro';
 import Portfolio from '../components/landing/Portfolio.astro';
 import BannerCTA from '../components/landing/BannerCTA.astro';
 import Contact from '../components/landing/Contact.astro';
+import Gamification from '../components/landing/Gamification.astro';
+import AsesoriaIntro from '../components/landing/AsesoriaIntro.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<BaseLayout title="Ewaffle - Formación que transforma">
+<BaseLayout>
 	<Hero />
+	<Gamification />
+	<AsesoriaIntro />
 	<Process />
 	<BannerCTA />
 	<Clients />
 	<Portfolio />
 	<Benefits />
 	<Team />
-	<Cases />
 	<FAQ />
 	<Contact />
 	<CTA />

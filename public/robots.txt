@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ewaffle.cl/sitemap.xml
+
+# Host
+Host: https://ewaffle.cl 
