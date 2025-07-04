@@ -1,73 +1,70 @@
 ---
-interface ProcessStep {
+interface TargetAudience {
   title: string;
   description: string;
   icon: string;
 }
 
-const processSteps: ProcessStep[] = [
+const targetAudience: TargetAudience[] = [
   {
-    title: "Levantamiento de Necesidades",
-    description: "Analizamos en profundidad los objetivos de aprendizaje, el público objetivo y los recursos disponibles para diseñar una solución personalizada.",
-    icon: "ri-search-line"
+    title: "Aspirantes a influencers y UGC creators",
+    description: "Personas que quieren convertir su pasión por las redes en una carrera profesional",
+    icon: "📱"
   },
   {
-    title: "Diseño Instruccional",
-    description: "Desarrollamos una estrategia pedagógica efectiva, definiendo contenidos, actividades y métodos de evaluación alineados con tus objetivos.",
-    icon: "ri-draft-line"
+    title: "Emprendedores que quieren potenciar su marca personal",
+    description: "Empresarios que buscan construir una presencia digital fuerte y auténtica",
+    icon: "💼"
   },
   {
-    title: "Producción Multimedia",
-    description: "Creamos contenido interactivo y atractivo utilizando las últimas tecnologías en video, animación y recursos digitales.",
-    icon: "ri-movie-line"
-  },
-  {
-    title: "Montaje en Plataforma",
-    description: "Implementamos tu programa en nuestra plataforma LMS, asegurando una experiencia de usuario fluida y accesible.",
-    icon: "ri-computer-line"
-  },
-  {
-    title: "Evaluación y Mejora Continua",
-    description: "Monitoreamos el desempeño y recopilamos feedback para optimizar constantemente la efectividad del programa.",
-    icon: "ri-line-chart-line"
-  },
-  {
-    title: "Soporte y Capacitación",
-    description: "Brindamos soporte técnico continuo y capacitación al equipo para garantizar el éxito en la implementación y uso de la plataforma.",
-    icon: "ri-customer-service-line"
+    title: "Cualquiera que sueñe con vivir de las redes",
+    description: "Personas con el sueño de monetizar su creatividad y vivir de su contenido",
+    icon: "✨"
   }
 ];
 ---
 
-<section class="py-20 bg-white">
-  <div class="container mx-auto px-4">
+<section id="que-es" class="py-20 bg-white">
+  <div class="container mx-auto px-4" data-aos="fade-left">
     <!-- Title Section -->
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">
-        Nuestro Proceso de Desarrollo
+      <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+        ¿Qué te espera dentro de Influencer Factory?
       </h2>
-      <div class="w-24 h-1 bg-accent mx-auto"></div>
+      <div class="text-6xl mb-6">🎓</div>
+      <h3 class="text-2xl font-bold text-primary mb-6">
+        Formación integral para futuros creadores profesionales.
+      </h3>
+      <p class="text-xl text-text-dark max-w-4xl mx-auto leading-relaxed mb-8">
+        Desde tu mentalidad hasta tu monetización. Te acompañamos paso a paso para que construyas una marca auténtica, produzcas contenido irresistible y cobres por tu talento.
+      </p>
+      <div class="w-24 h-1 bg-secondary mx-auto"></div>
     </div>
 
-    <!-- Steps Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {processSteps.map((step, index) => (
-        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-          <!-- Step Number -->
-          <div class="flex items-center mb-4">
-            <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center mr-4">
-              <span class="text-accent font-bold">{index + 1}</span>
-            </div>
-            <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
-              <i class={`${step.icon} text-accent text-xl`}></i>
-            </div>
+    <!-- Ideal for Section -->
+    <div class="mb-12">
+      <h3 class="text-2xl font-bold text-primary text-center mb-8">
+        Ideal para…
+      </h3>
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {targetAudience.map((audience) => (
+          <div class="bg-accent rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="text-5xl mb-4">{audience.icon}</div>
+            <h4 class="text-xl font-bold text-primary mb-3">{audience.title}</h4>
+            <p class="text-text-dark">{audience.description}</p>
           </div>
+        ))}
+      </div>
+    </div>
 
-          <!-- Content -->
-          <h3 class="text-xl font-bold text-primary mb-3">{step.title}</h3>
-          <p class="text-gray-600">{step.description}</p>
-        </div>
-      ))}
+    <!-- CTA -->
+    <div class="text-center">
+      <a 
+        href="#programa" 
+        class="inline-flex items-center justify-center px-8 py-4 bg-secondary text-white rounded-full font-semibold text-lg hover:bg-secondary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+      >
+        Quiero mi lugar
+      </a>
     </div>
   </div>
 </section>

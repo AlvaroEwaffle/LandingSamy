@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://ewaffle.cl/sitemap.xml
+Sitemap: https://www.influencerfactory.com/sitemap.xml
 
 # Host
-Host: https://ewaffle.cl 
+Host: https://www.influencerfactory.com 

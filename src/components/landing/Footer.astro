@@ -1,132 +1,63 @@
 ---
 const currentYear = new Date().getFullYear();
 
-interface FooterLink {
-  text: string;
-  href: string;
-}
-
-const companyLinks: FooterLink[] = [
-  { text: "Sobre Nosotros", href: "#about" },
-  { text: "Casos de Éxito", href: "#cases" },
-  { text: "Blog", href: "#blog" },
-  { text: "FAQ", href: "#faq" }
-];
-
-const serviceLinks: FooterLink[] = [
-  { text: "E-Learning", href: "#e-learning" },
-  { text: "B-Learning", href: "#b-learning" },
-  { text: "Capacitación Presencial", href: "#presencial" },
-  { text: "Consultoría", href: "#consultoria" }
-];
-
 const socialLinks = [
-  { icon: "ri-linkedin-fill", href: "https://www.linkedin.com/company/ewaffle", label: "LinkedIn" },
-  { icon: "ri-instagram-fill", href: "https://www.instagram.com/ewaffle", label: "Instagram" },
-  // { icon: "ri-twitter-x-fill", href: "https://twitter.com/ewaffle", label: "Twitter" },
-  // { icon: "ri-youtube-fill", href: "https://youtube.com/ewaffle", label: "YouTube" }
+  { icon: "ri-instagram-fill", href: "https://www.instagram.com/whit_espinoza/", label: "Instagram" },
 ];
 ---
 
-<footer class="relative overflow-hidden">
-  <!-- Background Image with Overlay -->
-  <div class="absolute inset-0">
-    <img 
-      src="/assets/FONDO3.jpg" 
-      alt="" 
-      class="w-full h-full object-cover"
-    />
-    <div class="absolute inset-0 bg-primary/90"></div>
-  </div>
-
-  <!-- Background Pattern -->
-  <div class="absolute inset-0 opacity-5 pointer-events-none mix-blend-overlay">
-    <img src="/assets/patronblancofullopacidad.png" alt="" class="w-full h-full object-cover" />
-  </div>
-
+<footer class="relative overflow-hidden bg-primary">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <!-- Main Footer Content -->
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 py-12">
-      <!-- Company Info -->
-      <div class="space-y-4">
-        <img src="/assets/logoprimario.png" alt="Ewaffle Logo" class="h-12" />
-        <p class="text-gray-300 text-sm leading-relaxed">
-          Transformamos el aprendizaje organizacional con soluciones innovadoras y personalizadas de e-learning.
+    <div class="py-16 text-center">
+      <!-- Logo -->
+      <div class="mb-8">
+        <img src="/assets/IF_Logo.webp" alt="Influencer Factory Logo" class="h-16 mx-auto" />
+      </div>
+
+      <!-- Persuasive Message -->
+      <div class="max-w-3xl mx-auto mb-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-accent mb-4">
+          Monetizar tu creatividad es posible
+        </h2>
+        <p class="text-xl text-white/90">
+          Influencer Factory te muestra el camino
         </p>
-        <div class="flex space-x-4">
-          {socialLinks.map(({ icon, href, label }) => (
-            <a
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-gray-300 hover:text-accent transition-colors"
-              aria-label={label}
-            >
-              <i class={`${icon} text-xl`}></i>
-            </a>
-          ))}
-        </div>
       </div>
 
-      <!-- Company Links -->
-      <!-- <div>
-        <h3 class="text-lg font-semibold mb-4 text-white">Compañía</h3>
-        <ul class="space-y-2">
-          {companyLinks.map(({ text, href }) => (
-            <li>
-              <a href={href} class="text-gray-300 hover:text-accent transition-colors">
-                {text}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div> -->
-
-      <!-- Services -->
-      <div>
-        <h3 class="text-lg font-semibold mb-4 text-white">Servicios</h3>
-        <ul class="space-y-2">
-          {serviceLinks.map(({ text, href }) => (
-            <li>
-              <a href={href} class="text-gray-300 hover:text-accent transition-colors">
-                {text}
-              </a>
-            </li>
-          ))}
-        </ul>
+      <!-- Social Links -->
+      <div class="flex justify-center space-x-6 mb-8">
+        {socialLinks.map(({ icon, href, label }) => (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-white/70 hover:text-accent transition-colors"
+            aria-label={label}
+          >
+            <i class={`${icon} text-2xl`}></i>
+          </a>
+        ))}
       </div>
 
-      <!-- Contact -->
-      <div>
-        <h3 class="text-lg font-semibold mb-4 text-white">Contacto</h3>
-        <ul class="space-y-2 text-gray-300">
-          <li class="flex items-center space-x-2">
-            <i class="ri-mail-line"></i>
-            <a href="mailto:alvaro@ewaffle.cl" class="hover:text-accent transition-colors">
-              alvaro@ewaffle.cl
-            </a>
-          </li>
-          <li class="flex items-center space-x-2">
-            <i class="ri-phone-line"></i>
-            <a href="tel:+56912345678" class="hover:text-accent transition-colors">
-              +56 9 2011 5198
-            </a>
-          </li>
-          <li class="flex items-center space-x-2">
-            <i class="ri-map-pin-line"></i>
-            <span>Santiago, Chile</span>
-          </li>
-        </ul>
+      <!-- Final CTA -->
+      <div class="mb-8">
+        <a 
+          href="#planes" 
+          class="inline-flex items-center justify-center px-8 py-4 bg-secondary text-white rounded-full font-semibold text-lg hover:bg-secondary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+        >
+          Únete hoy
+        </a>
       </div>
     </div>
 
     <!-- Bottom Bar -->
     <div class="border-t border-white/10 py-6">
       <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-        <p class="text-sm text-gray-300">
-          © {currentYear} Ewaffle. Todos los derechos reservados.
+        <p class="text-sm text-white/70">
+          © {currentYear} Influencer Factory. Todos los derechos reservados.
         </p>
-        <div class="flex space-x-6 text-sm text-gray-300">
+        <div class="flex space-x-6 text-sm text-white/70">
           <a href="/privacidad" class="hover:text-accent transition-colors">
             Política de Privacidad
           </a>
@@ -137,4 +68,11 @@ const socialLinks = [
       </div>
     </div>
   </div>
-</footer> 
+</footer>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+</style> 

@@ -6,43 +6,59 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: "¿Qué modalidades de capacitación ofrecen?",
-    answer: "Ofrecemos tres modalidades: e-learning (100% online), b-learning (combinación de online y presencial) y presencial. Adaptamos la modalidad según las necesidades de tu organización y objetivos de aprendizaje."
+    question: "¿Cuánto dura el programa completo?",
+    answer: "El programa completo tiene 20 módulos con 90+ lecciones. Puedes completarlo a tu ritmo, pero la mayoría de estudiantes lo terminan en 3-6 meses dedicando 1-2 horas diarias."
   },
   {
-    question: "¿Cuánto tiempo toma implementar un programa?",
-    answer: "El tiempo de implementación varía según la complejidad y alcance del programa. Típicamente, podemos tener un programa básico funcionando en 2-3 semanas, mientras que programas más complejos pueden tomar 4-6 semanas."
+    question: "¿Qué métodos de pago aceptan?",
+    answer: "Aceptamos tarjetas de crédito/débito, transferencias bancarias y PayPal. También ofrecemos planes de pago mensual sin intereses."
   },
   {
-    question: "¿Cómo aseguran la calidad del aprendizaje?",
-    answer: "Implementamos un sistema integral de aseguramiento de calidad que incluye: contenido desarrollado por expertos, evaluaciones continuas, seguimiento personalizado, métricas de engagement y encuestas de satisfacción."
+    question: "¿Necesito experiencia previa en redes sociales?",
+    answer: "No, el programa está diseñado para principiantes. Te enseñamos desde cero, desde crear tu primera cuenta hasta monetizar tu contenido."
   },
   {
-    question: "¿Los programas son personalizables?",
-    answer: "Sí, todos nuestros programas son altamente personalizables. Adaptamos el contenido, la metodología, la imagen corporativa y los objetivos específicos según las necesidades de tu organización."
+    question: "¿Puedo acceder al contenido desde cualquier dispositivo?",
+    answer: "Sí, nuestra plataforma es responsive y puedes acceder desde tu computadora, tablet o smartphone las 24 horas del día."
   },
   {
-    question: "¿Emiten certificaciones al finalizar los cursos?",
-    answer: "Sí, emitimos certificados digitales verificables al completar los programas. También podemos integrar certificaciones específicas de la industria o personalizar los certificados según los requerimientos de tu organización."
+    question: "¿Qué pasa si no estoy satisfecho con el programa?",
+    answer: "Ofrecemos garantía de 7 días, 100% satisfacción. Si no estás contento, te devolvemos tu dinero sin preguntas."
+  },
+  {
+    question: "¿Cómo funciona la comunidad de WhatsApp?",
+    answer: "Solo disponible en el plan 'Todo o Nada'. Tendrás acceso a un grupo exclusivo donde podrás hacer preguntas, compartir experiencias y conectar con otros creadores."
   }
 ];
 ---
 
-<section class="py-16 bg-white relative overflow-hidden">
-  <!-- Background Pattern -->
-  <div class="absolute inset-0 opacity-10 pointer-events-none">
-    <img src="/assets/patronblancofullopacidad.png" alt="" class="w-full h-full object-cover" />
-  </div>
-
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<section class="py-20 bg-white relative overflow-hidden">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10" data-aos="fade-left">
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
-        💬 Preguntas Frecuentes
+      <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+        Garantía Total y Preguntas Frecuentes
       </h2>
-      <div class="w-24 h-1 bg-accent mx-auto rounded-full"></div>
+      <div class="w-24 h-1 bg-secondary mx-auto"></div>
     </div>
 
+    <!-- Guarantee Section -->
+    <div class="max-w-4xl mx-auto mb-16">
+      <div class="bg-accent rounded-2xl p-8 text-center border-2 border-secondary/20">
+        <div class="text-6xl mb-4">🛡️</div>
+        <h3 class="text-2xl font-bold text-primary mb-4">
+          Garantía 7 días, 100% satisfacción
+        </h3>
+        <p class="text-lg text-text-dark">
+          Sin preguntas. Si no estás completamente satisfecho con el programa, te devolvemos tu dinero.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
     <div class="max-w-4xl mx-auto">
+      <h3 class="text-2xl font-bold text-primary text-center mb-8">
+        Preguntas frecuentes
+      </h3>
       <div class="grid gap-6">
         {
           faqs.map((faq) => (
@@ -55,9 +71,9 @@ const faqs: FAQItem[] = [
                     </div>
                   </div>
                   <div class="ml-4">
-                    <h3 class="text-xl font-semibold text-primary mb-2">
+                    <h4 class="text-xl font-semibold text-primary mb-2">
                       {faq.question}
-                    </h3>
+                    </h4>
                     <p class="text-text-dark leading-relaxed">
                       {faq.answer}
                     </p>
@@ -69,5 +85,22 @@ const faqs: FAQItem[] = [
         }
       </div>
     </div>
+
+    <!-- Final CTA -->
+    <div class="text-center mt-12">
+      <a 
+        href="#inscribir" 
+        class="inline-flex items-center justify-center px-8 py-4 bg-secondary text-white rounded-full font-semibold text-lg hover:bg-secondary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+      >
+        Inscribirme ahora – ¡Empieza en menos de 3 min!
+      </a>
+    </div>
   </div>
-</section> 
+</section>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+</style> 

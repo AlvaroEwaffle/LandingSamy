@@ -1,30 +1,116 @@
+---
+interface ProgramBlock {
+  bloque: string;
+  enfoque: string;
+  resultado: string;
+}
 
+const programBlocks: ProgramBlock[] = [
+  {
+    bloque: "1. Mentalidad & Marca",
+    enfoque: "Rompes creencias, defines propuesta de valor",
+    resultado: "Story de presentación espectacular"
+  },
+  {
+    bloque: "2. Producción de Contenido",
+    enfoque: "Instagram, TikTok, foto & video pro",
+    resultado: "Feed coherente + videos virales"
+  },
+  {
+    bloque: "3. Crecimiento & Comunidad",
+    enfoque: "Storytelling, automatización, lives",
+    resultado: "Audiencia comprometida"
+  },
+  {
+    bloque: "4. Monetización 360°",
+    enfoque: "Colaboraciones, precios, embudos",
+    resultado: "Primeros ingresos (y plan para escalar)"
+  }
+];
+---
 
-<section class="py-16 bg-[#FF5599] bg-opacity-66">
-  <div class="container mx-auto px-4">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl font-bold text-white mb-6">
-        Transforma tu eLearning con Gamificación
-      </h2>
-      <p class="text-xl text-white mb-8">
-        Descubre cómo nuestra propuesta de gamificación puede revolucionar tu experiencia de aprendizaje en línea. 
-        Mejora el engagement, la retención y los resultados de tus estudiantes.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://gamification.ewaffle.cl/" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        class="inline-flex 
-        items-center 
-        justify-center 
-        px-8 py-4 bg-secondary text-white 
-        rounded-full font-semibold text-lg 
-        hover:bg-primary/90 transition-colors duration-300 shadow-lg 
-        hover:shadow-xl"
+<section id="programa" class="py-20 bg-accent">
+  <div class="container mx-auto px-4" data-aos="fade-left">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+          Tu Ruta Paso a Paso: El Programa Completo
+        </h2>
+        <p class="text-xl text-text-dark mb-8">
+          Formación integral para convertirte en un creador profesional
+        </p>
+        <div class="w-24 h-1 bg-secondary mx-auto"></div>
+      </div>
+
+      <!-- Program Table -->
+      <!-- Desktop Table -->
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden mb-8 hidden sm:block">
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead class="bg-primary text-white">
+              <tr>
+                <th class="px-6 py-4 text-left font-bold">Bloque</th>
+                <th class="px-6 py-4 text-left font-bold">Enfoque</th>
+                <th class="px-6 py-4 text-left font-bold">Resultado tangible</th>
+              </tr>
+            </thead>
+            <tbody>
+              {programBlocks.map((block, index) => (
+                <tr class={`${index % 2 === 0 ? 'bg-white' : 'bg-accent/30'}`}>
+                  <td class="px-6 py-4 font-semibold text-primary">{block.bloque}</td>
+                  <td class="px-6 py-4 text-text-dark">{block.enfoque}</td>
+                  <td class="px-6 py-4 text-text-dark">{block.resultado}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Mobile Cards -->
+      <div class="sm:hidden space-y-4 mb-8">
+        {programBlocks.map((block, index) => (
+          <div class={`rounded-2xl shadow-xl bg-white flex flex-col overflow-hidden ${index % 2 === 0 ? '' : 'bg-accent/30'}`}>
+            <!-- Title Bar -->
+            <div class="bg-primary text-white text-center font-bold text-lg py-3 px-4">
+              {block.bloque}
+            </div>
+            <!-- Card Content -->
+            <div class="flex flex-col gap-2 p-4 items-center text-center">
+              <div class="font-bold text-primary">Enfoque</div>
+              <div class="text-text-dark mb-2">{block.enfoque}</div>
+              <div class="font-bold text-primary">Resultado tangible</div>
+              <div class="text-text-dark">{block.resultado}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Additional Info -->
+      <div class="text-center mb-8">
+        <a 
+          href="#detalle" 
+          class="inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-full font-semibold text-base hover:bg-primary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
         >
-            Mira una demostración
+          Ver detalle del plan de estudios
+        </a>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center">
+        <a 
+          href="#planes" 
+          class="inline-flex items-center justify-center px-8 py-4 bg-secondary text-white rounded-full font-semibold text-lg hover:bg-secondary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+        >
+          Acceder al programa completo
         </a>
       </div>
     </div>
   </div>
-</section> 
+</section>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+</style> 

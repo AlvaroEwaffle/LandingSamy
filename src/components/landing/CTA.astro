@@ -4,61 +4,195 @@ interface Props {
   subtitle?: string;
 }
 
-const { 
-  title = "🚀 ¡Potencia el talento de tu organización hoy!", 
-  subtitle = "Ewaffle - Formación que transforma." 
+const {
+  title = "🚀 ¡Transforma tu pasión en una carrera rentable!",
+  subtitle = "Influencer Factory - Tu camino al éxito digital.",
 } = Astro.props;
+
+interface PricingPlan {
+  plan: string;
+  modalidad: string;
+  clasesGrabadas: boolean;
+  materialDescargable: boolean;
+  comunidadWhatsapp: boolean;
+  clasesVivo: boolean;
+  eventosPresenciales: boolean;
+  precio: string;
+  boton: string;
+}
+
+const pricingPlans: PricingPlan[] = [
+  {
+    plan: "Poco a Poco",
+    modalidad: "On-demand, a tu ritmo",
+    clasesGrabadas: true,
+    materialDescargable: true,
+    comunidadWhatsapp: false,
+    clasesVivo: false,
+    eventosPresenciales: false,
+    precio: "US $29",
+    boton: "Empiezo hoy",
+  },
+  {
+    plan: "Todo o Nada",
+    modalidad: "On-demand + Mentoring en vivo",
+    clasesGrabadas: true,
+    materialDescargable: true,
+    comunidadWhatsapp: true,
+    clasesVivo: true,
+    eventosPresenciales: true,
+    precio: "US $49",
+    boton: "Quiero todo el acceso",
+  },
+];
 ---
 
-<section class="relative py-24 overflow-hidden">
-  <!-- Background Image with Overlay -->
-  <div class="absolute inset-0">
-    <img 
-      src="/assets/FONDO3.jpg" 
-      alt="" 
-      class="w-full h-full object-cover"
-    />
-    <div class="absolute inset-0 bg-primary/90"></div>
-  </div>
+<section id="planes" class="py-20 bg-accent">
+  <div class="container mx-auto px-4" data-aos="fade-left">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+          Elige Tu Camino: Planes y Precios
+        </h2>
+        <p class="text-xl text-text-dark mb-8">
+          Sección anchor de todos los CTA anteriores
+        </p>
+        <div class="w-24 h-1 bg-secondary mx-auto"></div>
+      </div>
 
-  <!-- Background Pattern -->
-  <div class="absolute inset-0 opacity-5 pointer-events-none mix-blend-overlay">
-    <img src="/assets/patronblancofullopacidad.png" alt="" class="w-full h-full object-cover" />
-  </div>
-
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="max-w-4xl mx-auto text-center space-y-8">
-      <!-- Logo -->
-      <img 
-        src="/assets/logoprimario.png" 
-        alt="Ewaffle Logo" 
-        class="h-16 md:h-20 mx-auto mb-8"
-      />
-
-      <!-- Content -->
-      <h2 class="text-3xl md:text-5xl font-bold text-white drop-shadow-lg">
-        {title}
-      </h2>
-      <p class="text-xl md:text-2xl font-medium text-yellow drop-shadow">
-        {subtitle}
-      </p>
-
-      <!-- CTA Buttons -->
-      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
-        <a
-          href="https://www.fidelidapp.cl/agendalanding/68028f6bd368134c0d8551f7"
-          class="bg-accent hover:bg-accent/90 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 inline-flex items-center gap-2 hover:transform hover:-translate-y-1 hover:shadow-lg w-full sm:w-auto justify-center"
+      <!-- FOMO Text -->
+      <div class="text-center mb-8">
+        <p
+          class="text-lg text-text-dark bg-secondary/10 rounded-lg p-4 border border-secondary/30"
         >
-          <span>Agendar Demo</span>
-          <i class="ri-arrow-right-line text-xl"></i>
-        </a>
-        <a
-          href="#contact"
-          class="bg-white/10 hover:bg-white/20 border-2 border-white/20 hover:border-accent/50 px-8 py-4 rounded-full font-semibold transition-all duration-300 text-white hover:transform hover:-translate-y-1 hover:shadow-lg w-full sm:w-auto justify-center inline-flex items-center"
-        >
-          Contactar Ventas
-        </a>
+          Subiremos los precios en cuanto lancemos los 3 nuevos módulos de julio. Asegura la tarifa actual ahora.
+        </p>
+      </div>
+
+      <!-- Pricing Table -->
+      <!-- Desktop Table -->
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden mb-8 hidden sm:block">
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead class="bg-primary text-white">
+              <tr>
+                <th class="px-6 py-4 text-left font-bold">Plan</th>
+                <th class="px-6 py-4 text-center font-bold">"Poco a Poco"</th>
+                <th class="px-6 py-4 text-center font-bold">"Todo o Nada"</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-accent/30">
+                <td class="px-6 py-4 font-semibold text-primary">Modalidad</td>
+                <td class="px-6 py-4 text-center text-text-dark">On-demand, a tu ritmo</td>
+                <td class="px-6 py-4 text-center text-text-dark">On-demand + Mentoring en vivo</td>
+              </tr>
+              <tr class="bg-white">
+                <td class="px-6 py-4 font-semibold text-primary">Clases grabadas 24/7</td>
+                <td class="px-6 py-4 text-center">
+                  <span class="text-green-600 text-2xl">✔</span>
+                </td>
+                <td class="px-6 py-4 text-center">
+                  <span class="text-green-600 text-2xl">✔</span>
+                </td>
+              </tr>
+              <tr class="bg-accent/30">
+                <td class="px-6 py-4 font-semibold text-primary">Material descargable</td>
+                <td class="px-6 py-4 text-center">
+                  <span class="text-green-600 text-2xl">✔</span>
+                </td>
+                <td class="px-6 py-4 text-center">
+                  <span class="text-green-600 text-2xl">✔</span>
+                </td>
+              </tr>
+              <tr class="bg-white">
+                <td class="px-6 py-4 font-semibold text-primary">Comunidad WhatsApp</td>
+                <td class="px-6 py-4 text-center">
+                  <span class="text-red-500 text-2xl">–</span>
+                </td>
+                <td class="px-6 py-4 text-center">
+                  <span class="text-green-600 text-2xl">✔</span>
+                </td>
+              </tr>
+              <tr class="bg-accent/30">
+                <td class="px-6 py-4 font-semibold text-primary">Clases en vivo mensuales</td>
+                <td class="px-6 py-4 text-center">
+                  <span class="text-red-500 text-2xl">–</span>
+                </td>
+                <td class="px-6 py-4 text-center">
+                  <span class="text-green-600 text-2xl">✔ (con Whitney)</span>
+                </td>
+              </tr>
+              <tr class="bg-white">
+                <td class="px-6 py-4 font-semibold text-primary">Eventos presenciales</td>
+                <td class="px-6 py-4 text-center">
+                  <span class="text-red-500 text-2xl">–</span>
+                </td>
+                <td class="px-6 py-4 text-center">
+                  <span class="text-green-600 text-2xl">✔ (cupos limitados)</span>
+                </td>
+              </tr>
+              <tr class="bg-primary text-white">
+                <td class="px-6 py-4 font-bold">Precio / mes</td>
+                <td class="px-6 py-4 text-center font-bold text-2xl">US $29</td>
+                <td class="px-6 py-4 text-center font-bold text-2xl">US $49</td>
+              </tr>
+              <tr class="bg-secondary">
+                <td class="px-6 py-4 font-bold text-white"></td>
+                <td class="px-6 py-4 text-center">
+                  <a href="#inscribir" class="inline-flex items-center justify-center px-6 py-3 bg-white text-secondary rounded-full font-semibold text-base hover:bg-gray-100 transition-colors duration-300">
+                    Empiezo hoy
+                  </a>
+                </td>
+                <td class="px-6 py-4 text-center">
+                  <a href="#inscribir" class="inline-flex items-center justify-center px-6 py-3 bg-white text-secondary rounded-full font-semibold text-base hover:bg-gray-100 transition-colors duration-300">
+                    Quiero todo el acceso
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Mobile Cards -->
+      <div class="sm:hidden flex flex-col gap-6 mb-8">
+        {pricingPlans.map((plan, idx) => (
+          <div class="rounded-2xl shadow-xl bg-white flex flex-col overflow-hidden">
+            <!-- Title Bar -->
+            <div class="bg-primary text-white text-center font-bold text-lg py-3 px-4">
+              {plan.plan}
+            </div>
+            <!-- Card Content -->
+            <div class="flex flex-col gap-2 p-4 items-center text-center">
+              <div class="font-bold text-primary">Modalidad</div>
+              <div class="text-text-dark mb-2">{plan.modalidad}</div>
+              <div class="font-bold text-primary">Clases grabadas 24/7</div>
+              <div class="text-text-dark mb-2">{plan.clasesGrabadas ? <span class='text-green-600 text-2xl'>✔</span> : <span class='text-red-500 text-2xl'>–</span>}</div>
+              <div class="font-bold text-primary">Material descargable</div>
+              <div class="text-text-dark mb-2">{plan.materialDescargable ? <span class='text-green-600 text-2xl'>✔</span> : <span class='text-red-500 text-2xl'>–</span>}</div>
+              <div class="font-bold text-primary">Comunidad WhatsApp</div>
+              <div class="text-text-dark mb-2">{plan.comunidadWhatsapp ? <span class='text-green-600 text-2xl'>✔</span> : <span class='text-red-500 text-2xl'>–</span>}</div>
+              <div class="font-bold text-primary">Clases en vivo mensuales</div>
+              <div class="text-text-dark mb-2">{plan.clasesVivo ? <span class='text-green-600 text-2xl'>✔</span> : <span class='text-red-500 text-2xl'>–</span>}</div>
+              <div class="font-bold text-primary">Eventos presenciales</div>
+              <div class="text-text-dark mb-2">{plan.eventosPresenciales ? <span class='text-green-600 text-2xl'>✔</span> : <span class='text-red-500 text-2xl'>–</span>}</div>
+              <div class="font-bold text-primary">Precio / mes</div>
+              <div class="text-secondary font-bold text-2xl mb-2">{plan.precio}</div>
+              <a href="#inscribir" class="inline-flex items-center justify-center px-6 py-3 bg-secondary text-white rounded-full font-semibold text-base hover:bg-secondary/90 transition-colors duration-300">
+                {plan.boton}
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </div>
-</section> 
+</section>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+</style>
+

@@ -7,30 +7,30 @@ interface Props {
 }
 
 const {
-  title = "Ewaffle | Expertos en E-learning, Diseño Instruccional y Producción Multimedia",
-  description = "Desarrollamos soluciones e-learning personalizadas con diseño instruccional experto, producción multimedia y gamificación. Potencia el aprendizaje de tu organización.",
+  title = "Influencer Factory | Academia Digital para Creadores de Contenido",
+  description = "Transforma tu pasión por las redes en una carrera rentable. Academia digital con 20 módulos, 90+ lecciones y clases nuevas cada mes para monetizar tu contenido desde cero.",
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, "https://www.ewaffle.cl");
+const canonicalURL = new URL(Astro.url.pathname, "https://www.influencerfactory.com");
 
-const socialImageURL = new URL("/assets/logoewchico.png", canonicalURL);
+const socialImageURL = new URL("/assets/IF_Logo.webp", canonicalURL);
 
 const keywords = [
-  "e-learning",
-  "diseño instruccional",
-  "capacitación online",
-  "producción multimedia",
-  "gamificación",
-  "plataforma LMS",
-  "aprendizaje digital",
-  "desarrollo e-learning",
-  "cursos online",
-  "educación corporativa",
-  "formación empresarial",
-  "contenido interactivo",
-  "aprendizaje virtual",
-  "capacitación corporativa",
-  "diseño instruccional chile",
+  "influencer",
+  "creador de contenido",
+  "monetización",
+  "redes sociales",
+  "instagram",
+  "tiktok",
+  "academia digital",
+  "formación online",
+  "marca personal",
+  "contenido digital",
+  "influencer marketing",
+  "UGC creator",
+  "emprendimiento digital",
+  "carrera online",
+  "redes sociales chile",
 ];
 ---
 
@@ -54,7 +54,7 @@ const keywords = [
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="/assets/logoewchico.png" />
+    <link rel="icon" type="image/webp" href="/assets/IF_Logo.webp" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
@@ -63,7 +63,7 @@ const keywords = [
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(", ")} />
-    <meta name="author" content="Ewaffle" />
+    <meta name="author" content="Influencer Factory" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -72,7 +72,7 @@ const keywords = [
     <meta property="og:description" content={description} />
     <meta property="og:image" content={socialImageURL} />
     <meta property="og:locale" content="es_ES" />
-    <meta property="og:site_name" content="Ewaffle" />
+    <meta property="og:site_name" content="Influencer Factory" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -84,35 +84,95 @@ const keywords = [
     <!-- Additional Meta Tags -->
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
-    <meta name="theme-color" content="#2563eb" />
+    <meta name="theme-color" content="#29005f" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Influencer Factory" />
+    
+    <!-- Language and Region -->
+    <meta name="language" content="Spanish" />
+    <meta name="geo.region" content="CL" />
+    <meta name="geo.placename" content="Santiago" />
+    
+    <!-- Additional SEO -->
+    <meta name="revisit-after" content="7 days" />
+    <meta name="distribution" content="global" />
+    <meta name="rating" content="general" />
+    <meta name="coverage" content="worldwide" />
+    <meta name="target" content="all" />
 
     <!-- Structured Data / JSON-LD -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Ewaffle",
-        "url": "https://www.ewaffle.cl",
-        "logo": "https://www.ewaffle.cl/assets/logoewchico.png",
-        "description": "Expertos en desarrollo de soluciones e-learning, diseño instruccional y producción multimedia para empresas y organizaciones educativas.",
-        "sameAs": [
-          "https://www.instagram.com/ewaffle.cl/",
-          "https://linkedin.com/company/ewaffle"
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Santiago",
-          "addressRegion": "RM",
-          "addressCountry": "CL"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "customer service",
-          "email": "contacto@ewaffle.cl"
-        }
+        "@graph": [
+          {
+            "@type": "Organization",
+            "name": "Influencer Factory",
+            "url": "https://www.influencerfactory.com",
+            "logo": "https://www.influencerfactory.com/assets/IF_Logo.webp",
+            "description": "Academia digital para creadores de contenido. Transforma tu pasión por las redes en una carrera rentable con formación integral y mentoría personalizada.",
+            "sameAs": [
+              "https://www.instagram.com/influencerfactory/",
+              "https://linkedin.com/company/influencerfactory"
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Santiago",
+              "addressRegion": "RM",
+              "addressCountry": "CL"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer service",
+              "email": "contacto@influencerfactory.com"
+            }
+          },
+          {
+            "@type": "EducationalService",
+            "name": "Influencer Factory Academy",
+            "description": "Academia digital con 20 módulos, 90+ lecciones y clases nuevas cada mes para monetizar tu contenido desde cero.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Influencer Factory"
+            },
+            "educationalLevel": "Professional Development",
+            "teaches": [
+              "Influencer Marketing",
+              "Content Creation",
+              "Social Media Strategy",
+              "Personal Branding",
+              "Digital Monetization",
+              "Instagram Marketing",
+              "TikTok Content",
+              "UGC Creation"
+            ],
+            "offers": {
+              "@type": "Offer",
+              "price": "29",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock"
+            },
+            "hasCourseInstance": {
+              "@type": "CourseInstance",
+              "courseMode": "online",
+              "inLanguage": "es",
+              "courseSchedule": "Flexible",
+              "educationalCredentialAwarded": "Certificate of Completion"
+            }
+          },
+          {
+            "@type": "Person",
+            "name": "Whitney Espinoza",
+            "jobTitle": "Fundadora & Instructora Principal",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Influencer Factory"
+            },
+            "description": "Transformé mi pasión por las redes en una carrera exitosa. Ahora enseño a más de 1,400 creadores cómo monetizar su contenido."
+          }
+        ]
       }
     </script>
 
@@ -123,8 +183,11 @@ const keywords = [
     />
 
     <!-- Social Media Links -->
-    <link rel="me" href="https://www.instagram.com/ewaffle.cl/" />
-    <link rel="me" href="https://linkedin.com/company/ewaffle" />
+    <link rel="me" href="https://www.instagram.com/influencerfactory/" />
+    <link rel="me" href="https://linkedin.com/company/influencerfactory" />
+
+    <!-- AOS Animate On Scroll CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -138,6 +201,29 @@ const keywords = [
     <!-- End Google Tag Manager (noscript) -->
 
     <slot />
+
+    <!-- Sticky CTA Button (for scroll, desktop only) -->
+    <div class="fixed top-4 right-4 z-50 hidden sm:block">
+      <a 
+        href="#planes" 
+        class="inline-flex items-center justify-center px-6 py-3 bg-secondary text-white rounded-full font-semibold text-base hover:bg-secondary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+      >
+        Inscribirme
+      </a>
+    </div>
+
+    <!-- AOS Animate On Scroll JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+    <script is:inline>
+      window.addEventListener('DOMContentLoaded', function () {
+        if (window.AOS) {
+          window.AOS.init({
+            duration: 800,
+            once: true
+          });
+        }
+      });
+    </script>
   </body>
 </html>
 

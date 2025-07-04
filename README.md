@@ -1,49 +1,44 @@
-# 🚀 Ewaffle Landing Page
+# 🚀 Influencer Factory Landing Page
 
-Landing page corporativa para Ewaffle, expertos en soluciones e-learning y diseño instruccional.
+Landing page oficial para Influencer Factory, la academia digital para creadores de contenido y futuros influencers.
 
-![Ewaffle Logo](/public/assets/logoewchico.png)
+![Influencer Factory Logo](/public/assets/IF_Logo.webp)
 
 ## 📋 Descripción
 
-Este proyecto es la landing page oficial de Ewaffle, desarrollada con Astro y TailwindCSS. Ofrece una experiencia moderna y optimizada para presentar nuestros servicios de e-learning, diseño instruccional y producción multimedia.
+Este proyecto es la landing page de Influencer Factory, desarrollada con Astro y TailwindCSS. Presenta la academia, el programa, los planes y la mentora Whitney Espinoza, con animaciones modernas y diseño mobile-first.
 
 ## ✨ Características
 
-- 🎨 Diseño moderno y responsive
-- 🚀 Optimizado para SEO
-- 📊 Integración con Google Analytics 4
-- 💨 Animaciones y transiciones suaves
-- 📱 Totalmente adaptable a dispositivos móviles
-- 🔍 Optimización de imágenes y recursos
+- 🎨 Diseño moderno, atractivo y responsive
+- 🚀 SEO avanzado y meta tags sociales
+- 💫 Animaciones suaves al hacer scroll (AOS)
+- 📱 Mobile-first, experiencia optimizada en todos los dispositivos
+- 🏷️ Tablas y cards responsivas
+- 🧑‍💻 Código limpio y fácil de personalizar
 
 ## 🛠️ Tecnologías
 
 - [Astro](https://astro.build)
 - [TailwindCSS](https://tailwindcss.com)
+- [AOS (Animate On Scroll)](https://michalsnik.github.io/aos/)
 - [TypeScript](https://www.typescriptlang.org)
 - [Remix Icons](https://remixicon.com)
-- [EmailJS](https://www.emailjs.com)
 
 ## 🚀 Instalación
 
 1. Clona el repositorio:
 ```bash
-git clone https://github.com/yourusername/ewaffle-landing.git
+git clone https://github.com/yourusername/influencer-factory-landing.git
 ```
 
 2. Instala las dependencias:
 ```bash
-cd ewaffle-landing
+cd influencer-factory-landing
 npm install
 ```
 
-3. Configura las variables de entorno:
-```bash
-cp .env.example .env
-```
-
-4. Inicia el servidor de desarrollo:
+3. Inicia el servidor de desarrollo:
 ```bash
 npm run dev
 ```
@@ -54,18 +49,20 @@ npm run dev
 /
 ├── public/
 │   └── assets/
-│       ├── clientlogos/
-│       └── ...
+│       └── IF_Logo.webp
 ├── src/
 │   ├── components/
 │   │   └── landing/
 │   │       ├── Hero.astro
+│   │       ├── Benefits.astro
 │   │       ├── Process.astro
-│   │       ├── Clients.astro
-│   │       ├── BannerCTA.astro
-│   │       └── Contact.astro
+│   │       ├── Gamification.astro
+│   │       ├── Cases.astro
+│   │       ├── Team.astro
+│   │       ├── CTA.astro
+│   │       └── FAQ.astro
 │   ├── layouts/
-│   │   └── Layout.astro
+│   │   └── BaseLayout.astro
 │   └── pages/
 │       └── index.astro
 └── package.json
@@ -73,55 +70,36 @@ npm run dev
 
 ## 🔧 Configuración
 
-### Google Analytics
+- No se requieren variables de entorno para la versión estática.
+- Google Analytics y AOS ya están integrados en el layout.
 
-El proyecto utiliza Google Analytics 4 para el seguimiento de usuarios. Configurado con:
-- ID de Flujo: 3859247626
-- ID de Medición: G-M5H5SWQ
-
-### EmailJS
-
-Para el formulario de contacto, configura las siguientes variables en tu archivo `.env`:
-
-```env
-PUBLIC_EMAILJS_SERVICE_ID=your_service_id
-PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
-PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
-```
-
-## 📱 Características Responsive
+## 📱 Responsive y Accesibilidad
 
 - Mobile First Design
-- Breakpoints:
-  - sm: 640px
-  - md: 768px
-  - lg: 1024px
-  - xl: 1280px
+- Tablas y cards adaptadas a móvil
+- Botón CTA sticky solo en desktop
+- Animaciones solo en contenido, no en fondos
 
 ## 🚀 Despliegue
 
-El proyecto está configurado para ser desplegado en cualquier plataforma que soporte Astro. Recomendamos:
-
+El proyecto puede desplegarse en cualquier plataforma compatible con Astro:
 ```bash
 npm run build
 ```
+Los archivos de producción se generan en la carpeta `dist/`.
 
-Los archivos de producción se generarán en la carpeta `dist/`.
+## 📈 SEO y Analytics
 
-## 📈 Analytics y SEO
-
-- Implementación completa de meta tags
-- Open Graph tags para redes sociales
-- Integración con Google Analytics 4
-- Sitemap automático
-- Optimización de imágenes
+- Meta tags y Open Graph completos
+- Sitemap y robots.txt actualizados
+- Animaciones AOS para mejor experiencia
 
 ## 🤝 Contribución
 
-1. Fork el proyecto
-2. Crea tu rama de características (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
+1. Haz fork del proyecto
+2. Crea una rama (`git checkout -b feature/NuevaFeature`)
+3. Commit tus cambios (`git commit -m 'Agrega NuevaFeature'`)
+4. Push a la rama (`git push origin feature/NuevaFeature`)
 5. Abre un Pull Request
 
 ## 📄 Licencia
@@ -130,13 +108,13 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.m
 
 ## 📞 Contacto
 
-- Website: [https://ewaffle.cl](https://ewaffle.cl)
-- LinkedIn: [Ewaffle](https://linkedin.com/company/ewaffle)
-- Instagram: [@ewaffle.cl](https://www.instagram.com/ewaffle.cl/)
-- Email: contacto@ewaffle.cl
+- Website: [https://influencerfactory.com](https://influencerfactory.com)
+- LinkedIn: [Influencer Factory](https://linkedin.com/company/influencerfactory)
+- Instagram: [@influencerfactory](https://www.instagram.com/influencerfactory/)
+- Email: contacto@influencerfactory.com
 
 ---
-Desarrollado con ❤️ por el equipo de Ewaffle
+Desarrollado con ❤️ por el equipo de Influencer Factory
 
 ```sh
 npm create astro@latest -- --template basics

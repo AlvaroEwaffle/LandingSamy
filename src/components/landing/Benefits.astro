@@ -3,80 +3,69 @@ interface Benefit {
   title: string;
   description: string;
   icon: string;
+  type: 'before' | 'after';
 }
 
 const benefits: Benefit[] = [
   {
-    title: "Programas Personalizados",
-    description: "Diseñamos soluciones de capacitación adaptadas a los objetivos específicos de tu organización",
-    icon: "🎯"
+    title: "Sin guía profesional…",
+    description: "Publicas sin estrategia, te frustra el algoritmo y nadie te paga.",
+    icon: "❌",
+    type: 'before'
   },
   {
-    title: "Modalidades Flexibles",
-    description: "Ofrecemos formación e-learning, b-learning y presencial según tus necesidades",
-    icon: "🔄"
-  },
-  {
-    title: "Plataforma LMS",
-    description: "Accede a nuestra plataforma de aprendizaje intuitiva y personalizable",
-    icon: "💻"
-  },
-  {
-    title: "Seguimiento Detallado",
-    description: "Informes y análisis detallados del progreso y resultados de aprendizaje",
-    icon: "📊"
-  },
-  {
-    title: "Contenido Interactivo",
-    description: "Material didáctico multimedia y actividades prácticas que maximizan el aprendizaje",
-    icon: "🎮"
-  },
-  {
-    title: "Soporte Continuo",
-    description: "Acompañamiento técnico y pedagógico durante todo el proceso formativo",
-    icon: "🤝"
-  },
-  {
-    title: "Certificaciones",
-    description: "Emisión de certificados digitales y validación de competencias adquiridas",
-    icon: "🏆"
-  },
-  {
-    title: "Implementación Ágil",
-    description: "Puesta en marcha rápida y eficiente de tus programas de formación",
-    icon: "🚀"
+    title: "Con Influencer Factory…",
+    description: "Diseñas una marca personal magnética, creas contenido que vende y atraes marcas que te pagan bien.",
+    icon: "✅",
+    type: 'after'
   }
 ];
 ---
 
-<section class="py-16 bg-white relative overflow-hidden">
-  <!-- Background Pattern -->
-  <div class="absolute inset-0 opacity-10 pointer-events-none">
-    <img src="/assets/patronblancobajaopacidad.png" alt="" class="w-full h-full object-cover" />
-  </div>
-  
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<section class="py-16 bg-accent relative overflow-hidden">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10" data-aos="fade-left">
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
-        📊 Beneficios de trabajar con Ewaffle
+      <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+        ¿Por qué Influencer Factory transforma tu futuro?
       </h2>
-      <div class="w-24 h-1 bg-accent mx-auto rounded-full"></div>
+      <p class="text-xl text-text-dark mb-8">
+        Haz que quieran seguir bajando con un contraste fuerte entre el "antes" y el "después".
+      </p>
+      <div class="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
       {
         benefits.map((benefit) => (
-          <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="text-4xl mb-4">{benefit.icon}</div>
-            <h3 class="text-xl font-semibold text-secondary mb-3">
+          <div class={`p-8 rounded-2xl shadow-lg border-2 transition-all duration-300 hover:shadow-xl ${
+            benefit.type === 'before' 
+              ? 'bg-white border-red-200 hover:border-red-300' 
+              : 'bg-primary text-white border-secondary hover:border-secondary/80'
+          }`}>
+            <div class="text-6xl mb-6 text-center">{benefit.icon}</div>
+            <h3 class={`text-2xl font-bold mb-4 text-center ${
+              benefit.type === 'before' ? 'text-red-600' : 'text-accent'
+            }`}>
               {benefit.title}
             </h3>
-            <p class="text-text-dark">
+            <p class={`text-lg leading-relaxed text-center ${
+              benefit.type === 'before' ? 'text-text-dark' : 'text-white/90'
+            }`}>
               {benefit.description}
             </p>
           </div>
         ))
       }
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-12">
+      <a 
+        href="#que-es" 
+        class="inline-flex items-center justify-center px-8 py-4 bg-secondary text-white rounded-full font-semibold text-lg hover:bg-secondary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+      >
+        Descubre cómo funciona ↓
+      </a>
     </div>
   </div>
 </section> 
