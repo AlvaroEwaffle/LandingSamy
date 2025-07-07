@@ -48,7 +48,7 @@ const pricingPlans: PricingPlan[] = [
 ---
 
 <section id="planes" class="py-20 bg-accent">
-  <div class="container mx-auto px-4" data-aos="fade-left">
+  <div class="container mx-auto px-4">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
         <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
@@ -70,129 +70,95 @@ const pricingPlans: PricingPlan[] = [
       </div>
 
       <!-- Pricing Table -->
-      <!-- Desktop Table -->
-      <div class="bg-white rounded-2xl shadow-xl overflow-hidden mb-8 hidden sm:block">
-        <div class="overflow-x-auto">
-          <table class="w-full">
-            <thead class="bg-primary text-white">
-              <tr>
-                <th class="px-6 py-4 text-left font-bold">Plan</th>
-                <th class="px-6 py-4 text-center font-bold">"Poco a Poco"</th>
-                <th class="px-6 py-4 text-center font-bold">"Todo o Nada"</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="bg-accent/30">
-                <td class="px-6 py-4 font-semibold text-primary">Modalidad</td>
-                <td class="px-6 py-4 text-center text-text-dark">On-demand, a tu ritmo</td>
-                <td class="px-6 py-4 text-center text-text-dark">On-demand + Mentoring en vivo</td>
-              </tr>
-              <tr class="bg-white">
-                <td class="px-6 py-4 font-semibold text-primary">Clases grabadas 24/7</td>
-                <td class="px-6 py-4 text-center">
-                  <span class="text-green-600 text-2xl">✔</span>
-                </td>
-                <td class="px-6 py-4 text-center">
-                  <span class="text-green-600 text-2xl">✔</span>
-                </td>
-              </tr>
-              <tr class="bg-accent/30">
-                <td class="px-6 py-4 font-semibold text-primary">Material descargable</td>
-                <td class="px-6 py-4 text-center">
-                  <span class="text-green-600 text-2xl">✔</span>
-                </td>
-                <td class="px-6 py-4 text-center">
-                  <span class="text-green-600 text-2xl">✔</span>
-                </td>
-              </tr>
-              <tr class="bg-white">
-                <td class="px-6 py-4 font-semibold text-primary">Comunidad WhatsApp</td>
-                <td class="px-6 py-4 text-center">
-                  <span class="text-red-500 text-2xl">–</span>
-                </td>
-                <td class="px-6 py-4 text-center">
-                  <span class="text-green-600 text-2xl">✔</span>
-                </td>
-              </tr>
-              <tr class="bg-accent/30">
-                <td class="px-6 py-4 font-semibold text-primary">Clases en vivo mensuales</td>
-                <td class="px-6 py-4 text-center">
-                  <span class="text-red-500 text-2xl">–</span>
-                </td>
-                <td class="px-6 py-4 text-center">
-                  <span class="text-green-600 text-2xl">✔ (con Whitney)</span>
-                </td>
-              </tr>
-              <tr class="bg-white">
-                <td class="px-6 py-4 font-semibold text-primary">Eventos presenciales</td>
-                <td class="px-6 py-4 text-center">
-                  <span class="text-red-500 text-2xl">–</span>
-                </td>
-                <td class="px-6 py-4 text-center">
-                  <span class="text-green-600 text-2xl">✔ (cupos limitados)</span>
-                </td>
-              </tr>
-              <tr class="bg-primary text-white">
-                <td class="px-6 py-4 font-bold">Precio / mes</td>
-                <td class="px-6 py-4 text-center font-bold text-2xl">US $29</td>
-                <td class="px-6 py-4 text-center font-bold text-2xl">US $49</td>
-              </tr>
-              <tr class="bg-secondary">
-                <td class="px-6 py-4 font-bold text-white"></td>
-                <td class="px-6 py-4 text-center">
-                  <a href="#inscribir" class="inline-flex items-center justify-center px-6 py-3 bg-white text-secondary rounded-full font-semibold text-base hover:bg-gray-100 transition-colors duration-300">
-                    Empiezo hoy
-                  </a>
-                </td>
-                <td class="px-6 py-4 text-center">
-                  <a href="#inscribir" class="inline-flex items-center justify-center px-6 py-3 bg-white text-secondary rounded-full font-semibold text-base hover:bg-gray-100 transition-colors duration-300">
-                    Quiero todo el acceso
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <!-- Mobile Cards -->
-      <div class="sm:hidden flex flex-col gap-6 mb-8">
-        {pricingPlans.map((plan, idx) => (
-          <div class="rounded-2xl shadow-xl bg-white flex flex-col overflow-hidden">
-            <!-- Title Bar -->
-            <div class="bg-primary text-white text-center font-bold text-lg py-3 px-4">
-              {plan.plan}
-            </div>
-            <!-- Card Content -->
-            <div class="flex flex-col gap-2 p-4 items-center text-center">
-              <div class="font-bold text-primary">Modalidad</div>
-              <div class="text-text-dark mb-2">{plan.modalidad}</div>
-              <div class="font-bold text-primary">Clases grabadas 24/7</div>
-              <div class="text-text-dark mb-2">{plan.clasesGrabadas ? <span class='text-green-600 text-2xl'>✔</span> : <span class='text-red-500 text-2xl'>–</span>}</div>
-              <div class="font-bold text-primary">Material descargable</div>
-              <div class="text-text-dark mb-2">{plan.materialDescargable ? <span class='text-green-600 text-2xl'>✔</span> : <span class='text-red-500 text-2xl'>–</span>}</div>
-              <div class="font-bold text-primary">Comunidad WhatsApp</div>
-              <div class="text-text-dark mb-2">{plan.comunidadWhatsapp ? <span class='text-green-600 text-2xl'>✔</span> : <span class='text-red-500 text-2xl'>–</span>}</div>
-              <div class="font-bold text-primary">Clases en vivo mensuales</div>
-              <div class="text-text-dark mb-2">{plan.clasesVivo ? <span class='text-green-600 text-2xl'>✔</span> : <span class='text-red-500 text-2xl'>–</span>}</div>
-              <div class="font-bold text-primary">Eventos presenciales</div>
-              <div class="text-text-dark mb-2">{plan.eventosPresenciales ? <span class='text-green-600 text-2xl'>✔</span> : <span class='text-red-500 text-2xl'>–</span>}</div>
-              <div class="font-bold text-primary">Precio / mes</div>
-              <div class="text-secondary font-bold text-2xl mb-2">{plan.precio}</div>
-              <a href="#inscribir" class="inline-flex items-center justify-center px-6 py-3 bg-secondary text-white rounded-full font-semibold text-base hover:bg-secondary/90 transition-colors duration-300">
-                {plan.boton}
-              </a>
-            </div>
-          </div>
-        ))}
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden mb-8">
+        <table class="w-full text-sm sm:text-base">
+          <thead class="bg-primary text-white">
+            <tr>
+              <th class="px-4 py-4 text-left font-bold w-1/5">Plan</th>
+              <th class="px-2 py-4 text-center font-bold w-2/5">"Poco a Poco"</th>
+              <th class="px-2 py-4 text-center font-bold w-2/5">"Todo o Nada"</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-accent/30">
+              <td class="px-4 py-4 font-semibold text-primary w-2/5">Modalidad</td>
+              <td class="px-2 py-4 text-center text-text-dark w-3/10">On-demand, a tu ritmo</td>
+              <td class="px-2 py-4 text-center text-text-dark w-3/10">On-demand + Mentoring en vivo</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="px-4 py-4 font-semibold text-primary w-2/5">Clases grabadas 24/7</td>
+              <td class="px-2 py-4 text-center w-3/10">
+                <span class="text-green-600 text-2xl">✔</span>
+              </td>
+              <td class="px-2 py-4 text-center w-3/10">
+                <span class="text-green-600 text-2xl">✔</span>
+              </td>
+            </tr>
+            <tr class="bg-accent/30">
+              <td class="px-4 py-4 font-semibold text-primary w-2/5">Material descargable</td>
+              <td class="px-2 py-4 text-center w-3/10">
+                <span class="text-green-600 text-2xl">✔</span>
+              </td>
+              <td class="px-2 py-4 text-center w-3/10">
+                <span class="text-green-600 text-2xl">✔</span>
+              </td>
+            </tr>
+            <tr class="bg-white">
+              <td class="px-4 py-4 font-semibold text-primary w-2/5">Comunidad WhatsApp</td>
+              <td class="px-2 py-4 text-center w-3/10">
+                <span class="text-red-500 text-2xl">–</span>
+              </td>
+              <td class="px-2 py-4 text-center w-3/10">
+                <span class="text-green-600 text-2xl">✔</span>
+              </td>
+            </tr>
+            <tr class="bg-accent/30">
+              <td class="px-4 py-4 font-semibold text-primary w-2/5">Clases en vivo mensuales</td>
+              <td class="px-2 py-4 text-center w-3/10">
+                <span class="text-red-500 text-xl">–</span>
+              </td>
+              <td class="px-2 py-4 text-center w-3/10">
+                <span class="text-green-600 text-xl">✔ (con Whitney)</span>
+              </td>
+            </tr>
+            <tr class="bg-white">
+              <td class="px-4 py-4 font-semibold text-primary w-2/5">Eventos presenciales</td>
+              <td class="px-2 py-4 text-center w-3/10">
+                <span class="text-red-500 text-2xl">–</span>
+              </td>
+              <td class="px-2 py-4 text-center w-3/10">
+                <span class="text-green-600 text-xl">✔ (cupos limitados)</span>
+              </td>
+            </tr>
+            <tr class="bg-primary text-white">
+              <td class="px-4 py-4 font-bold w-2/5">Precio / mes</td>
+              <td class="px-2 py-4 text-center font-bold text-xl w-3/10">US $29</td>
+              <td class="px-2 py-4 text-center font-bold text-xl w-3/10">US $49</td>
+            </tr>
+            <tr class="bg-secondary">
+              <td class="px-4 py-4 font-bold text-white w-2/5"></td>
+              <td class="px-2 py-4 text-center w-3/10">
+                <a
+                  href="#inscribir"
+                  class="inline-flex items-center justify-center px-6 py-3 bg-white text-secondary rounded-full font-semibold text-base hover:bg-gray-100 transition-colors duration-300"
+                >
+                  Empiezo hoy
+                </a>
+              </td>
+              <td class="px-2 py-4 text-center w-3/10">
+                <a
+                  href="#inscribir"
+                  class="inline-flex items-center justify-center px-6 py-3 bg-white text-secondary rounded-full font-semibold text-base hover:bg-gray-100 transition-colors duration-300"
+                >
+                  Quiero Todo
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
 </section>
-
-<style>
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-</style>
+ 
 
