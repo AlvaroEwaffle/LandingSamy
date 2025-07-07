@@ -1,42 +1,65 @@
 ---
-interface Testimonial {
-  quote: string;
-  author: string;
-  role: string;
+interface SuccessCase {
+  videoUrl: string;
+  metrics: { icon: string; metric: string; description: string }[];
 }
 
-interface SuccessMetric {
-  metric: string;
-  description: string;
-  icon: string;
+const cases: SuccessCase[] = [
+  {
+    videoUrl:
+      "https://player.vimeo.com/video/1099474062?h=3bcd9d4cd4&badge=0&autopause=0&player_id=0&app_id=58479",
+    metrics: [
+      {
+        icon: "📈",
+        metric: "2482 seguidores",
+        description: "@soymarisolguillen",
+      },
+      {
+        icon: "🚀",
+        metric: "Más de 1600 seguidores",
+        description: "Luego de finalizar la academia.",
+      },
+
+      {
+        icon: "🎯",
+        metric: "Su video más viral: ",
+        description: "74 mil vistas, 672 likes, 66 comentarios y 154 compartidos.",
+      },
+    ],
+  },
+  {
+    videoUrl:
+      "https://player.vimeo.com/video/1028650112?h=9384d48510&title=0&byline=0&portrait=0",
+    metrics: [
+      {
+        icon: "💸",
+        metric: "+100K USD",
+        description: "ingresos por colaboraciones en 2023",
+      },
+      { icon: "🚀", metric: "+20K", description: "seguidores en 2 meses" },
+      {
+        icon: "🏆",
+        metric: "Premio",
+        description: "Mejor campaña influencer 2023",
+      },
+    ],
+  },
+];
+
+let currentCase = 0;
+
+function prevCase() {
+  currentCase = (currentCase - 1 + cases.length) % cases.length;
 }
 
-const successMetrics: SuccessMetric[] = [
-  {
-    metric: "+300K USD",
-    description: "facturados por alumnos en colaboraciones",
-    icon: "💰"
-  },
-  {
-    metric: "0 a 50K",
-    description: "seguidores en 6 semanas (caso @ejem_creator)",
-    icon: "📈"
-  },
-  {
-    metric: "Primer contrato",
-    description: "cerrado en 6 semanas",
-    icon: "🎯"
-  }
-];
-
-const mediaSupport = [
-  "Forbes Chile",
-  "Cosmopolitan Latam", 
-  "La Tercera"
-];
+function nextCase() {
+  currentCase = (currentCase + 1) % cases.length;
+}
 ---
 
-<section class="py-20 bg-black relative overflow-hidden overflow-x-hidden w-full max-w-full">
+<section
+  class="py-20 bg-black relative overflow-hidden overflow-x-hidden w-full max-w-full"
+>
   <div class="container mx-auto px-4 relative z-10">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
@@ -46,42 +69,57 @@ const mediaSupport = [
         <div class="w-24 h-1 bg-secondary mx-auto"></div>
       </div>
 
-      <!-- Two Column Layout -->
-      <div class="grid lg:grid-cols-2 gap-12 items-stretch mb-12">
-        <!-- Left Column - Video -->
-        <div class="order-2 lg:order-1 flex justify-center h-full">
-          <div class="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 flex items-center h-full max-w-[360px] w-full mx-auto">
-            <div class="relative w-full aspect-[9/16] rounded-xl overflow-hidden mx-auto">
-              <iframe
-                src="https://player.vimeo.com/video/1028650112?h=9384d48510&title=0&byline=0&portrait=0"
-                class="w-full h-full"
-                frameborder="0"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowfullscreen
-                title="Influencer Factory - Whitney + Testimonios"
-              ></iframe>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Column - Success Metrics -->
-        <div class="order-1 lg:order-2 h-full flex items-stretch">
-          <div class="space-y-6 w-full flex flex-col justify-center h-full">
-            {successMetrics.map((metric) => (
-              <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 flex items-center h-full">
-                <div class="flex items-center space-x-4">
-                  <div class="text-4xl">{metric.icon}</div>
-                  <div>
-                    <div class="text-2xl font-bold text-white mb-1">{metric.metric}</div>
-                    <p class="text-white/90">{metric.description}</p>
+      <!-- Carousel -->
+      <div class="relative mb-12">
+        <div id="carousel-cases" class="relative">
+          {cases.map((c, idx) => (
+            <div class={`grid lg:grid-cols-2 gap-12 items-stretch carousel-case${idx === 0 ? ' active' : ''}`} data-index={idx}>
+              {/* Left Column - Video */}
+              <div class="order-2 lg:order-1 flex justify-center h-full">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 flex items-center h-full max-w-[360px] w-full mx-auto">
+                  <div class="relative w-full aspect-[9/16] rounded-xl overflow-hidden mx-auto">
+                    <iframe
+                      src={c.videoUrl}
+                      class="w-full h-full"
+                      frameborder="0"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowfullscreen
+                      title="Influencer Factory - Caso de Éxito"
+                    ></iframe>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+              {/* Right Column - Success Metrics */}
+              <div class="order-1 lg:order-2 h-full flex items-stretch">
+                <div class="space-y-6 w-full flex flex-col justify-center h-full">
+                  {c.metrics.map((metric) => (
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 flex items-center h-full">
+                      <div class="flex items-center space-x-4">
+                        <div class="text-4xl">{metric.icon}</div>
+                        <div>
+                          <div class="text-2xl font-bold text-white mb-1">{metric.metric}</div>
+                          <p class="text-white/90">{metric.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <!-- Carousel Navigation -->
+        <div class="flex justify-center gap-6 mt-8">
+          <button type="button" id="carousel-prev" class="w-12 h-12 rounded-full bg-white/10 text-white text-2xl flex items-center justify-center hover:bg-secondary transition-colors">&#8592;</button>
+          <button type="button" id="carousel-next" class="w-12 h-12 rounded-full bg-white/10 text-white text-2xl flex items-center justify-center hover:bg-secondary transition-colors">&#8594;</button>
+        </div>
+        <!-- Dots -->
+        <div class="flex justify-center gap-2 mt-4" id="carousel-dots">
+          {cases.map((_, idx) => (
+            <span class={`inline-block w-3 h-3 rounded-full ${idx === 0 ? 'bg-secondary' : 'bg-white/20'}`} data-dot={idx}></span>
+          ))}
         </div>
       </div>
-
 
       <!-- CTA -->
       <div class="text-center">
@@ -96,9 +134,54 @@ const mediaSupport = [
   </div>
 </section>
 
+<script is:inline>
+  let current = 0;
+  const cases = Array.from(document.querySelectorAll('.carousel-case'));
+  const dots = Array.from(document.querySelectorAll('[data-dot]'));
+  let timer = null;
+  function showCase(idx) {
+    cases.forEach((el, i) => el.classList.toggle('active', i === idx));
+    dots.forEach((el, i) => el.classList.toggle('bg-secondary', i === idx));
+    dots.forEach((el, i) => el.classList.toggle('bg-white/20', i !== idx));
+    current = idx;
+    resetTimer();
+  }
+  function nextAuto() {
+    showCase((current + 1) % cases.length);
+  }
+  function resetTimer() {
+    if (timer) clearInterval(timer);
+    timer = setInterval(nextAuto, 30000);
+  }
+  document.getElementById('carousel-prev').onclick = () => showCase((current - 1 + cases.length) % cases.length);
+  document.getElementById('carousel-next').onclick = () => showCase((current + 1) % cases.length);
+  dots.forEach((el, i) => el.onclick = () => showCase(i));
+  resetTimer();
+</script>
+
 <style>
   .container {
     max-width: 1200px;
     margin: 0 auto;
   }
-</style> 
+  #carousel-cases {
+    position: relative;
+    min-height: 400px;
+  }
+  .carousel-case {
+    transition: opacity 0.5s;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+  .carousel-case.active {
+    opacity: 1;
+    pointer-events: auto;
+    position: relative;
+    z-index: 1;
+  }
+</style>
+
