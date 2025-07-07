@@ -47,15 +47,15 @@ const pricingPlans: PricingPlan[] = [
 ];
 ---
 
-<section id="planes" class="py-20 bg-accent">
+<section id="planes" class="py-20 bg-black overflow-x-hidden w-full max-w-full">
   <div class="container mx-auto px-4">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
-        <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
           Elige Tu Camino: Planes y Precios
         </h2>
-        <p class="text-xl text-text-dark mb-8">
-          Sección anchor de todos los CTA anteriores
+        <p class="text-xl text-white mb-8">
+          Si estás en alguno de estos nichos: maquillaje, imagen personal, maternidad, fitness, nutrición estos planes son para ti.
         </p>
         <div class="w-24 h-1 bg-secondary mx-auto"></div>
       </div>
@@ -63,99 +63,42 @@ const pricingPlans: PricingPlan[] = [
       <!-- FOMO Text -->
       <div class="text-center mb-8">
         <p
-          class="text-lg text-text-dark bg-secondary/10 rounded-lg p-4 border border-secondary/30"
+          class="text-lg text-white bg-secondary/10 rounded-lg p-4 border border-secondary/30"
         >
           Subiremos los precios en cuanto lancemos los 3 nuevos módulos de julio. Asegura la tarifa actual ahora.
         </p>
       </div>
 
-      <!-- Pricing Table -->
-      <div class="bg-white rounded-2xl shadow-xl overflow-hidden mb-8">
-        <table class="w-full text-sm sm:text-base">
-          <thead class="bg-primary text-white">
-            <tr>
-              <th class="px-4 py-4 text-left font-bold w-1/5">Plan</th>
-              <th class="px-2 py-4 text-center font-bold w-2/5">"Poco a Poco"</th>
-              <th class="px-2 py-4 text-center font-bold w-2/5">"Todo o Nada"</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="bg-accent/30">
-              <td class="px-4 py-4 font-semibold text-primary w-2/5">Modalidad</td>
-              <td class="px-2 py-4 text-center text-text-dark w-3/10">On-demand, a tu ritmo</td>
-              <td class="px-2 py-4 text-center text-text-dark w-3/10">On-demand + Mentoring en vivo</td>
-            </tr>
-            <tr class="bg-white">
-              <td class="px-4 py-4 font-semibold text-primary w-2/5">Clases grabadas 24/7</td>
-              <td class="px-2 py-4 text-center w-3/10">
-                <span class="text-green-600 text-2xl">✔</span>
-              </td>
-              <td class="px-2 py-4 text-center w-3/10">
-                <span class="text-green-600 text-2xl">✔</span>
-              </td>
-            </tr>
-            <tr class="bg-accent/30">
-              <td class="px-4 py-4 font-semibold text-primary w-2/5">Material descargable</td>
-              <td class="px-2 py-4 text-center w-3/10">
-                <span class="text-green-600 text-2xl">✔</span>
-              </td>
-              <td class="px-2 py-4 text-center w-3/10">
-                <span class="text-green-600 text-2xl">✔</span>
-              </td>
-            </tr>
-            <tr class="bg-white">
-              <td class="px-4 py-4 font-semibold text-primary w-2/5">Comunidad WhatsApp</td>
-              <td class="px-2 py-4 text-center w-3/10">
-                <span class="text-red-500 text-2xl">–</span>
-              </td>
-              <td class="px-2 py-4 text-center w-3/10">
-                <span class="text-green-600 text-2xl">✔</span>
-              </td>
-            </tr>
-            <tr class="bg-accent/30">
-              <td class="px-4 py-4 font-semibold text-primary w-2/5">Clases en vivo mensuales</td>
-              <td class="px-2 py-4 text-center w-3/10">
-                <span class="text-red-500 text-xl">–</span>
-              </td>
-              <td class="px-2 py-4 text-center w-3/10">
-                <span class="text-green-600 text-xl">✔ (con Whitney)</span>
-              </td>
-            </tr>
-            <tr class="bg-white">
-              <td class="px-4 py-4 font-semibold text-primary w-2/5">Eventos presenciales</td>
-              <td class="px-2 py-4 text-center w-3/10">
-                <span class="text-red-500 text-2xl">–</span>
-              </td>
-              <td class="px-2 py-4 text-center w-3/10">
-                <span class="text-green-600 text-xl">✔ (cupos limitados)</span>
-              </td>
-            </tr>
-            <tr class="bg-primary text-white">
-              <td class="px-4 py-4 font-bold w-2/5">Precio / mes</td>
-              <td class="px-2 py-4 text-center font-bold text-xl w-3/10">US $29</td>
-              <td class="px-2 py-4 text-center font-bold text-xl w-3/10">US $49</td>
-            </tr>
-            <tr class="bg-secondary">
-              <td class="px-4 py-4 font-bold text-white w-2/5"></td>
-              <td class="px-2 py-4 text-center w-3/10">
-                <a
-                  href="#inscribir"
-                  class="inline-flex items-center justify-center px-6 py-3 bg-white text-secondary rounded-full font-semibold text-base hover:bg-gray-100 transition-colors duration-300"
-                >
-                  Empiezo hoy
-                </a>
-              </td>
-              <td class="px-2 py-4 text-center w-3/10">
-                <a
-                  href="#inscribir"
-                  class="inline-flex items-center justify-center px-6 py-3 bg-white text-secondary rounded-full font-semibold text-base hover:bg-gray-100 transition-colors duration-300"
-                >
-                  Quiero Todo
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- Custom Pricing Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-8">
+        <!-- Poco a Poco -->
+        <div class="rounded-2xl border-4 border-primary bg-black flex flex-col items-center p-8 shadow-xl">
+          <h3 class="text-3xl font-bold text-white mb-2 uppercase tracking-wide">Poco a Poco</h3>
+          <div class="text-lg text-white/80 mb-2">On-demand, a tu ritmo</div>
+          <div class="text-4xl font-extrabold text-white mb-4">US $29</div>
+          <a href="#inscribir" class="w-full inline-block text-center px-6 py-3 bg-primary text-white rounded-full font-semibold text-lg mb-6 hover:bg-primary/90 transition-colors duration-300">Empiezo hoy</a>
+          <ul class="text-white/80 text-left space-y-2 text-base">
+            <li>✔ Clases grabadas 24/7</li>
+            <li>✔ Material descargable</li>
+            <li>✔ Comunidad WhatsApp</li>
+            <li>✗ Clases en vivo mensuales</li>
+            <li>✗ Eventos presenciales</li>
+          </ul>
+        </div>
+        <!-- Todo o Nada -->
+        <div class="rounded-2xl border-4 border-secondary bg-[#1a1a1a] flex flex-col items-center p-8 shadow-xl">
+          <h3 class="text-3xl font-bold text-white mb-2 uppercase tracking-wide">Todo o Nada</h3>
+          <div class="text-lg text-white/80 mb-2">On-demand + Mentoring en vivo</div>
+          <div class="text-4xl font-extrabold text-white mb-4">US $49</div>
+          <a href="#inscribir" class="w-full inline-block text-center px-6 py-3 bg-secondary text-white rounded-full font-semibold text-lg mb-6 hover:bg-secondary/90 transition-colors duration-300">Quiero Todo</a>
+          <ul class="text-white/80 text-left space-y-2 text-base">
+            <li>✔ Clases grabadas 24/7</li>
+            <li>✔ Material descargable</li>
+            <li>✔ Comunidad WhatsApp</li>
+            <li>✔ Clases en vivo mensuales</li>
+            <li>✔ Eventos presenciales</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

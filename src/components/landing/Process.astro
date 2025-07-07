@@ -24,18 +24,18 @@ const targetAudience: TargetAudience[] = [
 ];
 ---
 
-<section id="que-es" class="py-20 bg-white">
-  <div class="container mx-auto px-4" data-aos="fade-left">
+<section id="que-es" class="py-20 bg-black overflow-x-hidden w-full max-w-full">
+  <div class="container mx-auto px-4">
     <!-- Title Section -->
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
         ¿Qué te espera dentro de Influencer Factory?
       </h2>
       <div class="text-6xl mb-6">🎓</div>
-      <h3 class="text-2xl font-bold text-primary mb-6">
+      <h3 class="text-2xl font-bold text-white mb-6">
         Formación integral para futuros creadores profesionales.
       </h3>
-      <p class="text-xl text-text-dark max-w-4xl mx-auto leading-relaxed mb-8">
+      <p class="text-xl text-white max-w-4xl mx-auto leading-relaxed mb-8">
         Desde tu mentalidad hasta tu monetización. Te acompañamos paso a paso para que construyas una marca auténtica, produzcas contenido irresistible y cobres por tu talento.
       </p>
       <div class="w-24 h-1 bg-secondary mx-auto"></div>
@@ -43,7 +43,7 @@ const targetAudience: TargetAudience[] = [
 
     <!-- Ideal for Section -->
     <div class="mb-12">
-      <h3 class="text-2xl font-bold text-primary text-center mb-8">
+      <h3 class="text-2xl font-bold text-white text-center mb-8">
         Ideal para…
       </h3>
       <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -51,7 +51,7 @@ const targetAudience: TargetAudience[] = [
           <div class="bg-accent rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
             <div class="text-5xl mb-4">{audience.icon}</div>
             <h4 class="text-xl font-bold text-primary mb-3">{audience.title}</h4>
-            <p class="text-text-dark">{audience.description}</p>
+            <p class="text-black">{audience.description}</p>
           </div>
         ))}
       </div>

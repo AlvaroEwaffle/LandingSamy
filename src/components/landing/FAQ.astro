@@ -32,10 +32,10 @@ const faqs: FAQItem[] = [
 ];
 ---
 
-<section class="py-20 bg-white relative overflow-hidden">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10" data-aos="fade-left">
+<section class="py-20 bg-black relative overflow-hidden overflow-x-hidden w-full max-w-full">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="text-center mb-12">
-      <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
         Garantía Total y Preguntas Frecuentes
       </h2>
       <div class="w-24 h-1 bg-secondary mx-auto"></div>
@@ -48,7 +48,7 @@ const faqs: FAQItem[] = [
         <h3 class="text-2xl font-bold text-primary mb-4">
           Garantía 7 días, 100% satisfacción
         </h3>
-        <p class="text-lg text-text-dark">
+        <p class="text-lg text-black">
           Sin preguntas. Si no estás completamente satisfecho con el programa, te devolvemos tu dinero.
         </p>
       </div>
@@ -56,25 +56,25 @@ const faqs: FAQItem[] = [
 
     <!-- FAQ Section -->
     <div class="max-w-4xl mx-auto">
-      <h3 class="text-2xl font-bold text-primary text-center mb-8">
+      <h3 class="text-2xl font-bold text-white text-center mb-8">
         Preguntas frecuentes
       </h3>
       <div class="grid gap-6">
         {
           faqs.map((faq) => (
-            <div class="bg-white rounded-lg shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300">
+            <div class="bg-black rounded-lg shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300">
               <div class="p-6">
                 <div class="flex items-start">
                   <div class="flex-shrink-0 mt-1">
-                    <div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center">
-                      <span class="text-secondary text-xl">❓</span>
+                    <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                      <span class="text-white text-xl">❓</span>
                     </div>
                   </div>
                   <div class="ml-4">
-                    <h4 class="text-xl font-semibold text-primary mb-2">
+                    <h4 class="text-xl font-semibold text-white mb-2">
                       {faq.question}
                     </h4>
-                    <p class="text-text-dark leading-relaxed">
+                    <p class="text-white leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>

@@ -22,13 +22,13 @@ const benefits: Benefit[] = [
 ];
 ---
 
-<section class="py-16 bg-accent relative overflow-hidden">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10" data-aos="fade-left">
+<section class="py-16 bg-black relative overflow-hidden overflow-x-hidden w-full max-w-full">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="text-center mb-12">
-      <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
         ¿Por qué Influencer Factory transforma tu futuro?
       </h2>
-      <p class="text-xl text-text-dark mb-8">
+      <p class="text-xl text-white mb-8">
         Haz que quieran seguir bajando con un contraste fuerte entre el "antes" y el "después".
       </p>
       <div class="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
@@ -39,17 +39,17 @@ const benefits: Benefit[] = [
         benefits.map((benefit) => (
           <div class={`p-8 rounded-2xl shadow-lg border-2 transition-all duration-300 hover:shadow-xl ${
             benefit.type === 'before' 
-              ? 'bg-white border-red-200 hover:border-red-300' 
+              ? 'bg-black border-red-200 hover:border-red-300' 
               : 'bg-primary text-white border-secondary hover:border-secondary/80'
           }`}>
             <div class="text-6xl mb-6 text-center">{benefit.icon}</div>
             <h3 class={`text-2xl font-bold mb-4 text-center ${
-              benefit.type === 'before' ? 'text-red-600' : 'text-accent'
+              benefit.type === 'before' ? 'text-white' : 'text-accent'
             }`}>
               {benefit.title}
             </h3>
             <p class={`text-lg leading-relaxed text-center ${
-              benefit.type === 'before' ? 'text-text-dark' : 'text-white/90'
+              benefit.type === 'before' ? 'text-white' : 'text-white/90'
             }`}>
               {benefit.description}
             </p>
