@@ -170,6 +170,15 @@ function nextCase() {
   const dots = Array.from(document.querySelectorAll("[data-dot]"));
   let timer = null;
   function showCase(idx) {
+    // Detener todos los videos menos el activo
+    cases.forEach((el, i) => {
+      if (i !== idx) {
+        const iframe = el.querySelector('iframe');
+        if (iframe) {
+          iframe.src = iframe.src;
+        }
+      }
+    });
     cases.forEach((el, i) => el.classList.toggle("active", i === idx));
     dots.forEach((el, i) => el.classList.toggle("bg-secondary", i === idx));
     dots.forEach((el, i) => el.classList.toggle("bg-white/20", i !== idx));
