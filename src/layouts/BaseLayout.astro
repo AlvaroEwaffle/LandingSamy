@@ -39,18 +39,18 @@ const keywords = [
   <head>
     <!-- Google Tag Manager -->
     <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s) as HTMLScriptElement,
-          dl = l != "dataLayer" ? "&l=" + l : "";
+      (function(w,d,s,l,i){
+        w[l]=w[l]||[];
+        w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+        var f = d.getElementsByTagName(s)[0];
+        var j = d.createElement(s);
+        var dl = l!='dataLayer'?'&l='+l:'';
         j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id='+i+dl;
         if (f && f.parentNode) {
-          f.parentNode.insertBefore(j, f);
+          f.parentNode.insertBefore(j,f);
         }
-      })(window, document, "script", "dataLayer", "GTM-K3268VF");
+      })(window,document,'script','dataLayer','GTM-52LZ8RJ7');
     </script>
     <!-- End Google Tag Manager -->
 
@@ -193,13 +193,8 @@ const keywords = [
   </head>
   <body class="overflow-x-hidden">
     <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-K3268VF"
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"></iframe></noscript
-    >
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52LZ8RJ7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <slot />
