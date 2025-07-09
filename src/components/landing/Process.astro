@@ -24,11 +24,20 @@ const targetAudience: TargetAudience[] = [
 ];
 ---
 
-<section id="que-es" class="py-20 bg-black overflow-x-hidden w-full max-w-full">
+<section id="que-es" class="py-4 bg-black overflow-x-hidden w-full max-w-full">
   <div class="container mx-auto px-4">
+         <!-- Infinite Scrolling Banner -->
+         <div class="relative overflow-hidden mb-8 ">
+          <div class="scrolling-banner">
+            <div class="scrolling-content">
+              <span class="text-sm md:text-base text-white font-semibold px-4"> No esperes más, asegura tu cupo ahora - </span>
+              <span class="text-sm md:text-base text-white font-semibold px-4"> No esperes más, asegura tu cupo ahora - </span>
+            </div>
+          </div>
+        </div>
     <!-- Title Section -->
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
         ¿Qué te espera dentro de Influencer Factory?
       </h2>
       <div class="text-6xl mb-6">🎓</div>
@@ -48,10 +57,10 @@ const targetAudience: TargetAudience[] = [
       </h3>
       <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {targetAudience.map((audience) => (
-          <div class="bg-accent rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-            <div class="text-5xl mb-4">{audience.icon}</div>
-            <h4 class="text-xl font-bold text-primary mb-3">{audience.title}</h4>
-            <p class="text-black">{audience.description}</p>
+          <div class="fade-in card-hover rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2  border border-secondary">
+            <div class="text-5xl  mb-4">{audience.icon}</div>
+            <h4 class="text-xl font-bold text-white mb-3">{audience.title}</h4>
+            <p class="text-white">{audience.description}</p>
           </div>
         ))}
       </div>
@@ -60,7 +69,7 @@ const targetAudience: TargetAudience[] = [
     <!-- CTA -->
     <div class="text-center">
       <a 
-        href="#programa" 
+        href="#planes" 
         class="inline-flex items-center justify-center px-8 py-4 bg-secondary text-white rounded-full font-semibold text-lg hover:bg-secondary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
       >
         Quiero mi lugar
@@ -73,6 +82,40 @@ const targetAudience: TargetAudience[] = [
   .container {
     max-width: 1200px;
     margin: 0 auto;
+  }
+
+  
+  .scrolling-banner {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .scrolling-content {
+    display: inline-block;
+    animation: scroll-right 40s linear infinite;
+    white-space: nowrap;
+  }
+
+  .scrolling-content span {
+    display: inline-block;
+    padding: 1rem 0;
+  }
+
+  @keyframes scroll-right {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-200%);
+    }
+  }
+
+  /* Ensure the banner spans full width */
+  .scrolling-banner {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: 100vw;
   }
 </style>
 

@@ -22,10 +22,10 @@ const benefits: Benefit[] = [
 ];
 ---
 
-<section class="py-16 bg-black relative overflow-hidden overflow-x-hidden w-full max-w-full">
+<section class="py-8 bg-black relative overflow-hidden overflow-x-hidden w-full max-w-full">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="text-center mb-12">
-      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
         ¿Por qué Influencer Factory transforma tu futuro?
       </h2>
       <p class="text-xl text-white mb-8">
@@ -37,19 +37,19 @@ const benefits: Benefit[] = [
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
       {
         benefits.map((benefit) => (
-          <div class={`p-8 rounded-2xl shadow-lg border-2 transition-all duration-300 hover:shadow-xl ${
+          <div class={`fade-in card-hover p-8 rounded-2xl shadow-lg border-2 transition-all duration-300 hover:shadow-xl ${
             benefit.type === 'before' 
               ? 'bg-black border-red-200 hover:border-red-300' 
-              : 'bg-primary text-white border-secondary hover:border-secondary/80'
+              : 'bg-black text-white border-secondary hover:border-secondary/80'
           }`}>
             <div class="text-6xl mb-6 text-center">{benefit.icon}</div>
             <h3 class={`text-2xl font-bold mb-4 text-center ${
-              benefit.type === 'before' ? 'text-white' : 'text-accent'
+              benefit.type === 'before' ? 'text-white' : 'text-white'
             }`}>
               {benefit.title}
             </h3>
             <p class={`text-lg leading-relaxed text-center ${
-              benefit.type === 'before' ? 'text-white' : 'text-white/90'
+              benefit.type === 'before' ? 'text-white' : 'text-white'
             }`}>
               {benefit.description}
             </p>
@@ -61,7 +61,7 @@ const benefits: Benefit[] = [
     <!-- CTA -->
     <div class="text-center mt-12">
       <a 
-        href="#que-es" 
+        href="#planes" 
         class="inline-flex items-center justify-center px-8 py-4 bg-secondary text-white rounded-full font-semibold text-lg hover:bg-secondary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
       >
         Descubre cómo funciona ↓

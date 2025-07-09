@@ -3,38 +3,45 @@ interface ProgramBlock {
   bloque: string;
   enfoque: string;
   resultado: string;
+  icon: string;
 }
 
 const programBlocks: ProgramBlock[] = [
   {
     bloque: "1. Mentalidad & Marca",
     enfoque: "Rompes creencias, defines propuesta de valor",
-    resultado: "Desafiar tus creencias limitantes"
+    resultado: "Desafiar tus creencias limitantes",
+    icon: "🧠"
   },
   {
     bloque: "2. Producción de Contenido",
     enfoque: "Instagram, TikTok, foto & video pro",
-    resultado: "Feed coherente + videos virales"
+    resultado: "Feed coherente + videos virales",
+    icon: "🎥"
   },
   {
     bloque: "3. Crecimiento & Comunidad",
     enfoque: "Storytelling, automatización, lives",
-    resultado: "Audiencia comprometida"
+    resultado: "Audiencia comprometida",
+    icon: "🌱"
   },
   {
     bloque: "4. Monetización 360°",
     enfoque: "Colaboraciones, precios, embudos",
-    resultado: "Primeros ingresos (y plan para escalar)"
+    resultado: "Primeros ingresos (y plan para escalar)",
+    icon: "💸"
   },
   {
     bloque: "5. Impacta a través de tu imagen",
     enfoque: "Imagen personal, maquillaje, oratoria y dicción",
-    resultado: "Eleva tu imagen para que aprenas a comunicar y vender con coherencia."
+    resultado: "Eleva tu imagen para que aprenas a comunicar y vender con coherencia.",
+    icon: "👤"
   },
   {
     bloque: "6. Herramientas tecnológicas",
     enfoque: "Inteligencia artificial, Canva, Chat GPT, ManyChat",
-    resultado: "Maneja herramientas digitales y la inteligencia artificial a tu favor para crear con estrategia."
+    resultado: "Maneja herramientas digitales y la inteligencia artificial a tu favor para crear con estrategia.",
+    icon: "🤖"
   }
 ];
 ---
@@ -42,11 +49,11 @@ const programBlocks: ProgramBlock[] = [
 <section id="programa" class="py-20 bg-black overflow-x-hidden w-full max-w-full">
   <div class="container mx-auto px-4">
     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+      <div class="text-center mb-16">
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
           Tu Ruta Paso a Paso: El Programa Completo
         </h2>
-        <p class="text-xl text-white mb-8">
+        <p class="text-base md:text-lg text-white mb-6">
           Formación integral para convertirte en un creador profesional
         </p>
         
@@ -54,44 +61,16 @@ const programBlocks: ProgramBlock[] = [
       </div>
 
       <!-- Program Table -->
-      <!-- Desktop Table -->
-      <div class="bg-white rounded-2xl shadow-xl overflow-hidden mb-8 hidden sm:block">
-        <div class="overflow-x-auto">
-          <table class="w-full">
-            <thead class="bg-primary text-white">
-              <tr>
-                <th class="px-6 py-4 text-left font-bold">Bloque</th>
-                <th class="px-6 py-4 text-left font-bold">Enfoque</th>
-                <th class="px-6 py-4 text-left font-bold">Resultado tangible</th>
-              </tr>
-            </thead>
-            <tbody>
-              {programBlocks.map((block, index) => (
-                <tr class={`${index % 2 === 0 ? 'bg-white' : 'bg-accent/30'}`}>
-                  <td class="px-6 py-4 font-semibold text-primary">{block.bloque}</td>
-                  <td class="px-6 py-4 text-text-dark">{block.enfoque}</td>
-                  <td class="px-6 py-4 text-text-dark">{block.resultado}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <!-- Mobile Cards -->
-      <div class="sm:hidden space-y-4 mb-8">
-        {programBlocks.map((block, index) => (
-          <div class={`rounded-2xl shadow-xl bg-white flex flex-col overflow-hidden ${index % 2 === 0 ? '' : 'bg-accent/30'}`}>
-            <!-- Title Bar -->
-            <div class="bg-primary text-white text-center font-bold text-lg py-3 px-4">
-              {block.bloque}
+      <!-- Desktop & Mobile Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        {programBlocks.map((block) => (
+          <div class="fade-in card-hover bg-[#18181b] border-2 border-primary rounded-2xl shadow-xl flex flex-col items-center p-6 text-center">
+            <div class="flex justify-center items-center w-16 h-16 rounded-full bg-white/10 border-2 border-secondary mb-4 text-3xl">
+              {block.icon}
             </div>
-            <!-- Card Content -->
-            <div class="flex flex-col gap-2 p-4 items-center text-center">
-              <div class="font-bold text-primary">Enfoque</div>
-              <div class="text-text-dark mb-2">{block.enfoque}</div>
-              <div class="font-bold text-primary">Resultado tangible</div>
-              <div class="text-text-dark">{block.resultado}</div>
-            </div>
+            <div class="font-bold text-white text-lg mb-2">{block.bloque}</div>
+            <div class="text-white/90 text-sm mb-2">{block.enfoque}</div>
+            <div class="text-white/90 text-sm">{block.resultado}</div>
           </div>
         ))}
       </div>
@@ -99,8 +78,10 @@ const programBlocks: ProgramBlock[] = [
       <!-- Additional Info -->
       <div class="text-center mb-8">
         <a 
-          href="#detalle" 
-          class="inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-full font-semibold text-base hover:bg-primary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+          href="/assets/Malla curricular - Influencer Factory.pdf" 
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block w-full max-w-md mx-auto px-6 py-4 bg-primary text-white rounded-full font-semibold text-base text-center mb-6 hover:bg-primary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
         >
           Ver detalle del plan de estudios
         </a>
@@ -110,7 +91,7 @@ const programBlocks: ProgramBlock[] = [
       <div class="text-center">
         <a 
           href="#planes" 
-          class="inline-flex items-center justify-center px-8 py-4 bg-secondary text-white rounded-full font-semibold text-lg hover:bg-secondary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+          class="block w-full max-w-md mx-auto px-6 py-4 bg-secondary text-white rounded-full font-semibold text-base text-center hover:bg-secondary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
         >
           Acceder al programa completo
         </a>

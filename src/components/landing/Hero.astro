@@ -11,38 +11,90 @@ const {
 ---
 
 <section class="relative min-h-screen flex items-center justify-center text-center bg-black overflow-x-hidden">
+  
   <div class="relative z-30 max-w-7xl px-4 sm:px-6 lg:px-8">
+    
+     <!-- Infinite Scrolling Banner -->
+     <div class="relative overflow-hidden mb-8 bg-secondary/10 border border-secondary/30">
+      <div class="scrolling-banner">
+        <div class="scrolling-content">
+          <span class="text-sm md:text-base text-white font-semibold px-4">ASEGURA TU CUPO AHORA - 100% ONLINE - 100% VIRTUAL - 100% DIGITAL -</span>
+          <span class="text-sm md:text-base text-white font-semibold px-4">ASEGURA TU CUPO AHORA - 100% ONLINE - 100% VIRTUAL - 100% DIGITAL -</span>
+          <span class="text-sm md:text-base text-white font-semibold px-4">ASEGURA TU CUPO AHORA - 100% ONLINE - 100% VIRTUAL - 100% DIGITAL -</span>
+          <span class="text-sm md:text-base text-white font-semibold px-4">ASEGURA TU CUPO AHORA - 100% ONLINE - 100% VIRTUAL - 100% DIGITAL -</span>
+          <span class="text-sm md:text-base text-white font-semibold px-4">ASEGURA TU CUPO AHORA - 100% ONLINE - 100% VIRTUAL - 100% DIGITAL -</span>
+          <span class="text-sm md:text-base text-white font-semibold px-4">ASEGURA TU CUPO AHORA - 100% ONLINE - 100% VIRTUAL - 100% DIGITAL -</span>
+        </div>
+      </div>
+    </div>
+
+
     <!-- Logo -->
     <div class="mb-8 flex justify-center">
       <img 
         src="/assets/IF_Logo.webp" 
         alt="Influencer Factory Logo" 
-        class="w-48 sm:w-80 h-auto object-contain"
+        class="w-100 sm:w-100 md:w-80 lg:w-80 h-auto object-contain"
       />
     </div>
 
     <!-- Main Content -->
-    <h1 class="text-white text-3xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-lg leading-tight">
+    <h1 class="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-4 drop-shadow-lg leading-tight">
       {title}
     </h1>
 
-    <p class="text-white text-xl md:text-2xl max-w-4xl mx-auto mb-8 leading-relaxed">
+    <p class="text-white text-base md:text-lg max-w-4xl mx-auto mb-6 leading-relaxed">
       {subtitle}
     </p>
     
     <!-- CTA Buttons -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
       <a 
         href="#planes" 
-        class="inline-flex items-center justify-center px-8 py-4 bg-secondary text-white rounded-full font-semibold text-lg hover:bg-secondary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+        class="inline-flex items-center justify-center px-6 py-3 bg-secondary text-white rounded-full font-semibold text-base hover:bg-secondary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
       >
         ▶ Empezar ahora
       </a>
     </div>
 
     <!-- Social Proof -->
-    <div class="text-white/90 text-lg mb-4">
+    <div class="text-white/90 text-base mb-4">
       ⭐ Más de 1,400 creadores formados · Actualizaciones mensuales · Acceso 24/7
     </div>
   </div>
 </section> 
+
+<style>
+  .scrolling-banner {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .scrolling-content {
+    display: inline-block;
+    animation: scroll-left 80s linear infinite;
+    white-space: nowrap;
+  }
+
+  .scrolling-content span {
+    display: inline-block;
+    padding: 1rem 0;
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-200%);
+    }
+  }
+
+  /* Ensure the banner spans full width */
+  .scrolling-banner {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: 100vw;
+  }
+</style>
