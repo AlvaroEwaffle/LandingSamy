@@ -3,51 +3,46 @@ interface ProgramBlock {
   bloque: string;
   enfoque: string;
   resultado: string;
-  icon: string;
 }
 
 const programBlocks: ProgramBlock[] = [
   {
-    bloque: "1. Mentalidad & Marca",
+    bloque: "Mentalidad & Marca",
     enfoque: "Rompes creencias, defines propuesta de valor",
     resultado: "Desafiar tus creencias limitantes",
-    icon: "🧠"
   },
   {
-    bloque: "2. Producción de Contenido",
+    bloque: "Producción de Contenido",
     enfoque: "Instagram, TikTok, foto & video pro",
     resultado: "Feed coherente + videos virales",
-    icon: "🎥"
   },
   {
-    bloque: "3. Crecimiento & Comunidad",
+    bloque: "Crecimiento & Comunidad",
     enfoque: "Storytelling, automatización, lives",
     resultado: "Audiencia comprometida",
-    icon: "🌱"
   },
   {
-    bloque: "4. Monetización 360°",
+    bloque: "Monetización 360°",
     enfoque: "Colaboraciones, precios, embudos",
     resultado: "Primeros ingresos (y plan para escalar)",
-    icon: "💸"
   },
   {
-    bloque: "5. Impacta a través de tu imagen",
+    bloque: "Impacta a través de tu imagen",
     enfoque: "Imagen personal, maquillaje, oratoria y dicción",
     resultado: "Eleva tu imagen para que aprenas a comunicar y vender con coherencia.",
-    icon: "👤"
   },
   {
-    bloque: "6. Herramientas tecnológicas",
+    bloque: "Herramientas tecnológicas",
     enfoque: "Inteligencia artificial, Canva, Chat GPT, ManyChat",
     resultado: "Maneja herramientas digitales y la inteligencia artificial a tu favor para crear con estrategia.",
-    icon: "🤖"
   }
 ];
 ---
 
-<section id="programa" class="py-20 bg-black overflow-x-hidden w-full max-w-full">
-  <div class="container mx-auto px-4">
+<section id="programa" class="bg-black overflow-x-hidden w-full max-w-full" style="background: url('/assets/backgrounds/Gamification.png') top / cover no-repeat" >
+  
+  <div class="container mx-auto px-4 pt-0 md:pt-8">
+          
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
         <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
@@ -63,16 +58,22 @@ const programBlocks: ProgramBlock[] = [
       <!-- Program Table -->
       <!-- Desktop & Mobile Cards -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        {programBlocks.map((block) => (
-          <div class="fade-in card-hover bg-[#18181b] border-2 border-primary rounded-2xl shadow-xl flex flex-col items-center p-6 text-center">
-            <div class="flex justify-center items-center w-16 h-16 rounded-full bg-white/10 border-2 border-secondary mb-4 text-3xl">
-              {block.icon}
+        {programBlocks.map((block) => {
+          let borderColor = "border-primary";
+          if (block.bloque.includes("Mentalidad")) borderColor = "border-fuchsia-500";
+          else if (block.bloque.includes("Producción")) borderColor = "border-purple-500";
+          else if (block.bloque.includes("Crecimiento")) borderColor = "border-yellow-400";
+          else if (block.bloque.includes("Monetización")) borderColor = "border-cyan-400";
+          else if (block.bloque.includes("Impacta")) borderColor = "border-green-500";
+          else if (block.bloque.includes("Herramientas")) borderColor = "border-blue-500";
+          return (
+            <div class={`fade-in card-hover bg-[#18181b]/80 border-2 ${borderColor} rounded-2xl shadow-xl flex flex-col items-center p-6 text-center`}>
+              <div class="font-bold text-white text-lg mb-1">{block.bloque}</div>
+              <div class="text-white/90 text-sm mb-1">{block.enfoque}</div>
+              <div class="text-white/90 text-sm">{block.resultado}</div>
             </div>
-            <div class="font-bold text-white text-lg mb-2">{block.bloque}</div>
-            <div class="text-white/90 text-sm mb-2">{block.enfoque}</div>
-            <div class="text-white/90 text-sm">{block.resultado}</div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <!-- Additional Info -->
@@ -81,17 +82,17 @@ const programBlocks: ProgramBlock[] = [
           href="/assets/Malla curricular - Influencer Factory.pdf" 
           target="_blank"
           rel="noopener noreferrer"
-          class="block w-full max-w-md mx-auto px-6 py-4 bg-primary text-white rounded-full font-semibold text-base text-center mb-6 hover:bg-primary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+          class="block w-4/5 mx-auto md:w-full max-w-md px-6 py-4 bg-primary text-white rounded-full font-semibold text-base text-center mb-6 hover:bg-primary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
         >
           Ver detalle del plan de estudios
         </a>
       </div>
 
       <!-- CTA -->
-      <div class="text-center">
+      <div class="text-center mb-8">
         <a 
           href="#planes" 
-          class="block w-full max-w-md mx-auto px-6 py-4 bg-secondary text-white rounded-full font-semibold text-base text-center hover:bg-secondary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+          class="block w-4/5 mx-auto md:w-full max-w-md px-6 py-4 bg-secondary text-white rounded-full font-semibold text-base text-center hover:bg-secondary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
         >
           Acceder al programa completo
         </a>
@@ -106,3 +107,4 @@ const programBlocks: ProgramBlock[] = [
     margin: 0 auto;
   }
 </style> 
+

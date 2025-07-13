@@ -1,87 +1,64 @@
 ---
-interface TeamMember {
-  name: string;
-  role: string;
-  description: string;
-}
-
-const teamMembers: TeamMember[] = [
+const teamMembers = [
   {
     name: "Whitney Espinoza",
-    role: "Fundadora & Instructora Principal",
-    description: "Transformé mi pasión por las redes en una carrera exitosa. Ahora enseño a más de 1,400 creadores cómo monetizar su contenido y construir marcas auténticas."
+    instagram: "whit_espinoza",
+    role: "Fundadora y Directora Ejecutiva Académica",
+    description: "Transformé mi pasión por las redes en una carrera exitosa. Ahora enseño a más de 1,400 creadores cómo monetizar su contenido y construir marcas auténticas.",
+    image: "/assets/Whitney.png"
+  },
+  {
+    name: "Johana Tapia",
+    instagram: "johanatapiag",
+    role: "Cofundadora & Product Manager Educativa",
+    description: "Especialista en estrategias de monetización y desarrollo de productos digitales para creadores de contenido.",
+    image: "/assets/Johana.png"
+  },
+  {
+    name: "Barbara Castillo",
+    instagram: "_barbara_castillo_",
+    role: "Producción ejecutiva",
+    description: "Experta en producción de eventos y gestión de proyectos creativos para la comunidad de influencers.",
+    image: "/assets/Barbara.png"
   }
 ];
 ---
 
-<section class="relative py-20 bg-black overflow-x-hidden w-full max-w-full">
-  <div class="relative container mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Title Section -->
+<section id="team" class="py-20 bg-black w-full">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
-        Tu Mentora: Whitney Espinoza
-      </h2>
-      <p class="text-xl text-white max-w-3xl mx-auto">
-        La creadora detrás de Influencer Factory
-      </p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Nuestro Equipo</h2>
+      <p class="text-xl text-white max-w-3xl mx-auto">Conoce a las personas detrás de Influencer Factory</p>
       <div class="w-24 h-1 bg-secondary mx-auto mt-4"></div>
     </div>
 
-    <!-- Team Grid -->
-    <div class="max-w-4xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {teamMembers.map((member) => (
-          <>
-            <!-- Image Placeholder -->
-            <div class="fade-in card-hover group relative bg-white rounded-2xl shadow-xl overflow-hidden">
-              <div class="relative h-96 overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                <div class="text-center">
-                  <div class="mb-4 flex justify-center">
-                    <div class="aspect-[3/4] max-w-xs w-full rounded-xl overflow-hidden bg-transparent">
-                      <img src="https://img1.wsimg.com/isteam/ip/92b255bb-2faf-456d-a379-7a24f5642738/1.png/:/cr=t:0%25,l:12.5%25,w:75%25,h:100%25/rs=w:1080,h:1440,cg:true" alt="Whitney Espinoza" class="w-full h-full object-cover" />
-                    </div>
-                  </div>
-                  <p class="text-lg text-white font-semibold">Whitney Espinoza</p>
-                </div>
-              </div>
-            </div>
+    <div class="flex flex-col md:flex-row md:justify-center md:items-start md:gap-12 gap-32 flex-wrap">
+      {
+        teamMembers.map((member) => (
+        <div class="flex flex-col items-center text-center gap-4 w-full max-w-xs mx-auto px-4">
 
-            <!-- Content -->
-            <div class="space-y-6">
-              <div>
-                <h3 class="text-3xl font-bold text-white mb-2">
-                  {member.name}
-                </h3>
-                <p class="text-white font-semibold text-xl mb-4">
-                  {member.role}
-                </p>
-                <p class="text-lg text-white leading-relaxed">
-                  {member.description}
-                </p>
-              </div>
-
-              <!-- Stats -->
-              <div class="grid grid-cols-2 gap-6 pt-6">
-                <div class="text-center">
-                  <div class="text-3xl font-bold text-white">1,400+</div>
-                  <div class="text-white">Creadores formados</div>
-                </div>
-                <div class="text-center">
-                  <div class="text-3xl font-bold text-white">20</div>
-                  <div class="text-white">Módulos de formación</div>
-                </div>
-              </div>
+            <img
+              src={member.image}
+              alt={member.name}
+              class="scale-150 md:scale-150 w-full h-auto transition-transform duration-500"
+            />
+            <div>
+              <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">{member.name}</h3>
+              <a
+                href={`https://instagram.com/${member.instagram}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-pink-500 font-medium hover:underline mb-2 block"
+              >
+                @{member.instagram}
+              </a>
+              <div class="text-lg text-white font-semibold mb-2">{member.role}</div>
+              <div class="text-white/80">{member.description}</div>
             </div>
-          </>
-        ))}
-      </div>
+          </div>
+        ))
+      }
     </div>
+    
   </div>
 </section>
-
-<style>
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-</style> 

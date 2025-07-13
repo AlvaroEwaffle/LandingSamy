@@ -8,33 +8,27 @@ interface TargetAudience {
 const targetAudience: TargetAudience[] = [
   {
     title: "Aspirantes a influencers y UGC creators",
-    description: "Personas que quieren convertir su pasión por las redes en una carrera profesional",
-    icon: "📱"
+    description:
+      "Personas que quieren convertir su pasión por las redes en una carrera profesional",
+    icon: "📱",
   },
   {
     title: "Emprendedores que quieren potenciar su marca personal",
-    description: "Empresarios que buscan construir una presencia digital fuerte y auténtica",
-    icon: "💼"
+    description:
+      "Empresarios que buscan construir una presencia digital fuerte y auténtica",
+    icon: "💼",
   },
   {
     title: "Cualquiera que sueñe con vivir de las redes",
-    description: "Personas con el sueño de monetizar su creatividad y vivir de su contenido",
-    icon: "✨"
-  }
+    description:
+      "Personas con el sueño de monetizar su creatividad y vivir de su contenido",
+    icon: "✨",
+  },
 ];
 ---
 
 <section id="que-es" class="py-4 bg-black overflow-x-hidden w-full max-w-full">
   <div class="container mx-auto px-4">
-         <!-- Infinite Scrolling Banner -->
-         <div class="relative overflow-hidden mb-8 ">
-          <div class="scrolling-banner">
-            <div class="scrolling-content">
-              <span class="text-sm md:text-base text-white font-semibold px-4"> No esperes más, asegura tu cupo ahora - </span>
-              <span class="text-sm md:text-base text-white font-semibold px-4"> No esperes más, asegura tu cupo ahora - </span>
-            </div>
-          </div>
-        </div>
     <!-- Title Section -->
     <div class="text-center mb-16">
       <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
@@ -45,7 +39,9 @@ const targetAudience: TargetAudience[] = [
         Formación integral para futuros creadores profesionales.
       </h3>
       <p class="text-xl text-white max-w-4xl mx-auto leading-relaxed mb-8">
-        Desde tu mentalidad hasta tu monetización. Te acompañamos paso a paso para que construyas una marca auténtica, produzcas contenido irresistible y cobres por tu talento.
+        Desde tu mentalidad hasta tu monetización. Te acompañamos paso a paso
+        para que construyas una marca auténtica, produzcas contenido
+        irresistible y cobres por tu talento.
       </p>
       <div class="w-24 h-1 bg-secondary mx-auto"></div>
     </div>
@@ -56,24 +52,51 @@ const targetAudience: TargetAudience[] = [
         Ideal para…
       </h3>
       <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {targetAudience.map((audience) => (
-          <div class="fade-in card-hover rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2  border border-secondary">
-            <div class="text-5xl  mb-4">{audience.icon}</div>
-            <h4 class="text-xl font-bold text-white mb-3">{audience.title}</h4>
-            <p class="text-white">{audience.description}</p>
-          </div>
-        ))}
+        {
+          targetAudience.map((audience, idx) => {
+            const bgColors = ["bg-fuchsia-600", "bg-purple-700", "bg-pink-500"];
+            return (
+              <div
+                class={`fade-in card-hover rounded-2xl p-4 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 ${bgColors[idx]} `}
+              >
+                <div class="text-4xl  mb-4">{audience.icon}</div>
+                <h4 class="text-xl font-bold text-white mb-2">
+                  {audience.title}
+                </h4>
+                <p class="text-white">{audience.description}</p>
+              </div>
+            );
+          })
+        }
       </div>
     </div>
 
     <!-- CTA -->
     <div class="text-center">
-      <a 
-        href="#planes" 
+      <a
+        href="#planes"
         class="inline-flex items-center justify-center px-8 py-4 bg-secondary text-white rounded-full font-semibold text-lg hover:bg-secondary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
       >
         Quiero mi lugar
       </a>
+    </div>
+    <!-- Infinite Scrolling Banner -->
+    <div
+      class="relative overflow-hidden mb-8 bg-secondary/10 border border-secondary/30 mt-8"
+    >
+      <div class="scrolling-banner">
+        <div class="scrolling-content">
+          <span class="text-sm md:text-base text-white font-semibold px-4"
+            >TU FUTURO COMO CREADORA PROFESIONAL EMPIEZA AQUI - NO ESPERES MAS -</span
+          >
+          <span class="text-sm md:text-base text-white font-semibold px-4"
+            >TU FUTURO COMO CREADORA PROFESIONAL EMPIEZA AQUI - NO ESPERES MAS -</span
+          >
+          <span class="text-sm md:text-base text-white font-semibold px-4"
+            >TU FUTURO COMO CREADORA PROFESIONAL EMPIEZA AQUI - NO ESPERES MAS -</span
+          >
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -84,7 +107,6 @@ const targetAudience: TargetAudience[] = [
     margin: 0 auto;
   }
 
-  
   .scrolling-banner {
     width: 100%;
     overflow: hidden;
@@ -120,4 +142,8 @@ const targetAudience: TargetAudience[] = [
 </style>
 
 <!-- Add Remix Icons CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" /> 
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+/>
+
