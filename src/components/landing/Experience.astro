@@ -1,0 +1,186 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Qué vivirás", 
+  description = "Una experiencia intensiva diseñada para transformar completamente tu forma de crear contenido visual." 
+} = Astro.props;
+
+const experiences = [
+  {
+    icon: "📹",
+    title: "Método SAMY en vivo",
+    description: "Aprende directamente de Samy las técnicas que han revolucionado el contenido visual en la industria de la belleza."
+  },
+  {
+    icon: "📱",
+    title: "Grabación con celular",
+    description: "Domina las técnicas para crear contenido profesional usando solo tu smartphone y herramientas accesibles."
+  },
+  {
+    icon: "📸",
+    title: "Encuadres y ángulos",
+    description: "Descubre los secretos de la composición visual que harán que tu contenido destaque en redes sociales."
+  },
+  {
+    icon: "💼",
+    title: "Kit recomendado",
+    description: "Conoce las herramientas esenciales que necesitas para crear contenido de calidad profesional."
+  },
+  {
+    icon: "🔥",
+    title: "Ambiente premium",
+    description: "Disfruta de un entorno exclusivo diseñado para maximizar tu aprendizaje y networking."
+  },
+  {
+    icon: "📒",
+    title: "Material exclusivo",
+    description: "Recibe recursos y guías que podrás usar como referencia continua en tu trabajo diario."
+  },
+  {
+    icon: "📍",
+    title: "Networking curado",
+    description: "Conecta con profesionales de la industria en un ambiente selecto y colaborativo."
+  }
+];
+---
+
+<section id="experiencia" class="py-20 bg-black relative overflow-hidden">
+  <!-- Background Image -->
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="/assets/Experiencia.png" 
+      alt="Experience background" 
+      class="w-full h-full object-cover"
+    />
+    <!-- Dark overlay for better text readability -->
+    <div class="absolute inset-0 bg-black/60"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+        {title}
+      </h2>
+      <p class="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+        {description}
+      </p>
+    </div>
+
+    <!-- Experience Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+      {experiences.map((experience, index) => (
+        <div 
+          class="bg-black/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-primary/20 fade-in"
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <div class="text-center">
+            <!-- Icon -->
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <span class="text-3xl">{experience.icon}</span>
+            </div>
+            
+            <!-- Title -->
+            <h3 class="text-xl font-bold text-white mb-4">
+              {experience.title}
+            </h3>
+            
+            <!-- Description -->
+            <p class="text-white/80 leading-relaxed">
+              {experience.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Additional Features -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+      <!-- Left: Features List -->
+      <div class="space-y-6">
+        <h3 class="text-2xl font-bold text-white mb-6">
+          Además incluye:
+        </h3>
+        
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center mr-4">
+              <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <span class="text-white font-medium">Coffee break premium</span>
+          </div>
+          
+          <div class="flex items-center">
+            <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center mr-4">
+              <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <span class="text-white font-medium">Certificado de participación</span>
+          </div>
+          
+          <div class="flex items-center">
+            <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center mr-4">
+              <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <span class="text-white font-medium">Acceso a grupo exclusivo post-evento</span>
+          </div>
+          
+          <div class="flex items-center">
+            <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center mr-4">
+              <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <span class="text-white font-medium">Sesión de preguntas y respuestas</span>
+          </div>
+          
+          <div class="flex items-center">
+            <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center mr-4">
+              <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <span class="text-white font-medium">Fotos profesionales del evento</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Visual Content -->
+      <div class="relative">
+        <div class="bg-gradient-to-br from-primary/10 to-red-900/20 rounded-2xl p-8 text-center backdrop-blur-sm">
+          <div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-2">
+            Temario completo
+          </h4>
+          <p class="text-white/80 mb-6">
+            Descarga el programa detallado del evento
+          </p>
+          <a 
+            href="#temario" 
+            class="inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300"
+          >
+            Ver temario completo
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+</section> 

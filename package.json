@@ -1,5 +1,5 @@
 {
-  "name": "InfluencerFactory",
+  "name": "impacto-visual",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -7,7 +7,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "git push && npm run build && wrangler pages deploy ./dist --project-name=influencerfactory"
+    "deploy": "git push && npm run build && wrangler pages deploy ./dist --project-name=samystudio"
   },
   "dependencies": {
     "aos": "^2.3.4",

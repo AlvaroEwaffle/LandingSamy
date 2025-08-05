@@ -5,99 +5,159 @@ interface Props {
 }
 
 const { 
-  title = "👋 Soy Whitney Espinoza.", 
-  subtitle = "Pasé de crear contenido por pasión a construir una carrera sólida y rentable con impacto real. Empecé sin seguidores ni fórmulas mágicas, y he guiado a más de 1.400 creadores a monetizar sus redes, trabajar con marcas y construir marcas personales auténticas que conectan de verdad." 
+  title = "El primer evento en Chile que transforma", 
+  subtitle = "cómo grabas tu trabajo en camilla." 
 } = Astro.props;
 ---
 
-<section class="relative min-h-screen flex items-center justify-center bg-black overflow-x-hidden">
-  <div class="relative z-30 max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
-    <!-- Infinite Scrolling Banner -->
-    <div class="relative overflow-hidden mb-8 bg-secondary/10 border border-secondary/30">
-      <div class="scrolling-banner">
-        <div class="scrolling-content">
-          <span class="text-sm md:text-base text-white font-semibold px-4">ASEGURA TU CUPO AHORA - 100% ONLINE - 100% VIRTUAL - 100% DIGITAL -</span>
-          <span class="text-sm md:text-base text-white font-semibold px-4">ASEGURA TU CUPO AHORA - 100% ONLINE - 100% VIRTUAL - 100% DIGITAL -</span>
-          <span class="text-sm md:text-base text-white font-semibold px-4">ASEGURA TU CUPO AHORA - 100% ONLINE - 100% VIRTUAL - 100% DIGITAL -</span>
-          <span class="text-sm md:text-base text-white font-semibold px-4">ASEGURA TU CUPO AHORA - 100% ONLINE - 100% VIRTUAL - 100% DIGITAL -</span>
-          <span class="text-sm md:text-base text-white font-semibold px-4">ASEGURA TU CUPO AHORA - 100% ONLINE - 100% VIRTUAL - 100% DIGITAL -</span>
-          <span class="text-sm md:text-base text-white font-semibold px-4">ASEGURA TU CUPO AHORA - 100% ONLINE - 100% VIRTUAL - 100% DIGITAL -</span>
-        </div>
+<!-- Fixed Spinning Banner -->
+<div class="fixed top-0 left-0 w-full bg-primary/90 backdrop-blur-sm z-50">
+  <div class="overflow-hidden">
+    <div class="flex animate-scroll-banner whitespace-nowrap">
+      <div class="flex items-center space-x-8 px-4 py-3 text-white font-semibold">
+        <span>🎯 ¡Evento Premium para profesionales de la belleza!</span>
+        <span>📹 Método SAMY en vivo</span>
+        <span>📱 Grabación con celular profesional</span>
+        <span>📸 Encuadres y ángulos perfectos</span>
+        <span>💼 Kit recomendado incluido</span>
+        <span>🔥 Ambiente premium exclusivo</span>
+        <span>📒 Material exclusivo del evento</span>
+        <span>📍 Networking curado</span>
+        <span>🎯 ¡Evento Premium para profesionales de la belleza!</span>
+        <span>📹 Método SAMY en vivo</span>
+        <span>📱 Grabación con celular profesional</span>
+        <span>📸 Encuadres y ángulos perfectos</span>
+        <span>💼 Kit recomendado incluido</span>
+        <span>🔥 Ambiente premium exclusivo</span>
+        <span>📒 Material exclusivo del evento</span>
+        <span>📍 Networking curado</span>
       </div>
     </div>
-    <!-- Two Column Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-      <!-- Left: Text Content -->
-      <div class="text-center md:text-left flex flex-col justify-center items-center md:items-start">
-        <!-- Logo -->
-        <div class="mb-8 flex justify-center md:justify-center w-full">
-          <img 
-            src="/assets/IF_Logo.webp" 
-            alt="Influencer Factory Logo" 
-            class="w-40 md:w-56 lg:w-64 h-auto object-contain"
-          />
-        </div>
-        <!-- Main Content -->
-        <h1 class="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-4 drop-shadow-lg leading-tight">
-          {title}
-        </h1>
-        <p class="text-white text-base md:text-lg max-w-xl mb-6 leading-relaxed">
-          {subtitle}
-        </p>
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-center mb-6 w-full">
-          <a href="#planes" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 bg-secondary text-white rounded-full font-semibold text-base hover:bg-secondary/90 transition-colors duration-300 shadow-lg hover:shadow-xl">
-            ▶ Empezar ahora
-          </a>
-        </div>
-        <!-- Social Proof -->
-        <div class="text-white/90 text-base mb-4">
-          ⭐ Más de 1,400 creadores formados · Actualizaciones mensuales · Acceso 24/7
-        </div>
-      </div>
-      <!-- Right: Photo -->
-      <div class="flex justify-center items-center">
+  </div>
+</div>
+
+<!-- Desktop Version -->
+<section class="relative min-h-screen flex items-center justify-center bg-black overflow-x-hidden   hidden md:flex">
+  <!-- Background Video - Desktop Only -->
+  <div class="absolute inset-0 w-full h-full">
+    <iframe
+      src="https://www.youtube.com/embed/FT44flR8_QI?autoplay=1&mute=1&loop=1&playlist=FT44flR8_QI&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&fs=0&iv_load_policy=3&cc_load_policy=0&color=white&theme=dark"
+      class="w-full h-full object-cover pointer-events-none"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+    <!-- Transparent overlay to prevent clicks -->
+    <div class="absolute inset-0 bg-transparent pointer-events-auto"></div>
+  </div>
+  
+  <!-- Dark overlay for text readability -->
+  <div class="absolute inset-0 "></div>
+
+  <div class="relative z-30 w-full px-4 sm:px-6 lg:px-8">
+
+    <!-- Main Content -->
+    <div class="text-center max-w-6xl mx-auto">
+      <!-- Main Title -->
+      <h1 class="text-5xl md:text-5xl lg:text-5xl font-bold mb-4 text-white leading-tight pt-16">
+        {title}
+      </h1>
+
+      <!-- Subtitle in Red -->
+      <h2 class="text-4xl md:text-3xl lg:text-3xl font-bold mb-8 text-primary leading-tight">
+        {subtitle}
+      </h2>
+
+      <!-- SAMY Logo -->
+      <div class="flex justify-center mb-8">
         <img 
-          src="/assets/WhitneyHero.png" 
-          alt="Whitney Espinoza" 
-          class="w-full max-w-md rounded-xl shadow-2xl object-cover"
+          src="/assets/Logo.png" 
+          alt="SAMY Studio Logo" 
+          class="w-32 h-auto object-contain"
         />
+      </div>
+
+      <!-- Description -->
+      <p class="text-white/90 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-12">
+        <strong>Ya no se trata solo de tener una buena técnica. <br>También necesitas saber cómo mostrarla.</strong> <br> <br>Una experiencia exclusiva para artistas de la belleza que buscan crear mejor contenido visual para su negocio. Aprendé a grabar y editar tus videos con una metodología clara y fácil de aplicar, usando sólo tu celular, un par de luces y un trípode.
+      </p>
+
+      <!-- CTA Button -->
+      <div class="flex justify-center mb-8 md:mb-12">
+        <a 
+          href="#planes" 
+          class="inline-flex items-center justify-center px-12 py-4 bg-primary text-white rounded-lg font-semibold text-xl hover:bg-red-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+        >
+          Quiero vivir esta experiencia
+        </a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- Mobile Version -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden pt-16 md:hidden">
+  <!-- Contenedor del video -->
+  <div class="absolute inset-0 overflow-hidden">
+    <iframe
+      src="https://www.youtube.com/embed/FT44flR8_QI?autoplay=1&mute=1&loop=1&playlist=FT44flR8_QI&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&fs=0&iv_load_policy=3&cc_load_policy=0&color=white&theme=dark"
+      class="absolute top-1/2 left-1/2 w-[380%] h-[380%] -translate-x-1/2 -translate-y-1/2"
+      style="pointer-events:none"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    ></iframe>
+  </div>
+
+  <!-- Overlay oscuro -->
+  <div class="absolute inset-0 "></div>
+
+  <!-- Contenido -->
+  <div class="relative z-10 px-6 text-center text-white">
+    <h1 class="text-4xl font-bold mb-4">{title}</h1>
+    <h2 class="text-3xl text-primary font-bold mb-8">{subtitle}</h2>
+    
+    <!-- SAMY Logo -->
+    <div class="flex justify-center mb-8">
+      <img 
+        src="/assets/Logo.png" 
+        alt="SAMY Studio Logo" 
+        class="w-24 h-auto object-contain"
+      />
+    </div>
+    
+    <p class="max-w-2xl mx-auto mb-8 text-center">
+      <strong>Ya no se trata solo de tener una buena técnica. <br>También necesitas saber cómo mostrarla.</strong> <br>Una experiencia exclusiva para artistas de la belleza que buscan crear mejor contenido visual para su negocio. Aprendé a grabar y editar tus videos con una metodología clara y fácil de aplicar, usando sólo tu celular, un par de luces y un trípode.
+    </p>
+    <a href="#planes" class="bg-primary px-8 py-4 rounded-lg text-white font-semibold">
+      Quiero vivir esta experiencia
+    </a>
+  </div>
+</section>
+
+<!-- S2 Image Section -->
+<section class="relative w-full bg-black py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-center">
+      <img 
+        src="/assets/S2.png" 
+        alt="Samy with smartphone on couch" 
+        class="w-full max-w-4xl h-auto md:max-h-[500px] object-contain rounded-lg shadow-2xl"
+      />
+    </div>
+  </div>
+</section>
+
 <style>
-  .scrolling-banner {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-
-  .scrolling-content {
-    display: inline-block;
-    animation: scroll-left 80s linear infinite;
-    white-space: nowrap;
-  }
-
-  .scrolling-content span {
-    display: inline-block;
-    padding: 1rem 0;
-  }
-
-  @keyframes scroll-left {
+  @keyframes scroll-banner {
     0% {
-      transform: translateX(0%);
+      transform: translateX(0);
     }
     100% {
-      transform: translateX(-200%);
+      transform: translateX(-50%);
     }
   }
-
-  /* Ensure the banner spans full width */
-  .scrolling-banner {
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    width: 100vw;
+  
+  .animate-scroll-banner {
+    animation: scroll-banner 20s linear infinite;
   }
 </style>

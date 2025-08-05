@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.influencerfactory.com/sitemap.xml
+Sitemap: https://impactovisual.cl/sitemap.xml
 
 # Host
-Host: https://www.influencerfactory.com 
+Host: https://impactovisual.cl 

@@ -1,12 +1,12 @@
-# 🚀 Influencer Factory Landing Page
+# 🚀 Impacto Visual Landing Page
 
-Landing page oficial para Influencer Factory, la academia digital para creadores de contenido y futuros influencers.
+Landing page oficial para Impacto Visual, el primer evento en Chile que transforma cómo grabas tu trabajo en camilla.
 
-![Influencer Factory Logo](/public/assets/IF_Logo.webp)
+![Impacto Visual Logo](/public/assets/Logo.png)
 
 ## 📋 Descripción
 
-Este proyecto es la landing page de Influencer Factory, desarrollada con Astro y TailwindCSS. Presenta la academia, el programa, los planes y la mentora Whitney Espinoza, con animaciones modernas y diseño mobile-first.
+Este proyecto es la landing page de Impacto Visual, desarrollada con Astro y TailwindCSS. Presenta el evento premium para profesionales de la belleza, con el método SAMY, testimonios y planes de inscripción, con animaciones modernas y diseño mobile-first.
 
 ## ✨ Características
 
@@ -29,12 +29,12 @@ Este proyecto es la landing page de Influencer Factory, desarrollada con Astro y
 
 1. Clona el repositorio:
 ```bash
-git clone https://github.com/yourusername/influencer-factory-landing.git
+git clone https://github.com/yourusername/impacto-visual-landing.git
 ```
 
 2. Instala las dependencias:
 ```bash
-cd influencer-factory-landing
+cd impacto-visual-landing
 npm install
 ```
 
@@ -108,13 +108,13 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.m
 
 ## 📞 Contacto
 
-- Website: [https://influencerfactory.com](https://influencerfactory.com)
-- LinkedIn: [Influencer Factory](https://linkedin.com/company/influencerfactory)
-- Instagram: [@influencerfactory](https://www.instagram.com/influencerfactory/)
-- Email: contacto@influencerfactory.com
+- Website: [https://impactovisual.cl](https://impactovisual.cl)
+- Instagram: [@impactovisual](https://www.instagram.com/impactovisual/)
+- TikTok: [@impactovisual](https://www.tiktok.com/@impactovisual)
+- Email: info@impactovisual.cl
 
 ---
-Desarrollado con ❤️ por el equipo de Influencer Factory
+Desarrollado con ❤️ por el equipo de Impacto Visual
 
 ```sh
 npm create astro@latest -- --template basics

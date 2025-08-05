@@ -1,0 +1,143 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Sobre la experiencia", 
+  description = "Este evento fue creado para artistas de la belleza que dominan su técnica, pero sienten que su presentación visual no está al nivel de lo que hacen con sus manos." 
+} = Astro.props;
+---
+
+<section id="sobre" class="py-20 bg-black">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+        {title}
+      </h2>
+      <p class="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+        {description}
+      </p>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+      <!-- Left: Content -->
+      <div class="space-y-8">
+
+             <!-- Target Audience -->
+             <div class="space-y-6">
+              <h3 class="text-2xl font-bold text-white">
+                Impacto Visual es para ti si:
+              </h3>
+              
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                    <span class="text-white text-sm font-bold">1</span>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-white mb-2">
+                      Te sientes estancada porque no sabés cómo mostrar mejor tu trabajo.
+                    </h4>
+                  </div>
+                </div>
+    
+                <div class="flex items-start">
+                  <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                    <span class="text-white text-sm font-bold">2</span>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-white mb-2">
+                      Usás tu celular todos los días, pero no tenés una guía clara para sacarle provecho.
+                    </h4>
+    
+                  </div>
+                </div>
+    
+                <div class="flex items-start">
+                  <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                    <span class="text-white text-sm font-bold">3</span>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-white mb-2">
+                      Dominas una buena técnica, pero tu contenido visual no lo transmite.
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            
+        <!-- Premium Positioning -->
+        <div class="bg-gradient-to-r from-primary/10 to-red-900/20 p-8 rounded-2xl border border-primary/20">
+          <h3 class="text-2xl font-bold text-white mb-4">
+            No es para todas.
+          </h3>
+          <p class="text-white/80 leading-relaxed">
+            Es para mujeres que saben que su presentación también es parte del negocio… y ya no puede esperar.
+
+          </p>
+        </div>
+
+   
+      </div>
+
+      <!-- Right: Visual Content -->
+      <div class="relative">
+        <!-- Main Image Container -->
+        <div class="relative bg-gradient-to-br from-primary/10 to-red-900/20 rounded-2xl p-8">
+          <div class="text-center">
+            <div class="w-32 h-32 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+            </div>
+            <h4 class="text-xl font-bold text-white mb-2">
+              Evento Premium
+            </h4>
+            <p class="text-white/80">
+              Experiencia exclusiva para profesionales comprometidos con su crecimiento
+            </p>
+          </div>
+        </div>
+
+        <!-- Floating Stats -->
+        <div class="absolute -top-6 -right-6 bg-black rounded-xl p-4 shadow-lg border border-primary/20">
+          <div class="text-center">
+            <div class="text-2xl font-bold text-primary">200+</div>
+            <div class="text-sm text-white/70">Profesionales</div>
+          </div>
+        </div>
+
+        <div class="absolute -bottom-6 -left-6 bg-black rounded-xl p-4 shadow-lg border border-primary/20">
+          <div class="text-center">
+            <div class="text-2xl font-bold text-primary">1</div>
+            <div class="text-sm text-white/70">Día intensivo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center bg-gradient-to-r from-primary/10 to-red-900/20 rounded-2xl p-8 border border-primary/20">
+      <h3 class="text-2xl font-bold text-white mb-4">
+        ¿Lista para transformar tu contenido?
+      </h3>
+      <p class="text-white/80 mb-6 max-w-2xl mx-auto">
+        Únete a un grupo selecto de profesionales que están listas para llevar su presencia digital al siguiente nivel.
+      </p>
+      <a 
+        href="#planes" 
+        class="inline-flex items-center justify-center px-8 py-4 bg-primary text-white rounded-full font-semibold text-lg hover:bg-red-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+      >
+        Reservar mi cupo ahora
+        <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section> 

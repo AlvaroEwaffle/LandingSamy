@@ -7,30 +7,30 @@ interface Props {
 }
 
 const {
-  title = "Influencer Factory | Academia Digital para Creadores de Contenido",
-  description = "Transforma tu pasión por las redes en una carrera rentable. Academia digital con 20 módulos, 90+ lecciones y clases nuevas cada mes para monetizar tu contenido desde cero.",
+  title = "Impacto Visual | El primer evento en Chile que transforma cómo grabas tu trabajo en camilla",
+  description = "Evento premium para profesionales de la belleza que quieren elevar su contenido. Aprende el método SAMY en vivo, grabación con celular, encuadres y ángulos profesionales.",
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, "https://www.influencerfactory.com");
+const canonicalURL = new URL(Astro.url.pathname, "https://impactovisual.cl");
 
-const socialImageURL = new URL("/assets/IF_Logo.webp", canonicalURL);
+const socialImageURL = new URL("/assets/Logo.png", canonicalURL);
 
 const keywords = [
-  "influencer",
-  "creador de contenido",
-  "monetización",
+  "impacto visual",
+  "evento belleza",
+  "grabación camilla",
+  "contenido profesional",
+  "método samy",
+  "fotografía belleza",
+  "video profesional",
+  "marca personal",
   "redes sociales",
   "instagram",
   "tiktok",
-  "academia digital",
-  "formación online",
-  "marca personal",
-  "contenido digital",
-  "influencer marketing",
-  "UGC creator",
-  "emprendimiento digital",
-  "carrera online",
-  "redes sociales chile",
+  "chile",
+  "evento premium",
+  "networking",
+  "formación belleza",
 ];
 ---
 
@@ -72,7 +72,7 @@ const keywords = [
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/webp" href="/assets/IF_Logo.webp" />
+    <link rel="icon" type="image/png" href="/assets/Logo.png" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
@@ -81,7 +81,7 @@ const keywords = [
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(", ")} />
-    <meta name="author" content="Influencer Factory" />
+    <meta name="author" content="Impacto Visual" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -90,7 +90,7 @@ const keywords = [
     <meta property="og:description" content={description} />
     <meta property="og:image" content={socialImageURL} />
     <meta property="og:locale" content="es_ES" />
-    <meta property="og:site_name" content="Influencer Factory" />
+    <meta property="og:site_name" content="Impacto Visual" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -102,11 +102,11 @@ const keywords = [
     <!-- Additional Meta Tags -->
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
-    <meta name="theme-color" content="#29005f" />
+    <meta name="theme-color" content="#d2201f" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="apple-mobile-web-app-title" content="Influencer Factory" />
+    <meta name="apple-mobile-web-app-title" content="Impacto Visual" />
     
     <!-- Language and Region -->
     <meta name="language" content="Spanish" />
@@ -126,73 +126,64 @@ const keywords = [
         "@context": "https://schema.org",
         "@graph": [
           {
+            "@type": "Event",
+            "name": "Impacto Visual",
+            "description": "El primer evento en Chile que transforma cómo grabas tu trabajo en camilla. Evento premium para profesionales de la belleza.",
+            "startDate": "2024-12-01",
+            "endDate": "2024-12-01",
+            "location": {
+              "@type": "Place",
+              "name": "Santiago, Chile",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Santiago",
+                "addressRegion": "RM",
+                "addressCountry": "CL"
+              }
+            },
+            "organizer": {
+              "@type": "Organization",
+              "name": "Impacto Visual",
+              "url": "https://impactovisual.cl"
+            },
+            "performer": {
+              "@type": "Person",
+              "name": "Samy",
+              "description": "Experta en contenido visual para profesionales de la belleza"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "297000",
+              "priceCurrency": "CLP",
+              "availability": "https://schema.org/InStock"
+            },
+            "eventStatus": "https://schema.org/EventScheduled",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+          },
+          {
             "@type": "Organization",
-            "name": "Influencer Factory",
-            "url": "https://www.influencerfactory.com",
-            "logo": "https://www.influencerfactory.com/assets/IF_Logo.webp",
-            "description": "Academia digital para creadores de contenido. Transforma tu pasión por las redes en una carrera rentable con formación integral y mentoría personalizada.",
+            "name": "Impacto Visual",
+            "url": "https://impactovisual.cl",
+            "description": "Evento premium para profesionales de la belleza que quieren elevar su contenido visual.",
             "sameAs": [
-              "https://www.instagram.com/influencerfactory/",
-              "https://linkedin.com/company/influencerfactory"
+              "https://www.instagram.com/impactovisual/",
+              "https://www.tiktok.com/@impactovisual"
             ],
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Santiago",
               "addressRegion": "RM",
               "addressCountry": "CL"
-            },
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "contactType": "customer service",
-              "email": "contacto@influencerfactory.com"
             }
-          },
-          {
-            "@type": "EducationalService",
-            "name": "Influencer Factory Academy",
-            "description": "Academia digital con 20 módulos, 90+ lecciones y clases nuevas cada mes para monetizar tu contenido desde cero.",
-            "provider": {
-              "@type": "Organization",
-              "name": "Influencer Factory"
-            },
-            "educationalLevel": "Professional Development",
-            "teaches": [
-              "Influencer Marketing",
-              "Content Creation",
-              "Social Media Strategy",
-              "Personal Branding",
-              "Digital Monetization",
-              "Instagram Marketing",
-              "TikTok Content",
-              "UGC Creation"
-            ],
-            "offers": {
-              "@type": "Offer",
-              "price": "29",
-              "priceCurrency": "USD",
-              "availability": "https://schema.org/InStock"
-            },
-            "hasCourseInstance": {
-              "@type": "CourseInstance",
-              "courseMode": "online",
-              "inLanguage": "es",
-              "courseSchedule": "Flexible",
-              "educationalCredentialAwarded": "Certificate of Completion"
-            }
-          },
-          {
-            "@type": "Person",
-            "name": "Whitney Espinoza",
-            "jobTitle": "Fundadora & Instructora Principal",
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Influencer Factory"
-            },
-            "description": "Transformé mi pasión por las redes en una carrera exitosa. Ahora enseño a más de 1,400 creadores cómo monetizar su contenido."
           }
         ]
       }
     </script>
+
+    <!-- Google Fonts - Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Remix Icons -->
     <link
@@ -201,8 +192,8 @@ const keywords = [
     />
 
     <!-- Social Media Links -->
-    <link rel="me" href="https://www.instagram.com/influencerfactory/" />
-    <link rel="me" href="https://linkedin.com/company/influencerfactory" />
+    <link rel="me" href="https://www.instagram.com/impactovisual/" />
+    <link rel="me" href="https://www.tiktok.com/@impactovisual" />
 
     <!-- AOS Animate On Scroll CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
@@ -216,12 +207,12 @@ const keywords = [
     <slot />
 
     <!-- Sticky CTA Button (for scroll, desktop only) -->
-    <div class="fixed top-4 right-4 z-50 hidden sm:block">
+    <div class="fixed top-20 right-4 z-50 hidden sm:block">
       <a 
         href="#planes" 
-        class="inline-flex items-center justify-center px-6 py-3 bg-secondary text-white rounded-full font-semibold text-base hover:bg-secondary/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+        class="inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-full font-semibold text-base hover:bg-red-dark transition-colors duration-300 shadow-lg hover:shadow-xl"
       >
-        Inscribirme
+        Quiero vivir esta experiencia
       </a>
     </div>
 
