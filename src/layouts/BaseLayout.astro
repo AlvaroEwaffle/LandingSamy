@@ -64,8 +64,6 @@ const keywords = [
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2279152939195720');
-    fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=2279152939195720&ev=PageView&noscript=1"
@@ -231,6 +229,12 @@ const keywords = [
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
     <script is:inline>
       window.addEventListener('DOMContentLoaded', function () {
+        // Initialize Facebook Pixel
+        if (typeof fbq !== 'undefined') {
+          fbq('init', '2279152939195720');
+          fbq('track', 'PageView');
+        }
+        
         if (window.AOS) {
           window.AOS.init({
             duration: 800,
