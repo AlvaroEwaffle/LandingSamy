@@ -8,6 +8,17 @@ const {
   title = "El primer evento en Chile que transforma", 
   subtitle = "cómo grabas tu trabajo en camilla." 
 } = Astro.props;
+
+const carouselImages = [
+  "/assets/Carrusel/Landing page Samy (6).png",
+  "/assets/Carrusel/Landing page Samy (7).png",
+  "/assets/Carrusel/Landing page Samy (8).png",
+  "/assets/Carrusel/Landing page Samy (9).png",
+  "/assets/Carrusel/Landing page Samy (10).png",
+  "/assets/Carrusel/Landing page Samy (11).png",
+  "/assets/Carrusel/Landing page Samy (12).png",
+  "/assets/Carrusel/Landing page Samy (13).png"
+];
 ---
 
 <!-- Fixed Spinning Banner -->
@@ -96,12 +107,12 @@ const {
 </section>
 
 <!-- Mobile Version -->
-<section class="relative h-screen flex items-center justify-center overflow-hidden pt-16 md:hidden">
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 pb-20 md:hidden">
   <!-- Contenedor del video -->
   <div class="absolute inset-0 overflow-hidden">
     <iframe
-      src="https://www.youtube.com/embed/FT44flR8_QI?autoplay=1&mute=1&loop=1&playlist=FT44flR8_QI&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&fs=0&iv_load_policy=3&cc_load_policy=0&color=white&theme=dark"
-      class="absolute top-1/2 left-1/2 w-[380%] h-[380%] -translate-x-1/2 -translate-y-1/2"
+      src="https://www.youtube.com/embed/_nSj3EiYoQE?autoplay=1&mute=1&loop=1&playlist=_nSj3EiYoQE&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&fs=0&iv_load_policy=3&cc_load_policy=0&color=white&theme=dark"
+      class="absolute top-1/2 left-1/2 w-[110vw] h-[110vh] -translate-x-1/2 -translate-y-1/2 object-cover"
       style="pointer-events:none"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -128,24 +139,41 @@ const {
     <p class="max-w-2xl mx-auto mb-8 text-center">
       <strong>Ya no se trata solo de tener una buena técnica. <br>También necesitas saber cómo mostrarla.</strong> <br>Una experiencia exclusiva para artistas de la belleza que buscan crear mejor contenido visual para su negocio. Aprendé a grabar y editar tus videos con una metodología clara y fácil de aplicar, usando sólo tu celular, un par de luces y un trípode.
     </p>
-    <a href="#planes" class="bg-primary px-8 py-4 rounded-lg text-white font-semibold">
+    <a href="#planes" class="bg-primary px-8 py-4 rounded-lg text-white font-semibold mb-8">
       Quiero vivir esta experiencia
     </a>
   </div>
 </section>
 
-<!-- S2 Image Section -->
-<section class="relative w-full bg-black py-16 md:py-24">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-center">
-      <img 
-        src="/assets/S2.png" 
-        alt="Samy with smartphone on couch" 
-        class="w-full max-w-4xl h-auto md:max-h-[500px] object-contain rounded-lg shadow-2xl"
-      />
-    </div>
+<!-- S2 Image Carousel Section -->
+<section class="relative w-full bg-black py-8">
+  <!-- Powerful Quote -->
+  <div class="text-center mb-8">
+    <h2 class="text-2xl md:text-3xl font-bold text-white px-4">
+      Ya no se trata solo de tener una buena técnica, necesitas saber <span class="text-primary">cómo mostrarla</span>.
+    </h2>
   </div>
+  
+  <!-- Carousel Container -->
+  <div class="relative overflow-hidden">
+      <div class="flex animate-scroll-carousel" id="carousel">
+        {/* Original images */}
+        {carouselImages.map((image, index) => (
+          <div class="w-1/3 flex-shrink-0">
+            <img src={image} alt={`Carousel image ${index + 1}`} class="w-full h-64 object-cover" />
+          </div>
+        ))}
+        {/* Duplicate images for seamless loop */}
+        {carouselImages.map((image, index) => (
+          <div class="w-1/3 flex-shrink-0">
+            <img src={image} alt={`Carousel image ${index + 1}`} class="w-full h-64 object-cover" />
+          </div>
+        ))}
+      </div>
+    </div>
 </section>
+
+
 
 <style>
   @keyframes scroll-banner {
@@ -159,5 +187,18 @@ const {
   
   .animate-scroll-banner {
     animation: scroll-banner 20s linear infinite;
+  }
+  
+  @keyframes scroll-carousel {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-scroll-carousel {
+    animation: scroll-carousel 20s linear infinite;
   }
 </style>

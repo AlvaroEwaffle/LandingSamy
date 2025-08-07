@@ -72,25 +72,20 @@ const experiences = [
     </div>
 
     <!-- Experience Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
       {experiences.map((experience, index) => (
         <div 
-          class="bg-black/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-primary/20 fade-in"
+          class="bg-black/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-primary/20 fade-in"
           style={`animation-delay: ${index * 0.1}s`}
         >
           <div class="text-center">
-            <!-- Icon -->
-            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <span class="text-3xl">{experience.icon}</span>
-            </div>
-            
             <!-- Title -->
-            <h3 class="text-xl font-bold text-white mb-4">
+            <h3 class="text-lg font-bold text-white mb-3">
               {experience.title}
             </h3>
             
             <!-- Description -->
-            <p class="text-white/80 leading-relaxed">
+            <p class="text-white/80 leading-relaxed text-sm">
               {experience.description}
             </p>
           </div>
@@ -169,7 +164,8 @@ const experiences = [
             Descarga el programa detallado del evento
           </p>
           <a 
-            href="#temario" 
+            href="/assets/TemarioSamy.pdf" 
+            target="_blank"
             class="inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300"
           >
             Ver temario completo

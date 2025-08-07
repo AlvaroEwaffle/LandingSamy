@@ -37,39 +37,6 @@ const keywords = [
 <!doctype html>
 <html lang="es">
   <head>
-    <!-- Google Tag Manager -->
-    <script>
-      (function(w,d,s,l,i){
-        w[l]=w[l]||[];
-        w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-        var f = d.getElementsByTagName(s)[0];
-        var j = d.createElement(s);
-        var dl = l!='dataLayer'?'&l='+l:'';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id='+i+dl;
-        if (f && f.parentNode) {
-          f.parentNode.insertBefore(j,f);
-        }
-      })(window,document,'script','dataLayer','GTM-52LZ8RJ7');
-    </script>
-    <!-- End Google Tag Manager -->
-
-    <!-- Meta Pixel Code -->
-    <script is:inline>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=2279152939195720&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="/assets/Logo.png" />
@@ -199,11 +166,6 @@ const keywords = [
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
   </head>
   <body class="overflow-x-hidden">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52LZ8RJ7"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
     <slot />
 
     <!-- Sticky CTA Button (for scroll, desktop only) -->
@@ -220,12 +182,6 @@ const keywords = [
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
     <script is:inline>
       window.addEventListener('DOMContentLoaded', function () {
-        // Initialize Facebook Pixel
-        if (typeof fbq !== 'undefined') {
-          fbq('init', '2279152939195720');
-          fbq('track', 'PageView');
-        }
-        
         if (window.AOS) {
           window.AOS.init({
             duration: 800,

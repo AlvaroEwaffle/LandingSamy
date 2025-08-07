@@ -16,51 +16,32 @@ const plans = [
     currency: "CLP",
     originalPrice: "397.000",
     features: [
-      "Acceso completo al evento",
-      "Material exclusivo del evento",
-      "Certificado de participación",
-      "Acceso al grupo exclusivo post-evento",
-      "Coffee break premium",
-      "Fotos profesionales del evento",
-      "Sesión de preguntas y respuestas",
-      "Kit de herramientas recomendadas"
+      "Clase en vivo con demostración práctica del método de grabación y edición en camilla",
+      "Material digital exclusivo: herramientas, biblioteca de ángulos y planificador de contenido",
+      "Coffee break para compartir, conectar y hacer networking",
+      "Brindis de cierre + entrega de certificación",
+      "Experiencia final sorpresa junto a Samy que no querrás perderte"
     ],
     popular: true,
     available: true
   },
   {
     name: "Fase 2",
-    price: "347.000",
-    currency: "CLP",
-    originalPrice: "397.000",
-    features: [
-      "Acceso completo al evento",
-      "Material exclusivo del evento",
-      "Certificado de participación",
-      "Acceso al grupo exclusivo post-evento",
-      "Coffee break premium",
-      "Fotos profesionales del evento",
-      "Sesión de preguntas y respuestas",
-      "Kit de herramientas recomendadas"
-    ],
+    price: "",
+    currency: "",
+    originalPrice: "",
+    features: [],
+    message: "Las próximas fases tendrán un ajuste en su precio, asegura tu entrada al mejor valor.",
     popular: false,
     available: false
   },
   {
     name: "Fase 3",
-    price: "397.000",
-    currency: "CLP",
-    originalPrice: "397.000",
-    features: [
-      "Acceso completo al evento",
-      "Material exclusivo del evento",
-      "Certificado de participación",
-      "Acceso al grupo exclusivo post-evento",
-      "Coffee break premium",
-      "Fotos profesionales del evento",
-      "Sesión de preguntas y respuestas",
-      "Kit de herramientas recomendadas"
-    ],
+    price: "",
+    currency: "",
+    originalPrice: "",
+    features: [],
+    message: "Esta es la última llamada, la Fase 3 es el cierre oficial y el precio no bajará, ¡no lo dejes pasar otra vez!",
     popular: false,
     available: false
   }
@@ -115,54 +96,78 @@ const plans = [
               {plan.name}
             </h3>
 
-            {/* Price */}
-            <div class="mb-6">
-              <div class="flex items-center justify-center mb-2">
-                <span class="text-4xl font-bold text-primary">
-                  ${plan.price}
-                </span>
-                <span class="text-text-light ml-2">
-                  {plan.currency}
-                </span>
-              </div>
-              {plan.originalPrice !== plan.price && (
-                <div class="text-text-light line-through">
-                  ${plan.originalPrice} {plan.currency}
-                </div>
-              )}
-            </div>
-
-            {/* Features */}
-            <div class="space-y-4 mb-8">
-              {plan.features.map((feature) => (
-                <div class="flex items-start">
-                  <div class="w-5 h-5 bg-primary rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
-                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                    </svg>
-                  </div>
-                  <span class="text-text-dark text-sm text-left">
-                    {feature}
+            {/* Price - Only show for available plans */}
+            {plan.available && (
+              <div class="mb-6">
+                <div class="flex items-center justify-center mb-2">
+                  <span class="text-4xl font-bold text-primary">
+                    ${plan.price}
+                  </span>
+                  <span class="text-text-light ml-2">
+                    {plan.currency}
                   </span>
                 </div>
-              ))}
-            </div>
+                {plan.originalPrice !== plan.price && (
+                  <div class="text-text-light line-through">
+                    ${plan.originalPrice} {plan.currency}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Features - Only show for available plans */}
+            {plan.available && (
+              <div class="space-y-4 mb-8">
+                {plan.features.map((feature) => (
+                  <div class="flex items-start">
+                    <div class="w-5 h-5 bg-primary rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                      <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <span class="text-text-dark text-sm text-left">
+                      {feature}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Custom Message for unavailable plans */}
+            {!plan.available && plan.message && (
+              <div class="mb-8">
+                <p class="text-text-dark text-sm leading-relaxed text-center">
+                  {plan.message}
+                </p>
+              </div>
+            )}
 
             {/* Payment Options */}
             {plan.available && (
               <div class="space-y-3">
                 <a 
-                  href="#pago-completo" 
+                  href="https://pay.sumup.com/b2c/XE2GPAZG09" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="w-full inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-full font-semibold hover:bg-red-dark transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   Pago completo
                 </a>
                 <a 
-                  href="#pago-50" 
+                  href="https://pay.sumup.com/b2c/XH9MQ6RXP3" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="w-full inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300"
                 >
                   Pago 50%
                 </a>
+                
+                {/* Limited Availability Notice */}
+                <div class="text-center mt-4">
+                  <p class="text-primary font-bold text-sm bg-primary/10 px-3 py-2 rounded-lg">
+                    Solo para 10 personas
+                  </p>
+                </div>
               </div>
             )}
 
@@ -265,7 +270,7 @@ const plans = [
         
         <div class="space-y-4">
           <a 
-            href="https://wa.me/+56912345678" 
+            href="https://wa.link/679vcr" 
             target="_blank"
             class="flex items-center justify-center px-6 py-3 bg-green-500 text-white rounded-full font-semibold hover:bg-green-600 transition-all duration-300"
           >
@@ -278,8 +283,8 @@ const plans = [
           <div class="text-center">
             <p class="text-sm text-white/70">
               O escríbenos a: 
-              <a href="mailto:info@impactovisual.cl" class="text-primary font-semibold hover:underline">
-                info@impactovisual.cl
+              <a href="mailto:info.samygutierrez@gmail.com" class="text-primary font-semibold hover:underline">
+                info.samygutierrez@gmail.com
               </a>
             </p>
           </div>
