@@ -78,7 +78,7 @@ const plans = [
         >
                       {/* Full gray overlay for sold out plans */}
             {plan.soldOut && (
-              <div class="absolute inset-0 bg-gray-300/40 rounded-2xl pointer-events-none z-10"></div>
+              <div class="absolute inset-0 bg-gray-300/90 rounded-2xl pointer-events-none z-10"></div>
             )}
           {/* Popular Badge */}
           {plan.popular && (
@@ -89,14 +89,14 @@ const plans = [
             </div>
           )}
 
-          {/* No Disponible Badge for unavailable plans (except Fase 1) */}
-          {!plan.available && plan.name !== "Fase 1" && (
+          {/* No Disponible Badge for unavailable plans and Fase 1 */}
+          {(!plan.available && plan.name !== "Fase 1") || (plan.soldOut && plan.name === "Fase 1") ? (
             <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
               <span class="bg-gray-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
                 No Disponible
               </span>
             </div>
-          )}
+          ) : null}
 
           <div class="text-center">
             {/* Plan Name */}
