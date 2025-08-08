@@ -21,7 +21,7 @@ const plans = [
       "Brindis de cierre + entrega de certificación",
       "Experiencia final sorpresa junto a Samy que no querrás perderte"
     ],
-    popular: true,
+    popular: false,
     available: true,
     soldOut: true
   },
@@ -36,7 +36,7 @@ const plans = [
       "Brindis de cierre + entrega de certificación",
       "Experiencia final sorpresa junto a Samy que no querrás perderte"
     ],
-    popular: false,
+    popular: true,
     available: true
   },
   {
@@ -76,10 +76,10 @@ const plans = [
                 : 'bg-gray-100 shadow-md border border-gray-200 opacity-60'
           }`}
         >
-          {/* Full gray overlay for sold out plans */}
-          {plan.soldOut && (
-            <div class="absolute inset-0 bg-gray-300/40 rounded-2xl pointer-events-none z-10"></div>
-          )}
+                      {/* Full gray overlay for sold out plans */}
+            {plan.soldOut && (
+              <div class="absolute inset-0 bg-gray-300/40 rounded-2xl pointer-events-none z-10"></div>
+            )}
           {/* Popular Badge */}
           {plan.popular && (
             <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
