@@ -14,7 +14,6 @@ const plans = [
     name: "Fase 1",
     price: "297.000",
     currency: "CLP",
-    originalPrice: "397.000",
     features: [
       "Clase en vivo con demostración práctica del método de grabación y edición en camilla",
       "Material digital exclusivo: herramientas, biblioteca de ángulos y planificador de contenido",
@@ -23,17 +22,21 @@ const plans = [
       "Experiencia final sorpresa junto a Samy que no querrás perderte"
     ],
     popular: true,
-    available: true
+    available: false
   },
   {
     name: "Fase 2",
-    price: "",
-    currency: "",
-    originalPrice: "",
-    features: [],
-    message: "Las próximas fases tendrán un ajuste en su precio, asegura tu entrada al mejor valor.",
+    price: "347.000",
+    currency: "CLP",
+    features: [
+      "Clase en vivo con demostración práctica del método de grabación y edición en camilla",
+      "Material digital exclusivo: herramientas, biblioteca de ángulos y planificador de contenido",
+      "Coffee break para compartir, conectar y hacer networking",
+      "Brindis de cierre + entrega de certificación",
+      "Experiencia final sorpresa junto a Samy que no querrás perderte"
+    ],
     popular: false,
-    available: false
+    available: true
   },
   {
     name: "Fase 3",
@@ -81,8 +84,8 @@ const plans = [
             </div>
           )}
 
-          {/* Sold Out Badge */}
-          {!plan.available && (
+          {/* No Disponible Badge for unavailable plans (except Fase 1) */}
+          {!plan.available && plan.name !== "Fase 1" && (
             <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
               <span class="bg-gray-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
                 No Disponible
@@ -96,6 +99,20 @@ const plans = [
               {plan.name}
             </h3>
 
+            {/* Sold Out Banner for Fase 1 only */}
+            {!plan.available && plan.name === "Fase 1" && (
+              <div class="mb-6">
+                <div class="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-3 rounded-lg shadow-lg transform rotate-1 hover:rotate-0 transition-transform duration-300">
+                  <div class="flex items-center justify-center">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="font-bold text-lg tracking-wide">¡AGOTADO!</span>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Price - Only show for available plans */}
             {plan.available && (
               <div class="mb-6">
@@ -107,11 +124,7 @@ const plans = [
                     {plan.currency}
                   </span>
                 </div>
-                {plan.originalPrice !== plan.price && (
-                  <div class="text-text-light line-through">
-                    ${plan.originalPrice} {plan.currency}
-                  </div>
-                )}
+                
               </div>
             )}
 
@@ -145,27 +158,50 @@ const plans = [
             {/* Payment Options */}
             {plan.available && (
               <div class="space-y-3">
-                <a 
-                  href="https://pay.sumup.com/b2c/XE2GPAZG09" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="w-full inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-full font-semibold hover:bg-red-dark transition-all duration-300 shadow-lg hover:shadow-xl"
-                >
-                  Pago completo
-                </a>
-                <a 
-                  href="https://pay.sumup.com/b2c/XH9MQ6RXP3" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="w-full inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300"
-                >
-                  Pago 50%
-                </a>
+                {plan.name === "Fase 2" ? (
+                  <>
+                    <a 
+                      href="https://www.flow.cl/btn.php?token=df921d999e796c105ba43292d598749814efc49a" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="w-full inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-full font-semibold hover:bg-red-dark transition-all duration-300 shadow-lg hover:shadow-xl"
+                    >
+                      Pago completo
+                    </a>
+                    <a 
+                      href="https://www.flow.cl/btn.php?token=yf9450c9f38023f96e867965be0723c9402de620" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="w-full inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300"
+                    >
+                      Pago 50%
+                    </a>
+                  </>
+                ) : (
+                  <>
+                    <a 
+                      href="https://pay.sumup.com/b2c/XE2GPAZG09" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="w-full inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-full font-semibold hover:bg-red-dark transition-all duration-300 shadow-lg hover:shadow-xl"
+                    >
+                      Pago completo
+                    </a>
+                    <a 
+                      href="https://pay.sumup.com/b2c/XH9MQ6RXP3" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="w-full inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300"
+                    >
+                      Pago 50%
+                    </a>
+                  </>
+                )}
                 
                 {/* Limited Availability Notice */}
                 <div class="text-center mt-4">
                   <p class="text-primary font-bold text-sm bg-primary/10 px-3 py-2 rounded-lg">
-                    Solo para 10 personas
+                    {plan.name === "Fase 2" ? "10 cupos disponibles" : "Solo para 10 personas"}
                   </p>
                 </div>
               </div>
@@ -173,9 +209,7 @@ const plans = [
 
             {!plan.available && (
               <div class="text-center">
-                <p class="text-text-light text-sm">
-                  Este lote estará disponible cuando se agote el lote anterior
-                </p>
+
               </div>
             )}
           </div>
