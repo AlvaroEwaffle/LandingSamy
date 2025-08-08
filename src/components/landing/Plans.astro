@@ -127,7 +127,7 @@ const plans = [
 
             {/* Features - Show for available plans and Fase 1 */}
             {(plan.available || plan.soldOut) && (
-              <div class="space-y-4 mb-8">
+              <div class={`space-y-4 mb-8 relative ${plan.soldOut ? 'opacity-50' : ''}`}>
                 {plan.features.map((feature) => (
                   <div class="flex items-start">
                     <div class="w-5 h-5 bg-primary rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
@@ -140,6 +140,10 @@ const plans = [
                     </span>
                   </div>
                 ))}
+                {/* Gray overlay for sold out plans */}
+                {plan.soldOut && (
+                  <div class="absolute inset-0 bg-gray-300/30 rounded-lg pointer-events-none"></div>
+                )}
               </div>
             )}
 
