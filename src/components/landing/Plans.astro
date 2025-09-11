@@ -23,7 +23,7 @@ const plans = [
     ],
     popular: false,
     available: true,
-    soldOut: true
+    soldOut: false
   },
   {
     name: "Fase 2",
@@ -36,18 +36,25 @@ const plans = [
       "Brindis de cierre + entrega de certificación",
       "Experiencia final sorpresa junto a Samy que no querrás perderte"
     ],
-    popular: true,
-    available: true
+    popular: false,
+    available: true,
+    soldOut: true
   },
   {
     name: "Fase 3",
-    price: "",
-    currency: "",
-    originalPrice: "",
-    features: [],
+    price: "397.000",
+    currency: "CLP",
+    features: [
+      "Clase en vivo con demostración práctica del método de grabación y edición en camilla",
+      "Material digital exclusivo: herramientas, biblioteca de ángulos y planificador de contenido",
+      "Coffee break para compartir, conectar y hacer networking",
+      "Brindis de cierre + entrega de certificación",
+      "Experiencia final sorpresa junto a Samy que no querrás perderte"
+    ],
     message: "Esta es la última llamada, la Fase 3 es el cierre oficial y el precio no bajará, ¡no lo dejes pasar otra vez!",
-    popular: false,
-    available: false
+    popular: true,
+    available: true,
+    soldOut: true
   }
 ];
 ---
@@ -76,8 +83,8 @@ const plans = [
                 : 'bg-gray-100 shadow-md border border-gray-200 opacity-60'
           }`}
         >
-                      {/* Full gray overlay for sold out plans */}
-            {plan.soldOut && (
+                      {/* Full gray overlay for sold out plans and unavailable plans */}
+            {(plan.soldOut || !plan.available) && (
               <div class="absolute inset-0 bg-gray-300/90 rounded-2xl pointer-events-none z-10"></div>
             )}
           {/* Popular Badge */}
@@ -89,11 +96,11 @@ const plans = [
             </div>
           )}
 
-          {/* No Disponible Badge for unavailable plans and Fase 1 */}
-          {(!plan.available && plan.name !== "Fase 1") || (plan.soldOut && plan.name === "Fase 1") ? (
+          {/* Badge for unavailable plans and sold out plans */}
+          {(!plan.available || plan.soldOut) ? (
             <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 z-30">
               <span class="bg-gray-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
-                No Disponible
+                {plan.soldOut ? "SOLD OUT" : "No Disponible"}
               </span>
             </div>
           ) : null}
@@ -159,7 +166,16 @@ const plans = [
             {/* Payment Options */}
             {plan.available && !plan.soldOut && (
               <div class="space-y-3">
-                {plan.name === "Fase 2" ? (
+                {plan.name === "Fase 1" ? (
+                  <a 
+                    href="https://www.flow.cl/btn.php?token=qc904d9c2b1c7353039a31f55aac78e3df437044" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-full inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-full font-semibold hover:bg-red-dark transition-all duration-300 shadow-lg hover:shadow-xl"
+                  >
+                    Reservar mi cupo
+                  </a>
+                ) : plan.name === "Fase 2" ? (
                   <>
                     <a 
                       href="https://www.flow.cl/btn.php?token=df921d999e796c105ba43292d598749814efc49a" 
@@ -202,7 +218,7 @@ const plans = [
                 {/* Limited Availability Notice */}
                 <div class="text-center mt-4">
                   <p class="text-primary font-bold text-sm bg-primary/10 px-3 py-2 rounded-lg">
-                    {plan.name === "Fase 2" ? "8 cupos disponibles" : "Solo para 10 personas"}
+                    {plan.name === "Fase 1" ? "Última oportunidad" : plan.name === "Fase 2" ? "8 cupos disponibles" : "Solo para 10 personas"}
                   </p>
                 </div>
               </div>
@@ -237,16 +253,16 @@ const plans = [
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <div class="flex items-center">
-            <div class="w-3 h-3 bg-gray-400 rounded-full mr-2"></div>
-            <span class="text-sm text-white/70">Lote 1: Sold out</span>
-          </div>
-          <div class="flex items-center">
             <div class="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
-            <span class="text-sm text-white">Lote 2: Disponible</span>
+            <span class="text-sm text-white">Lote 1: Disponible</span>
           </div>
           <div class="flex items-center">
             <div class="w-3 h-3 bg-gray-400 rounded-full mr-2"></div>
-            <span class="text-sm text-white/70">Lote 3: Próximamente</span>
+            <span class="text-sm text-white/70">Lote 2: Sold out</span>
+          </div>
+          <div class="flex items-center">
+            <div class="w-3 h-3 bg-gray-400 rounded-full mr-2"></div>
+            <span class="text-sm text-white/70">Lote 3: Sold out</span>
           </div>
         </div>
       </div>
