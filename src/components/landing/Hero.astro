@@ -21,27 +21,27 @@ const carouselImages = [
 ];
 ---
 
-<!-- Fixed Spinning Banner -->
+<!-- Fixed Countdown Banner -->
 <div class="fixed top-0 left-0 w-full bg-primary/90 backdrop-blur-sm z-50">
-  <div class="overflow-hidden">
-    <div class="flex animate-scroll-banner whitespace-nowrap">
-      <div class="flex items-center space-x-8 px-4 py-3 text-white font-semibold">
-        <span>🎯 ¡Evento Premium para profesionales de la belleza!</span>
-        <span>📹 Método SAMY en vivo</span>
-        <span>📱 Grabación con celular profesional</span>
-        <span>📸 Encuadres y ángulos perfectos</span>
-        <span>💼 Kit recomendado incluido</span>
-        <span>🔥 Ambiente premium exclusivo</span>
-        <span>📒 Material exclusivo del evento</span>
-        <span>📍 Networking curado</span>
-        <span>🎯 ¡Evento Premium para profesionales de la belleza!</span>
-        <span>📹 Método SAMY en vivo</span>
-        <span>📱 Grabación con celular profesional</span>
-        <span>📸 Encuadres y ángulos perfectos</span>
-        <span>💼 Kit recomendado incluido</span>
-        <span>🔥 Ambiente premium exclusivo</span>
-        <span>📒 Material exclusivo del evento</span>
-        <span>📍 Networking curado</span>
+  <div class="flex items-center justify-center px-4 py-3 text-white font-semibold">
+    <span class="mr-2">⏰</span>
+    <span class="mr-4">¡Últimos días! Evento cierra el 16 de Septiembre a las 00:00</span>
+    <div id="countdown" class="flex items-center space-x-2">
+      <div class="bg-white/20 rounded px-2 py-1 text-sm">
+        <span id="days">00</span>
+        <span class="text-xs">días</span>
+      </div>
+      <div class="bg-white/20 rounded px-2 py-1 text-sm">
+        <span id="hours">00</span>
+        <span class="text-xs">hrs</span>
+      </div>
+      <div class="bg-white/20 rounded px-2 py-1 text-sm">
+        <span id="minutes">00</span>
+        <span class="text-xs">min</span>
+      </div>
+      <div class="bg-white/20 rounded px-2 py-1 text-sm">
+        <span id="seconds">00</span>
+        <span class="text-xs">seg</span>
       </div>
     </div>
   </div>
@@ -202,3 +202,38 @@ const carouselImages = [
     animation: scroll-carousel 20s linear infinite;
   }
 </style>
+
+<script>
+  // Countdown to September 16, 2024 at 00:00
+  function updateCountdown() {
+    const targetDate = new Date('2024-09-16T00:00:00').getTime();
+    const now = new Date().getTime();
+    const timeLeft = targetDate - now;
+
+    if (timeLeft > 0) {
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      const daysEl = document.getElementById('days');
+      const hoursEl = document.getElementById('hours');
+      const minutesEl = document.getElementById('minutes');
+      const secondsEl = document.getElementById('seconds');
+      
+      if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
+      if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+      if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+      if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
+    } else {
+      const countdownEl = document.getElementById('countdown');
+      if (countdownEl) {
+        countdownEl.innerHTML = '<span class="text-red-300 font-bold">¡EVENTO CERRADO!</span>';
+      }
+    }
+  }
+
+  // Update countdown every second
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
