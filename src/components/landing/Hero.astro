@@ -22,27 +22,42 @@ const carouselImages = [
 ---
 
 <!-- Fixed Countdown Banner -->
-<div class="fixed top-0 left-0 w-full bg-primary/90 backdrop-blur-sm z-50 cursor-pointer hover:bg-primary transition-colors duration-300" onclick="scrollToPlans()">
-  <div class="flex items-center justify-center px-4 py-3 text-white font-semibold">
-    <span class="mr-2">⚡</span>
-    <span class="mr-4">Sólo por hoy 15 de Septiembre Oferta Flash</span>
-    <div id="countdown" class="flex items-center space-x-2">
-      <div class="bg-white/20 rounded px-2 py-1 text-sm">
-        <span id="days">00</span>
-        <span class="text-xs">días</span>
+<div class="fixed top-0 left-0 w-full bg-gradient-to-r from-primary via-red-600 to-primary/90 backdrop-blur-sm z-50 cursor-pointer hover:from-red-600 hover:via-primary hover:to-red-600 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl animate-pulse-banner border-b-2 border-white/30 hover:border-white/60" onclick="scrollToPlans()">
+  <div class="flex items-center justify-center px-4 py-4 text-white font-bold relative">
+    <!-- Click indicator arrow -->
+    <div class="absolute right-4 top-1/2 transform -translate-y-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
+    
+    <!-- Main content -->
+    <div class="flex items-center">
+      <span class="mr-3 text-2xl animate-pulse">⚡</span>
+      <span class="mr-6 text-lg md:text-xl">Sólo por hoy 15 de Septiembre Oferta Flash</span>
+      <div id="countdown" class="flex items-center space-x-2">
+        <div class="bg-white/30 rounded-lg px-3 py-2 text-sm font-bold shadow-lg hover:bg-white/40 transition-colors duration-200">
+          <span id="days">00</span>
+          <span class="text-xs ml-1">días</span>
+        </div>
+        <div class="bg-white/30 rounded-lg px-3 py-2 text-sm font-bold shadow-lg hover:bg-white/40 transition-colors duration-200">
+          <span id="hours">00</span>
+          <span class="text-xs ml-1">hrs</span>
+        </div>
+        <div class="bg-white/30 rounded-lg px-3 py-2 text-sm font-bold shadow-lg hover:bg-white/40 transition-colors duration-200">
+          <span id="minutes">00</span>
+          <span class="text-xs ml-1">min</span>
+        </div>
+        <div class="bg-white/30 rounded-lg px-3 py-2 text-sm font-bold shadow-lg hover:bg-white/40 transition-colors duration-200">
+          <span id="seconds">00</span>
+          <span class="text-xs ml-1">seg</span>
+        </div>
       </div>
-      <div class="bg-white/20 rounded px-2 py-1 text-sm">
-        <span id="hours">00</span>
-        <span class="text-xs">hrs</span>
-      </div>
-      <div class="bg-white/20 rounded px-2 py-1 text-sm">
-        <span id="minutes">00</span>
-        <span class="text-xs">min</span>
-      </div>
-      <div class="bg-white/20 rounded px-2 py-1 text-sm">
-        <span id="seconds">00</span>
-        <span class="text-xs">seg</span>
-      </div>
+    </div>
+    
+    <!-- Click to action text -->
+    <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-sm font-bold text-white animate-glow">
+      ¡CLIC AQUÍ!
     </div>
   </div>
 </div>
@@ -163,33 +178,59 @@ const carouselImages = [
 
 
 
-<style>
-  @keyframes scroll-banner {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-  
-  .animate-scroll-banner {
-    animation: scroll-banner 20s linear infinite;
-  }
-  
-  @keyframes scroll-carousel {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-  
-  .animate-scroll-carousel {
-    animation: scroll-carousel 20s linear infinite;
-  }
-</style>
+    <style>
+      @keyframes scroll-banner {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      
+      .animate-scroll-banner {
+        animation: scroll-banner 20s linear infinite;
+      }
+      
+      @keyframes scroll-carousel {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      
+      .animate-scroll-carousel {
+        animation: scroll-carousel 20s linear infinite;
+      }
+
+      @keyframes pulse-banner {
+        0%, 100% {
+          box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+        }
+        50% {
+          box-shadow: 0 0 0 10px rgba(220, 38, 38, 0);
+        }
+      }
+      
+      .animate-pulse-banner {
+        animation: pulse-banner 2s infinite;
+      }
+
+      @keyframes glow {
+        0%, 100% {
+          text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+        50% {
+          text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6);
+        }
+      }
+      
+      .animate-glow {
+        animation: glow 1.5s ease-in-out infinite;
+      }
+    </style>
 
 <script>
   // Countdown to September 15, 2025 at 23:59
