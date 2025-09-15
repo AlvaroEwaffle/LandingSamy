@@ -192,11 +192,15 @@ const carouselImages = [
 </style>
 
 <script>
-  // Countdown to September 15, 2024 at 23:59
+  // Countdown to September 15, 2025 at 23:59
   function updateCountdown() {
-    const targetDate = new Date('2024-09-15T23:59:59').getTime();
+    const targetDate = new Date('2025-09-15T23:59:59').getTime();
     const now = new Date().getTime();
     const timeLeft = targetDate - now;
+
+    console.log('Target date:', new Date(targetDate));
+    console.log('Current date:', new Date(now));
+    console.log('Time left (ms):', timeLeft);
 
     if (timeLeft > 0) {
       const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
