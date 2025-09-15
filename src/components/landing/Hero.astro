@@ -22,7 +22,7 @@ const carouselImages = [
 ---
 
 <!-- Fixed Countdown Banner -->
-<div class="fixed top-0 left-0 w-full bg-primary/90 backdrop-blur-sm z-50">
+<div class="fixed top-0 left-0 w-full bg-primary/90 backdrop-blur-sm z-50 cursor-pointer hover:bg-primary transition-colors duration-300" onclick="scrollToPlans()">
   <div class="flex items-center justify-center px-4 py-3 text-white font-semibold">
     <span class="mr-2">⚡</span>
     <span class="mr-4">Sólo por hoy 15 de Septiembre Oferta Flash</span>
@@ -228,4 +228,18 @@ const carouselImages = [
   // Update countdown every second
   updateCountdown();
   setInterval(updateCountdown, 1000);
+
+  // Function to scroll to plans section
+  function scrollToPlans() {
+    const plansSection = document.getElementById('planes');
+    if (plansSection) {
+      plansSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
+
+  // Make function globally available
+  (window as any).scrollToPlans = scrollToPlans;
 </script>
