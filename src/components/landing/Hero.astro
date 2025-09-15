@@ -23,41 +23,36 @@ const carouselImages = [
 
 <!-- Fixed Countdown Banner -->
 <div class="fixed top-0 left-0 w-full bg-gradient-to-r from-primary via-red-600 to-primary/90 backdrop-blur-sm z-50 cursor-pointer hover:from-red-600 hover:via-primary hover:to-red-600 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl animate-pulse-banner border-b-2 border-white/30 hover:border-white/60" onclick="scrollToPlans()">
-  <div class="flex items-center justify-center px-4 py-4 text-white font-bold relative">
-    <!-- Click indicator arrow -->
-    <div class="absolute right-4 top-1/2 transform -translate-y-1/2 animate-bounce">
-      <svg class="w-6 h-6 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-      </svg>
-    </div>
-    
-    <!-- Main content -->
+  <div class="flex items-center justify-between px-4 py-3 text-white font-bold">
+    <!-- Left side - Click to action -->
     <div class="flex items-center">
-      <span class="mr-3 text-2xl animate-pulse">⚡</span>
-      <span class="mr-6 text-lg md:text-xl">Sólo por hoy 15 de Septiembre Oferta Flash</span>
-      <div id="countdown" class="flex items-center space-x-2">
-        <div class="bg-white/30 rounded-lg px-3 py-2 text-sm font-bold shadow-lg hover:bg-white/40 transition-colors duration-200">
-          <span id="days">00</span>
-          <span class="text-xs ml-1">días</span>
-        </div>
-        <div class="bg-white/30 rounded-lg px-3 py-2 text-sm font-bold shadow-lg hover:bg-white/40 transition-colors duration-200">
-          <span id="hours">00</span>
-          <span class="text-xs ml-1">hrs</span>
-        </div>
-        <div class="bg-white/30 rounded-lg px-3 py-2 text-sm font-bold shadow-lg hover:bg-white/40 transition-colors duration-200">
-          <span id="minutes">00</span>
-          <span class="text-xs ml-1">min</span>
-        </div>
-        <div class="bg-white/30 rounded-lg px-3 py-2 text-sm font-bold shadow-lg hover:bg-white/40 transition-colors duration-200">
-          <span id="seconds">00</span>
-          <span class="text-xs ml-1">seg</span>
-        </div>
-      </div>
+      <span class="text-sm font-bold text-white animate-glow mr-2">¡CLIC AQUÍ!</span>
+      <span class="text-xl animate-pulse">⚡</span>
     </div>
     
-    <!-- Click to action text -->
-    <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-sm font-bold text-white animate-glow">
-      ¡CLIC AQUÍ!
+    <!-- Center - Main message -->
+    <div class="flex-1 text-center">
+      <span class="text-sm md:text-base font-semibold">Sólo por hoy 15 de Septiembre Oferta Flash</span>
+    </div>
+    
+    <!-- Right side - Countdown -->
+    <div id="countdown" class="flex items-center space-x-1">
+      <div class="bg-white/30 rounded px-2 py-1 text-xs font-bold shadow-lg">
+        <span id="days">00</span>
+        <span class="text-xs">d</span>
+      </div>
+      <div class="bg-white/30 rounded px-2 py-1 text-xs font-bold shadow-lg">
+        <span id="hours">00</span>
+        <span class="text-xs">h</span>
+      </div>
+      <div class="bg-white/30 rounded px-2 py-1 text-xs font-bold shadow-lg">
+        <span id="minutes">00</span>
+        <span class="text-xs">m</span>
+      </div>
+      <div class="bg-white/30 rounded px-2 py-1 text-xs font-bold shadow-lg">
+        <span id="seconds">00</span>
+        <span class="text-xs">s</span>
+      </div>
     </div>
   </div>
 </div>
