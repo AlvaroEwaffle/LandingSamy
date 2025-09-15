@@ -24,8 +24,8 @@ const carouselImages = [
 <!-- Fixed Countdown Banner -->
 <div class="fixed top-0 left-0 w-full bg-primary/90 backdrop-blur-sm z-50">
   <div class="flex items-center justify-center px-4 py-3 text-white font-semibold">
-    <span class="mr-2">⏰</span>
-    <span class="mr-4">¡Últimos días! Evento cierra el 16 de Septiembre a las 00:00</span>
+    <span class="mr-2">⚡</span>
+    <span class="mr-4">Sólo por hoy 15 de Septiembre Oferta Flash</span>
     <div id="countdown" class="flex items-center space-x-2">
       <div class="bg-white/20 rounded px-2 py-1 text-sm">
         <span id="days">00</span>
@@ -192,9 +192,9 @@ const carouselImages = [
 </style>
 
 <script>
-  // Countdown to September 16, 2024 at 00:00
+  // Countdown to September 15, 2024 at 23:59
   function updateCountdown() {
-    const targetDate = new Date('2024-09-16T00:00:00').getTime();
+    const targetDate = new Date('2024-09-15T23:59:59').getTime();
     const now = new Date().getTime();
     const timeLeft = targetDate - now;
 
