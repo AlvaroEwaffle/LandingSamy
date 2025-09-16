@@ -21,28 +21,13 @@ const carouselImages = [
 ];
 ---
 
-<!-- Fixed Countdown Banner -->
+<!-- Fixed Event Banner -->
 <div class="fixed top-0 left-0 w-full bg-primary/90 backdrop-blur-sm z-50 cursor-pointer hover:bg-primary transition-colors duration-300" onclick="scrollToPlans()">
   <div class="flex items-center justify-center px-4 py-3 text-white font-semibold">
-    <span class="mr-2">⚡</span>
-    <span class="mr-4">Sólo por hoy 15 de Septiembre Oferta Flash</span>
-    <div id="countdown" class="flex items-center space-x-2">
-      <div class="bg-white/20 rounded px-2 py-1 text-sm">
-        <span id="days">00</span>
-        <span class="text-xs">días</span>
-      </div>
-      <div class="bg-white/20 rounded px-2 py-1 text-sm">
-        <span id="hours">00</span>
-        <span class="text-xs">hrs</span>
-      </div>
-      <div class="bg-white/20 rounded px-2 py-1 text-sm">
-        <span id="minutes">00</span>
-        <span class="text-xs">min</span>
-      </div>
-      <div class="bg-white/20 rounded px-2 py-1 text-sm">
-        <span id="seconds">00</span>
-        <span class="text-xs">seg</span>
-      </div>
+    <span class="mr-2">🎬</span>
+    <span class="mr-4">El primer evento en Chile que transforma cómo grabas tu trabajo en camilla</span>
+    <div class="flex items-center">
+      <span class="text-sm bg-white/20 rounded px-3 py-1">¡Reserva tu cupo!</span>
     </div>
   </div>
 </div>
@@ -193,43 +178,6 @@ const carouselImages = [
     </style>
 
 <script>
-  // Countdown to September 15, 2025 at 23:59
-  function updateCountdown() {
-    const targetDate = new Date('2025-09-15T23:59:59').getTime();
-    const now = new Date().getTime();
-    const timeLeft = targetDate - now;
-
-    console.log('Target date:', new Date(targetDate));
-    console.log('Current date:', new Date(now));
-    console.log('Time left (ms):', timeLeft);
-
-    if (timeLeft > 0) {
-      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-      const daysEl = document.getElementById('days');
-      const hoursEl = document.getElementById('hours');
-      const minutesEl = document.getElementById('minutes');
-      const secondsEl = document.getElementById('seconds');
-      
-      if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
-      if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
-      if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
-      if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
-    } else {
-      const countdownEl = document.getElementById('countdown');
-      if (countdownEl) {
-        countdownEl.innerHTML = '<span class="text-red-300 font-bold">¡EVENTO CERRADO!</span>';
-      }
-    }
-  }
-
-  // Update countdown every second
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-
   // Function to scroll to plans section
   function scrollToPlans() {
     const plansSection = document.getElementById('planes');
