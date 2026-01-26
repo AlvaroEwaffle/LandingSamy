@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-  title = "Impacto Visual | El primer evento en Chile que transforma cómo grabas tu trabajo en camilla",
-  description = "Evento premium para profesionales de la belleza que quieren elevar su contenido. Aprende el método SAMY en vivo, grabación con celular, encuadres y ángulos profesionales.",
+  title = "Impacto Visual | Formación online de creación de videos en camilla",
+  description = "Formación online para profesionales de la belleza que quieren elevar su contenido. Aprende el método SAMY, grabación con celular, encuadres y ángulos profesionales. Acceso inmediato.",
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, "https://impactovisual.cl");
@@ -17,7 +17,7 @@ const socialImageURL = new URL("/assets/Logo.png", canonicalURL);
 
 const keywords = [
   "impacto visual",
-  "evento belleza",
+  "formación online belleza",
   "grabación camilla",
   "contenido profesional",
   "método samy",
@@ -28,9 +28,10 @@ const keywords = [
   "instagram",
   "tiktok",
   "chile",
-  "evento premium",
-  "networking",
+  "curso online",
   "formación belleza",
+  "hotmart",
+  "capcut",
 ];
 ---
 
@@ -93,45 +94,32 @@ const keywords = [
         "@context": "https://schema.org",
         "@graph": [
           {
-            "@type": "Event",
+            "@type": "Course",
             "name": "Impacto Visual",
-            "description": "El primer evento en Chile que transforma cómo grabas tu trabajo en camilla. Evento premium para profesionales de la belleza.",
-            "startDate": "2024-12-01",
-            "endDate": "2024-12-01",
-            "location": {
-              "@type": "Place",
-              "name": "Santiago, Chile",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Santiago",
-                "addressRegion": "RM",
-                "addressCountry": "CL"
-              }
-            },
-            "organizer": {
+            "description": "Formación online de creación de videos en camilla. Aprende el método SAMY para profesionales de la belleza.",
+            "provider": {
               "@type": "Organization",
               "name": "Impacto Visual",
               "url": "https://impactovisual.cl"
             },
-            "performer": {
+            "instructor": {
               "@type": "Person",
               "name": "Samy",
               "description": "Experta en contenido visual para profesionales de la belleza"
             },
             "offers": {
               "@type": "Offer",
-              "price": "297000",
-              "priceCurrency": "CLP",
+              "price": "147",
+              "priceCurrency": "USD",
               "availability": "https://schema.org/InStock"
             },
-            "eventStatus": "https://schema.org/EventScheduled",
-            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+            "courseMode": "online"
           },
           {
             "@type": "Organization",
             "name": "Impacto Visual",
             "url": "https://impactovisual.cl",
-            "description": "Evento premium para profesionales de la belleza que quieren elevar su contenido visual.",
+            "description": "Formación online para profesionales de la belleza que quieren elevar su contenido visual.",
             "sameAs": [
               "https://www.instagram.com/impactovisual/",
               "https://www.tiktok.com/@impactovisual"

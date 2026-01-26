@@ -6,7 +6,7 @@ interface Props {
 
 const {
   title = "Impacto Visual es lo que aún no sabías que necesitabas",
-  description = "Una jornada exclusiva de creación + edición de videos en camilla que no se repetirá este año. Y esta última edición no estará abierta al público general.",
+  description = "Una formación online exclusiva de creación + edición de videos en camilla. Aprende a tu ritmo, desde donde estés, con acceso inmediato.",
 } = Astro.props;
 ---
 
@@ -25,11 +25,8 @@ const {
       <h2
         class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
       >
-        {title}
+        Impacto Visual es lo que aún no sabías que necesitabas
       </h2>
-      <p class="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-        {description}
-      </p>
     </div>
 
     <!-- Main Content Grid -->
@@ -37,91 +34,64 @@ const {
       <!-- Left: Motivational Content -->
       <div class="space-y-8">
         <!-- Key Differentiators -->
-        <div class="space-y-6">
-          <h3 class="text-2xl font-bold text-white">
-            ¿Por qué este evento es diferente?
-          </h3>
+          <div class="space-y-6">
+            <h3 class="text-2xl font-bold text-white">
+              ¿Por qué esta formación es diferente?
+            </h3>
 
-          <div class="space-y-4">
-            <div class="flex items-start">
-              <div
-                class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0"
-              >
-                <svg
-                  class="w-4 h-4 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <div
+                  class="w-10 h-10 bg-primary rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0"
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd"></path>
-                </svg>
+                  <span class="text-white text-xl">📹</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white mb-1 text-lg">
+                    Enfoque específico para belleza
+                  </h4>
+                  <p class="text-white/70 text-sm leading-relaxed">
+                    Técnicas adaptadas específicamente para profesionales de la
+                    industria de la belleza que trabajan en camilla.
+                  </p>
+                </div>
               </div>
-              <div>
-                <h4 class="font-semibold text-white mb-1">
-                  Enfoque específico para belleza
-                </h4>
-                <p class="text-white/70 text-sm">
-                  Técnicas adaptadas específicamente para profesionales de la
-                  industria de la belleza.
-                </p>
-              </div>
-            </div>
 
-            <div class="flex items-start">
-              <div
-                class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0"
-              >
-                <svg
-                  class="w-4 h-4 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+              <div class="flex items-start">
+                <div
+                  class="w-10 h-10 bg-primary rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0"
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd"></path>
-                </svg>
+                  <span class="text-white text-xl">💡</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white mb-1 text-lg">
+                    Aprendizaje práctico grabado
+                  </h4>
+                  <p class="text-white/70 text-sm leading-relaxed">
+                    Videos cortos con información precisa, sin rodeos y sin relleno. 
+                    Aprende a tu ritmo, cuando quieras.
+                  </p>
+                </div>
               </div>
-              <div>
-                <h4 class="font-semibold text-white mb-1">
-                  Aprendizaje práctico en vivo
-                </h4>
-                <p class="text-white/70 text-sm">
-                  No solo teoría, sino demostraciones reales y práctica guiada
-                  durante el evento.
-                </p>
-              </div>
-            </div>
 
-            <div class="flex items-start">
-              <div
-                class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0"
-              >
-                <svg
-                  class="w-4 h-4 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+              <div class="flex items-start">
+                <div
+                  class="w-10 h-10 bg-primary rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0"
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              <div>
-                <h4 class="font-semibold text-white mb-1">
-                  Networking de calidad
-                </h4>
-                <p class="text-white/70 text-sm">
-                  Conecta con profesionales que comparten tu pasión y pueden
-                  convertirse en colaboradores.
-                </p>
+                  <span class="text-white text-xl">🚀</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white mb-1 text-lg">
+                    Acceso inmediato y soporte
+                  </h4>
+                  <p class="text-white/70 text-sm leading-relaxed">
+                    Comienza hoy mismo. Acceso por 6 meses con soporte del equipo 
+                    y acompañamiento directo con Samy por 30 días.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
       </div>
 
       <!-- Right: Video Content -->
@@ -149,7 +119,7 @@ const {
             </div>
             <h4 class="text-xl font-bold text-white mb-2">TIENES QUE SABER ESTO</h4>
             <p class="text-white/80 mb-6">
-              Conoce los detalles que estamos preparando para ti ... 
+              Conoce los detalles de esta formación diseñada para ti ... 
             </p>
             <div class="bg-gray-800 rounded-lg overflow-hidden mb-4" style="padding:56.25% 0 0 0;position:relative;">
               <iframe 
@@ -163,10 +133,10 @@ const {
               ></iframe>
             </div>
             <a
-              href="#planes"
+              href="#inversion"
               class="inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-full font-semibold hover:bg-red-dark transition-all duration-300"
             >
-            Quiero ser parte
+            Quiero comenzar
               <svg
                 class="ml-2 w-4 h-4"
                 fill="none"
@@ -195,11 +165,11 @@ const {
           ¿Lista para cambiar tu forma de proyectarte?
         </h3>
         <p class="text-white/80 mb-6 max-w-2xl mx-auto">
-          Este no es solo otro evento más. Es tu oportunidad de transformar
+          Esta no es solo otra formación más. Es tu oportunidad de transformar
           completamente cómo el mundo ve tu trabajo y tu marca personal.
         </p>
         <a
-          href="#planes"
+          href="#inversion"
           class="inline-flex items-center justify-center px-8 py-4 bg-primary text-white rounded-full font-semibold text-lg hover:bg-red-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
         >
           Quiero transformar mi contenido
@@ -220,4 +190,3 @@ const {
     </div>
   </div>
 </section>
-

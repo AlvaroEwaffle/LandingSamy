@@ -1,4 +1,5 @@
 ---
+
 interface Props {
   title?: string;
   subtitle?: string;
@@ -10,111 +11,51 @@ const {
 } = Astro.props;
 
 const carouselImages = [
-  "/assets/Carrusel/Landing page Samy (6).png",
-  "/assets/Carrusel/Landing page Samy (7).png",
-  "/assets/Carrusel/Landing page Samy (8).png",
-  "/assets/Carrusel/Landing page Samy (9).png",
-  "/assets/Carrusel/Landing page Samy (10).png",
-  "/assets/Carrusel/Landing page Samy (11).png",
-  "/assets/Carrusel/Landing page Samy (12).png",
-  "/assets/Carrusel/Landing page Samy (13).png"
+  "/assets/january/Fotos_Camilla/IMG_4812.JPG",
+  "/assets/january/Fotos/IMG_4808.JPG",
+  "/assets/january/Fotos_Camilla/IMG_4813.JPG",
+  "/assets/january/Fotos/IMG_4812.JPG",
+  "/assets/january/Fotos_Camilla/IMG_4817.JPG",
+  "/assets/january/Fotos/IMG_4817.JPG",
+  "/assets/january/Fotos/IMG_6841.JPG",
+  "/assets/january/Fotos/IMG_7404.JPG"
 ];
 ---
 
-<!-- Fixed Event Banner -->
-<div class="fixed top-0 left-0 w-full bg-primary/90 backdrop-blur-sm z-50 cursor-pointer hover:bg-primary transition-colors duration-300" onclick="scrollToPlans()">
-  <div class="flex items-center justify-center px-4 py-3 text-white font-semibold">
-    <span class="mr-2">🎬</span>
-    <span class="mr-4">No te quedes fuera de este evento único</span>
-    <div class="flex items-center">
-      <span class="text-sm bg-white/20 rounded px-3 py-1">¡Reserva tu cupo!</span>
-    </div>
+<!-- Fixed Payment Banner -->
+<div class="fixed top-0 left-0 w-full bg-primary/90 backdrop-blur-sm z-50 transition-colors duration-300">
+  <div class="flex items-center justify-center gap-2 md:gap-4 px-2 md:px-4 py-2 md:py-3 text-white font-semibold flex-nowrap">
+    <span class="text-xs md:text-base whitespace-nowrap">Formación única sobre videos en camilla</span>
+    <a 
+      href="#inversion" 
+      class="bg-white text-primary rounded-lg px-3 md:px-6 py-2 md:py-3 font-bold text-sm md:text-base hover:bg-white/90 transition-colors duration-300 whitespace-nowrap flex-shrink-0"
+      onclick="event.preventDefault(); scrollToPlans();"
+    >
+      Empezar ya
+    </a>
   </div>
 </div>
 
-<!-- Desktop Version -->
-<section class="relative min-h-screen flex items-center justify-center bg-black overflow-x-hidden   hidden md:flex">
-  <!-- Background Video - Desktop Only -->
-  <div class="absolute inset-0 w-full h-full">
+<!-- Video Version (Desktop & Mobile) -->
+<section class="relative h-[60vh] md:min-h-screen flex items-center justify-center bg-black overflow-hidden pt-10 md:pt-16">
+  <!-- Background Video -->
+  <div class="absolute inset-0 w-full h-full overflow-hidden">
     <iframe
-      src="https://www.youtube.com/embed/FT44flR8_QI?autoplay=1&mute=1&loop=1&playlist=FT44flR8_QI&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&fs=0&iv_load_policy=3&cc_load_policy=0&color=white&theme=dark"
-      class="w-full h-full object-cover pointer-events-none"
+      src="https://www.youtube.com/embed/_Fby66icI2g?autoplay=1&mute=1&loop=1&playlist=_Fby66icI2g&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&fs=0&iv_load_policy=3&cc_load_policy=0&autohide=1&enablejsapi=0&color=white&theme=dark"
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] md:w-full md:h-full object-cover"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
     ></iframe>
-    <!-- Transparent overlay to prevent clicks -->
-    <div class="absolute inset-0 bg-transparent pointer-events-auto"></div>
-  </div>
-  
-  <!-- Dark overlay for text readability -->
-  <div class="absolute inset-0 "></div>
-
-  <div class="relative z-30 w-full px-4 sm:px-6 lg:px-8">
-
-    <!-- Main Content -->
-    <div class="text-center max-w-6xl mx-auto">
-      <!-- Main Title -->
-      <h1 class="text-5xl md:text-5xl lg:text-5xl font-bold mb-4 text-white leading-tight pt-16">
-        {title}
-      </h1>
-
-      <!-- Subtitle in Red -->
-      <h2 class="text-4xl md:text-3xl lg:text-3xl font-bold mb-8 text-primary leading-tight">
-        {subtitle}
-      </h2>
-
-      <!-- SAMY Logo -->
-      <div class="flex justify-center mb-8">
-        <img 
-          src="/assets/Logo.png" 
-          alt="SAMY Studio Logo" 
-          class="w-32 h-auto object-contain"
-        />
-      </div>
-
-      <!-- Description -->
-      <p class="text-white/90 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-12">
-        Una experiencia exclusiva para artistas de la belleza que buscan crear mejor contenido visual para su negocio. Aprendé a grabar y editar tus videos con una metodología clara y fácil de aplicar, usando sólo tu celular, un par de luces y un trípode.
-      </p>
-
-    </div>
   </div>
 </section>
 
-<!-- Mobile Version -->
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 pb-20 md:hidden">
-  <!-- Contenedor del video -->
-  <div class="absolute inset-0 overflow-hidden">
-    <iframe
-      src="https://www.youtube.com/embed/_nSj3EiYoQE?autoplay=1&mute=1&loop=1&playlist=_nSj3EiYoQE&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&fs=0&iv_load_policy=3&cc_load_policy=0&color=white&theme=dark"
-      class="absolute top-1/2 left-1/2 w-[110vw] h-[110vh] -translate-x-1/2 -translate-y-1/2 object-cover"
-      style="pointer-events:none"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    ></iframe>
-  </div>
-
-  <!-- Overlay oscuro -->
-  <div class="absolute inset-0 "></div>
-
-  <!-- Contenido -->
-  <div class="relative z-10 px-6 text-center text-white">
-    <h1 class="text-4xl font-bold mb-4">{title}</h1>
-    <h2 class="text-3xl text-primary font-bold mb-8">{subtitle}</h2>
-    
-    <!-- SAMY Logo -->
-    <div class="flex justify-center mb-8">
-      <img 
-        src="/assets/Logo.png" 
-        alt="SAMY Studio Logo" 
-        class="w-24 h-auto object-contain"
-      />
-    </div>
-    
-    <p class="max-w-2xl mx-auto mb-8 text-center">
-      Una experiencia exclusiva para artistas de la belleza que buscan crear mejor contenido visual para su negocio. Aprendé a grabar y editar tus videos con una metodología clara y fácil de aplicar, usando sólo tu celular, un par de luces y un trípode.
-    </p>
+<!-- Subtitle Section -->
+<section class="bg-black py-8">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-white opacity-0 translate-y-8 transition-all duration-1000 ease-out" id="hero-title">
+      UNA FORMACIÓN EN LÍNEA DE CREACIÓN DE VIDEOS EN CAMILLA
+    </h2>
   </div>
 </section>
 
@@ -122,8 +63,8 @@ const carouselImages = [
 <section class="relative w-full bg-black py-8">
   <!-- Powerful Quote -->
   <div class="text-center mb-8">
-    <h2 class="text-2xl md:text-3xl font-bold text-white px-4">
-      Ya no se trata solo de tener una buena técnica, necesitas saber <span class="text-primary">cómo mostrarla</span>.
+    <h2 class="text-xl md:text-2xl font-bold text-white px-4 opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-300" id="hero-quote">
+      Ya no se trata solo de tener una buena técnica, necesitas saber <span class="text-primary">cómo mostrarla</span>
     </h2>
   </div>
   
@@ -175,12 +116,29 @@ const carouselImages = [
         animation: scroll-carousel 20s linear infinite;
       }
 
+      /* Hide YouTube controls and UI elements */
+      iframe[src*="youtube.com"] {
+        position: relative;
+      }
+
+      /* Hide YouTube logo and controls overlay */
+      iframe[src*="youtube.com"]::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        z-index: 1;
+      }
+
     </style>
 
 <script>
   // Function to scroll to plans section
   function scrollToPlans() {
-    const plansSection = document.getElementById('planes');
+    const plansSection = document.getElementById('inversion') || document.getElementById('planes');
     if (plansSection) {
       plansSection.scrollIntoView({
         behavior: 'smooth',
@@ -191,4 +149,25 @@ const carouselImages = [
 
   // Make function globally available
   (window as any).scrollToPlans = scrollToPlans;
+
+  // Intersection Observer for animations
+  const observerOptions = {
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('opacity-0', 'translate-y-8');
+        entry.target.classList.add('opacity-100', 'translate-y-0');
+      }
+    });
+  }, observerOptions);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const title = document.getElementById('hero-title');
+    const quote = document.getElementById('hero-quote');
+    if (title) observer.observe(title);
+    if (quote) observer.observe(quote);
+  });
 </script>

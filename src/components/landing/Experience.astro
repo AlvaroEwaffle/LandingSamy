@@ -5,45 +5,40 @@ interface Props {
 }
 
 const { 
-  title = "Qué vivirás", 
-  description = "Una experiencia intensiva diseñada para transformar completamente tu forma de crear contenido visual." 
+  title = "¿Qué incluye esta formación?", 
+  description = "Acceso inmediato a todo el contenido grabado por módulos, donde aprenderás paso a paso." 
 } = Astro.props;
 
 const experiences = [
   {
     icon: "📹",
-    title: "Método SAMY en vivo",
-    description: "Aprende directamente de Samy las técnicas que han revolucionado el contenido visual en la industria de la belleza."
+    title: "Grabar contenido profesional",
+    description: "Aprende a grabar contenido profesional para tu negocio usando solo tu celular."
   },
   {
-    icon: "📱",
-    title: "Grabación con celular",
-    description: "Domina las técnicas para crear contenido profesional usando solo tu smartphone y herramientas accesibles."
+    icon: "🛠️",
+    title: "Usar herramientas correctamente",
+    description: "Usa correctamente las herramientas necesarias en cabina: celular, luces y trípode."
   },
   {
     icon: "📸",
-    title: "Encuadres y ángulos",
-    description: "Descubre los secretos de la composición visual que harán que tu contenido destaque en redes sociales."
+    title: "Grabar desde diferentes ángulos",
+    description: "Aprende a grabar desde diferentes ángulos para potenciar tu trabajo."
   },
   {
-    icon: "💼",
-    title: "Kit recomendado",
-    description: "Conoce las herramientas esenciales que necesitas para crear contenido de calidad profesional."
+    icon: "🎬",
+    title: "Aplicar el método exacto",
+    description: "Aplica el método exacto que utilizo para crear mejores videos."
   },
   {
-    icon: "🔥",
-    title: "Ambiente premium",
-    description: "Disfruta de un entorno exclusivo diseñado para maximizar tu aprendizaje y networking."
+    icon: "✂️",
+    title: "Editar con CapCut",
+    description: "Edita de forma fácil y efectiva con CapCut."
   },
   {
-    icon: "📒",
-    title: "Material exclusivo",
-    description: "Recibe recursos y guías que podrás usar como referencia continua en tu trabajo diario."
-  },
-  {
-    icon: "📍",
-    title: "Networking curado",
-    description: "Conecta con profesionales de la industria en un ambiente selecto y colaborativo."
+    icon: "📚",
+    title: "Material de apoyo",
+    description: "Acceso a plantillas, PDFs, guías y material de apoyo."
   }
 ];
 ---
@@ -79,10 +74,13 @@ const experiences = [
           style={`animation-delay: ${index * 0.1}s`}
         >
           <div class="text-center">
-            <!-- Title -->
-            <h3 class="text-lg font-bold text-white mb-3">
-              {experience.title}
-            </h3>
+            <!-- Icon and Title -->
+            <div class="flex flex-col items-center mb-3">
+              <span class="text-3xl mb-2">{experience.icon}</span>
+              <h3 class="text-lg font-bold text-white">
+                {experience.title}
+              </h3>
+            </div>
             
             <!-- Description -->
             <p class="text-white/80 leading-relaxed text-sm">
@@ -108,7 +106,7 @@ const experiences = [
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <span class="text-white font-medium">Coffee break premium</span>
+            <span class="text-white font-medium">Acceso inmediato a todo el contenido</span>
           </div>
           
           <div class="flex items-center">
@@ -117,7 +115,7 @@ const experiences = [
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <span class="text-white font-medium">Certificado de participación</span>
+            <span class="text-white font-medium">6 meses de acceso a la plataforma</span>
           </div>
           
           <div class="flex items-center">
@@ -126,7 +124,7 @@ const experiences = [
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <span class="text-white font-medium">Acceso a grupo exclusivo post-evento</span>
+            <span class="text-white font-medium">Soporte del equipo durante 6 meses</span>
           </div>
           
           <div class="flex items-center">
@@ -135,7 +133,7 @@ const experiences = [
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <span class="text-white font-medium">Sesión de preguntas y respuestas</span>
+            <span class="text-white font-medium">Acompañamiento directo con Samy por 30 días en WhatsApp</span>
           </div>
           
           <div class="flex items-center">
@@ -144,7 +142,7 @@ const experiences = [
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <span class="text-white font-medium">Fotos profesionales del evento</span>
+            <span class="text-white font-medium">Avanzas a tu ritmo, sin depender de horarios</span>
           </div>
         </div>
       </div>
@@ -158,21 +156,11 @@ const experiences = [
             </svg>
           </div>
           <h4 class="text-xl font-bold text-white mb-2">
-            Temario completo
+            Contenido organizado
           </h4>
           <p class="text-white/80 mb-6">
-            Descarga el programa detallado del evento
+            Módulos grabados con explicación paso a paso
           </p>
-          <a 
-            href="/assets/TemarioSamy.pdf" 
-            target="_blank"
-            class="inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300"
-          >
-            Ver temario completo
-            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-            </svg>
-          </a>
         </div>
       </div>
     </div>

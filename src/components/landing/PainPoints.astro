@@ -1,0 +1,88 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { 
+  title = "Esto es para ti si:" 
+} = Astro.props;
+
+const painPoints = [
+  {
+    text: "Sientes que aún tu contenido no refleja la calidad de tu trabajo."
+  },
+  {
+    text: "Siempre grabas desde el mismo ángulo."
+  },
+  {
+    text: "No sabes cómo usar correctamente tu celular, luces o trípode."
+  },
+  {
+    text: "Buscas mostrar tu servicio de forma más clara y atractiva."
+  },
+  {
+    text: "Necesitas elevar la percepción de valor de tu marca."
+  }
+];
+---
+
+<section id="puntos-dolor" class="py-20 bg-black relative overflow-hidden">
+  <!-- Background Image from january folder -->
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="/assets/january/Fotos/IMG_4812.JPG" 
+      alt="Background" 
+      class="w-full h-full object-cover opacity-20"
+    />
+    <div class="absolute inset-0 bg-black/70"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+        {title}
+      </h2>
+    </div>
+
+    <!-- Pain Points Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      {painPoints.map((point, index) => (
+        <div 
+          class="bg-black/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-primary/20 fade-in"
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <div class="flex items-start">
+            <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+              <span class="text-white font-bold text-lg">{index + 1}</span>
+            </div>
+            <p class="text-white text-lg leading-relaxed flex-1">
+              {point.text}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center">
+      <div class="bg-gradient-to-r from-primary/10 to-red-900/20 rounded-2xl p-8 border border-primary/20">
+        <h3 class="text-2xl font-bold text-white mb-4">
+          ¿Te identificas con alguno de estos puntos?
+        </h3>
+        <p class="text-white/80 mb-6 max-w-2xl mx-auto">
+          Esta formación está diseñada específicamente para resolver cada uno de estos desafíos.
+        </p>
+        <a 
+          href="#inversion" 
+          class="inline-flex items-center justify-center px-8 py-4 bg-primary text-white rounded-full font-semibold text-lg hover:bg-red-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+        >
+          Ver cómo resolverlo
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

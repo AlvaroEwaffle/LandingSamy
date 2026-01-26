@@ -5,39 +5,45 @@ interface Props {
 }
 
 const { 
-  title = "Términos y condiciones", 
-  description = "Información importante sobre el evento y las políticas de participación." 
+  title = "Condiciones del programa", 
+  description = "Información importante sobre la formación y las políticas de acceso." 
 } = Astro.props;
 
 const terms = [
   {
     title: "Política de pagos",
     content: [
-      "Todos los pagos son definitivos. No se realizan reembolsos bajo ninguna circunstancia."
+      "Todos los pagos son definitivos. No se realizan reembolsos bajo ninguna circunstancia una vez que hayas accedido al contenido."
     ]
   },
   {
-    title: "Cupo personal",
+    title: "Datos de usuario",
     content: [
-      "La inscripción es personal e intransferible. No se permite ceder el cupo a otra persona."
+      "El usuario es responsable de ingresar correctamente sus datos al momento de realizar la compra, especialmente su dirección de correo electrónico. En caso de que el usuario proporcione un correo electrónico incorrecto, mal escrito o al cual no tenga acceso, el equipo de Impacto Visual no será responsable por la falta de recepción de accesos, información o materiales asociados al programa. Asimismo, Impacto Visual no está obligado a corregir ni gestionar inconvenientes derivados de errores en los datos ingresados por el usuario durante el proceso de compra."
     ]
   },
   {
-    title: "Restricciones de grabación",
+    title: "Acceso personal",
     content: [
-      "Está prohibido grabar, retransmitir o transmitir en vivo cualquier parte del evento o actividad."
+      "El acceso a la formación es personal e intransferible. No se permite compartir credenciales o el contenido con otras personas."
     ]
   },
   {
-    title: "Inasistencia",
+    title: "Restricciones de uso",
     content: [
-      "En caso de no asistir al evento, no se realizará devolución de dinero ni cambios de fecha o cupo."
+      "Está prohibido grabar, descargar, retransmitir, compartir o distribuir cualquier parte del contenido de la formación."
     ]
   },
   {
-    title: "Uso de imagen",
+    title: "Duración del acceso",
     content: [
-      "Al inscribirte, autorizas el uso de tu imagen (fotografías y/o videos capturados durante el evento) con fines promocionales y de difusión en plataformas digitales o impresas."
+      "Tendrás acceso al contenido por 6 meses desde la fecha de ingreso a la plataforma. Después de este período, el acceso expirará automáticamente."
+    ]
+  },
+  {
+    title: "Uso del contenido",
+    content: [
+      "El contenido de la formación es propiedad intelectual de Samy. Está prohibido su uso comercial, reproducción o distribución sin autorización expresa."
     ]
   }
 ];
@@ -74,7 +80,6 @@ const terms = [
           <div class="space-y-3">
             {term.content.map((item) => (
               <div class="flex items-start">
-                <div class="w-2 h-2 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></div>
                 <p class="text-white/80 text-sm leading-relaxed">
                   {item}
                 </p>
@@ -98,13 +103,13 @@ const terms = [
             Información importante
           </h3>
           <p class="text-white/80 leading-relaxed mb-4">
-            Al inscribirte en el evento "Impacto Visual", confirmas que has leído, entendido y aceptas 
+            Al adquirir la formación "Impacto Visual", confirmas que has leído, entendido y aceptas 
             todos los términos y condiciones establecidos. Es tu responsabilidad revisar esta información 
             antes de realizar el pago.
           </p>
           <p class="text-white/80 leading-relaxed">
             Si tienes alguna duda sobre estos términos, no dudes en contactarnos antes de proceder 
-            con tu inscripción.
+            con tu compra.
           </p>
         </div>
       </div>
@@ -125,7 +130,7 @@ const terms = [
 
           
           <a 
-            href="https://wa.link/679vcr" 
+            href="https://wa.link/dl9nzo" 
             target="_blank"
             class="inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300"
           >
