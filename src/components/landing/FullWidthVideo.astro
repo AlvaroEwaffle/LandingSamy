@@ -4,27 +4,30 @@ interface Props {
 }
 
 const { 
-  videoId = "OCu-5fmS_mI" 
+  videoId = "PtNCtgG_ZtM" 
 } = Astro.props;
 ---
 
-<section class="relative flex flex-col items-center justify-center bg-black overflow-hidden py-10">
-  <div class="max-w-4xl mx-auto px-4 text-center mb-8">
-    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+<section class="relative flex flex-col items-center justify-center bg-black overflow-hidden py-16">
+  <div class="max-w-4xl mx-auto px-4 text-center mb-10">
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white italic">
       Aquí te cuento más
     </h2>
   </div>
   
-  <div class="relative w-full h-[60vh] md:h-[80vh] overflow-hidden">
-    <!-- Background Video -->
-    <div class="absolute inset-0 w-full h-full overflow-hidden">
-      <iframe
-        src={`https://www.youtube.com/embed/${videoId}?autoplay=0&mute=0&loop=1&playlist=${videoId}&controls=1&showinfo=0&rel=0&playsinline=1&fs=1&iv_load_policy=3&cc_load_policy=0&autohide=1&enablejsapi=0&color=white&theme=dark`}
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] md:w-full md:h-full object-cover"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
+  <div class="relative w-[90%] max-w-6xl mx-auto aspect-video rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(210,32,31,0.6)] border-2 border-primary/30">
+    <iframe
+      src={`https://www.youtube.com/embed/${videoId}?autoplay=0&mute=0&loop=1&playlist=${videoId}&controls=1&showinfo=0&rel=0&playsinline=1&fs=1&iv_load_policy=3&cc_load_policy=0&autohide=1&enablejsapi=0&color=white&theme=dark`}
+      class="absolute inset-0 w-full h-full"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
   </div>
 </section>
+
+<style>
+  .shadow-glow {
+    box-shadow: 0 0 25px 5px rgba(210, 32, 31, 0.5);
+  }
+</style>
