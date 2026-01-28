@@ -132,7 +132,7 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.m
 
 ## 📞 Contacto
 
-- Website: [https://impactovisual.cl](https://impactovisual.cl)
+- Website: [https://samy-studio.com](https://samy-studio.com)
 - Instagram: [@impactovisual](https://www.instagram.com/impactovisual/)
 - TikTok: [@impactovisual](https://www.tiktok.com/@impactovisual)
 - Email: info@impactovisual.cl
