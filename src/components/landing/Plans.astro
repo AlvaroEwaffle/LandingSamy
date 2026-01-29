@@ -33,12 +33,12 @@ const {
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-      <!-- Card 1 -->
-      <div id="card-fase1" class="bg-white rounded-2xl p-6 lg:p-8 shadow-2xl border-2 border-primary transform md:scale-105 relative z-10 flex flex-col transition-all duration-300">
-        <div id="fase1-badge" class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold whitespace-nowrap">
+      <!-- Card 1: CLOSED (manual) -->
+      <div id="card-fase1" class="bg-gray-100 rounded-2xl p-6 lg:p-8 shadow-xl border-2 border-gray-300 relative opacity-75 flex flex-col md:scale-100">
+        <div id="fase1-badge" class="hidden absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold whitespace-nowrap">
           OFERTA ACTUAL
         </div>
-        <div id="fase1-closed-overlay" class="absolute inset-0 z-10 bg-white/40 rounded-2xl flex items-center justify-center hidden">
+        <div id="fase1-closed-overlay" class="absolute inset-0 z-10 bg-white/40 rounded-2xl flex items-center justify-center">
           <span class="bg-gray-600 text-white px-4 py-2 rounded-lg font-bold rotate-12 shadow-lg">CERRADO</span>
         </div>
         <div class="text-center relative z-0">
@@ -76,7 +76,7 @@ const {
             </div>
           </div>
 
-          <div id="fase1-countdown-wrap" class="mb-6 bg-gray-900 text-white px-4 py-3 rounded-xl shadow-inner border border-primary/20 flex flex-col items-center gap-1">
+          <div id="fase1-countdown-wrap" class="hidden mb-6 bg-gray-900 text-white px-4 py-3 rounded-xl shadow-inner border border-primary/20 flex flex-col items-center gap-1">
             <span class="text-[10px] uppercase tracking-widest text-primary font-bold">La oferta cierra en:</span>
             <div class="flex gap-1 font-mono text-lg font-bold" id="countdown-fase1">
               <span id="days">00</span><span class="text-xs opacity-70 mr-1">d</span>
@@ -94,39 +94,39 @@ const {
               id="fase1-cta-link"
               href="https://pay.hotmart.com/Y103097499K?off=wz362e0a" 
               target="_blank"
-              class="block w-full py-4 bg-primary text-white rounded-full font-bold hover:bg-red-dark transition-all duration-300 shadow-lg"
+              class="hidden block w-full py-4 bg-primary text-white rounded-full font-bold hover:bg-red-dark transition-all duration-300 shadow-lg"
             >
               QUIERO MI LUGAR
             </a>
-            <button id="fase1-cta-closed" disabled class="hidden w-full py-3 bg-gray-400 text-white rounded-full font-bold cursor-not-allowed">
+            <button id="fase1-cta-closed" disabled class="w-full py-3 bg-gray-400 text-white rounded-full font-bold cursor-not-allowed">
               Cerrado
             </button>
           </div>
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div id="card-fase2" class="bg-gray-100 rounded-2xl p-6 lg:p-8 shadow-xl border-2 border-gray-300 relative opacity-75 flex flex-col transition-all duration-300">
-        <div id="fase2-overlay" class="absolute inset-0 z-10 bg-white/40 rounded-2xl flex items-center justify-center">
+      <!-- Card 2: OPEN (manual) - OFERTA ACTUAL -->
+      <div id="card-fase2" class="bg-white rounded-2xl p-6 lg:p-8 shadow-2xl border-2 border-primary transform md:scale-105 relative z-10 flex flex-col">
+        <div id="fase2-overlay" class="hidden absolute inset-0 z-10 bg-white/40 rounded-2xl flex items-center justify-center">
           <span class="bg-primary text-white px-4 py-2 rounded-lg font-bold rotate-12 shadow-lg">PRÓXIMAMENTE</span>
         </div>
-        <div id="fase2-badge-wrap" class="absolute -top-4 left-1/2 -translate-x-1/2 z-20 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold whitespace-nowrap hidden">
+        <div id="fase2-badge-wrap" class="absolute -top-4 left-1/2 -translate-x-1/2 z-20 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold whitespace-nowrap">
           OFERTA ACTUAL
         </div>
         <div class="text-center relative z-0">
-          <h3 class="text-xl font-bold text-gray-600 mb-2 fase2-title">Fase 2</h3>
-          <p id="fase2-subtitle" class="text-xs font-semibold text-gray-500 mb-4 uppercase tracking-widest">Oportunidad disponible por 24 horas</p>
+          <h3 class="text-xl font-bold text-text-dark mb-2">Fase 2</h3>
+          <p id="fase2-subtitle" class="text-xs font-semibold text-primary mb-4 uppercase tracking-widest">Oportunidad disponible por 24 horas</p>
           <p class="text-sm text-gray-500 mb-4 font-bold underline">29/01 al 30/01</p>
           
-          <div id="fase2-price-wrap" class="mb-6 flex flex-col items-center invisible">
+          <div id="fase2-price-wrap" class="mb-6 flex flex-col items-center">
             <div class="flex items-center justify-center">
-              <span class="text-4xl font-bold text-primary fase2-price-num">127</span>
+              <span class="text-4xl font-bold text-primary">127</span>
               <span class="text-xl text-gray-500 ml-1">USD</span>
             </div>
             <p class="text-[10px] text-primary font-bold uppercase mt-1 italic">Este precio pronto subirá</p>
           </div>
           
-          <div id="fase2-countdown-wrap" class="mb-6 bg-gray-900 text-white px-4 py-3 rounded-xl shadow-inner border border-primary/20 flex flex-col items-center gap-1 hidden">
+          <div id="fase2-countdown-wrap" class="mb-6 bg-gray-900 text-white px-4 py-3 rounded-xl shadow-inner border border-primary/20 flex flex-col items-center gap-1">
             <span class="text-[10px] uppercase tracking-widest text-primary font-bold">La oferta cierra en:</span>
             <div class="flex gap-1 font-mono text-lg font-bold" id="countdown-fase2">
               <span id="f2-days">00</span><span class="text-xs opacity-70 mr-1">d</span>
@@ -159,14 +159,14 @@ const {
           </div>
           
           <div id="fase2-cta-wrap">
-            <button id="fase2-cta-closed" disabled class="w-full py-3 bg-gray-400 text-white rounded-full font-bold cursor-not-allowed">
+            <button id="fase2-cta-closed" disabled class="hidden w-full py-3 bg-gray-400 text-white rounded-full font-bold cursor-not-allowed">
               Cerrado
             </button>
             <a 
               id="fase2-cta-link"
               href="https://pay.hotmart.com/Y103097499K?off=z00lzzsk" 
               target="_blank"
-              class="hidden block w-full py-4 bg-primary text-white rounded-full font-bold hover:bg-red-dark transition-all duration-300 shadow-lg"
+              class="block w-full py-4 bg-primary text-white rounded-full font-bold hover:bg-red-dark transition-all duration-300 shadow-lg"
             >
               QUIERO MI LUGAR
             </a>
@@ -236,7 +236,7 @@ const {
             </button>
             <a 
               id="fase3-cta-link"
-              href="https://pay.hotmart.com/Y103097499K?off=z00lzzsk" 
+              href="https://pay.hotmart.com/Y103097499K?off=zi9wfqaz" 
               target="_blank"
               class="hidden block w-full py-4 bg-primary text-white rounded-full font-bold hover:bg-red-dark transition-all duration-300 shadow-lg"
             >
@@ -252,203 +252,41 @@ const {
 
 <script is:inline>
   (function () {
-    // 00:01 Chile (UTC-3) → 03:01 UTC
-    const FASE2_OPENS_AT = new Date('2026-01-29T03:01:00Z');
-    const FASE3_OPENS_AT = new Date('2026-01-30T03:01:00Z');
-    const FASE3_CLOSES_AT = new Date('2026-01-31T03:01:00Z');
-
-    function getActivePhase() {
-      const now = new Date();
-      if (now < FASE2_OPENS_AT) return 1;
-      if (now < FASE3_OPENS_AT) return 2;
-      if (now < FASE3_CLOSES_AT) return 3;
-      return 'closed';
-    }
+    var FASE3_OPENS_AT = new Date('2026-01-30T03:01:00Z');
 
     function pad2(n) { return String(n).padStart(2, '0'); }
 
-    function updateCountdown(targetDate, opts) {
-      const now = new Date().getTime();
-      const distance = targetDate.getTime() - now;
-      const countdownEl = opts.countdownEl;
-      const ids = opts.ids;
-      if (!countdownEl || !ids) return;
-
+    function updateCountdown() {
+      var now = Date.now();
+      var distance = FASE3_OPENS_AT.getTime() - now;
+      var el = document.getElementById('countdown-fase2');
+      if (!el) return;
       if (distance < 0) {
-        countdownEl.innerHTML = "<span class='text-primary font-bold'>CERRADO</span>";
+        el.innerHTML = "<span class='text-primary font-bold'>CERRADO</span>";
         return;
       }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      const d = document.getElementById(ids.days);
-      const h = document.getElementById(ids.hours);
-      const m = document.getElementById(ids.minutes);
-      const s = document.getElementById(ids.seconds);
+      var days = Math.floor(distance / 864e5);
+      var hours = Math.floor((distance % 864e5) / 36e5);
+      var minutes = Math.floor((distance % 36e5) / 6e4);
+      var seconds = Math.floor((distance % 6e4) / 1e3);
+      var d = document.getElementById('f2-days');
+      var h = document.getElementById('f2-hours');
+      var m = document.getElementById('f2-minutes');
+      var s = document.getElementById('f2-seconds');
       if (d) d.textContent = pad2(days);
       if (h) h.textContent = pad2(hours);
       if (m) m.textContent = pad2(minutes);
       if (s) s.textContent = pad2(seconds);
     }
 
-    function applyPhaseState(phase) {
-      const phase1 = phase === 1;
-      const phase2 = phase === 2;
-      const phase3 = phase === 3;
-      const allClosed = phase === 'closed';
-
-      const card1 = document.getElementById('card-fase1');
-      const badge1 = document.getElementById('fase1-badge');
-      const overlay1 = document.getElementById('fase1-closed-overlay');
-      const countdown1Wrap = document.getElementById('fase1-countdown-wrap');
-      const ctaLink1 = document.getElementById('fase1-cta-link');
-      const ctaClosed1 = document.getElementById('fase1-cta-closed');
-
-      const card2 = document.getElementById('card-fase2');
-      const overlay2 = document.getElementById('fase2-overlay');
-      const badge2 = document.getElementById('fase2-badge-wrap');
-      const price2 = document.getElementById('fase2-price-wrap');
-      const countdown2Wrap = document.getElementById('fase2-countdown-wrap');
-      const ctaClosed2 = document.getElementById('fase2-cta-closed');
-      const ctaLink2 = document.getElementById('fase2-cta-link');
-
-      const card3 = document.getElementById('card-fase3');
-      const overlay3Prox = document.getElementById('fase3-overlay-prox');
-      const overlay3Closed = document.getElementById('fase3-overlay-closed');
-      const badge3 = document.getElementById('fase3-badge-wrap');
-      const price3 = document.getElementById('fase3-price-wrap');
-      const countdown3Wrap = document.getElementById('fase3-countdown-wrap');
-      const ctaClosed3 = document.getElementById('fase3-cta-closed');
-      const ctaLink3 = document.getElementById('fase3-cta-link');
-
-      if (phase1) {
-        if (card1) {
-          card1.classList.remove('bg-gray-100', 'opacity-75', 'md:scale-100', 'border-gray-300');
-          card1.classList.add('bg-white', 'md:scale-105', 'border-primary');
-        }
-        if (badge1) badge1.classList.remove('hidden');
-        if (overlay1) overlay1.classList.add('hidden');
-        if (countdown1Wrap) countdown1Wrap.classList.remove('hidden');
-        if (ctaLink1) { ctaLink1.classList.remove('hidden'); ctaLink1.style.display = 'block'; }
-        if (ctaClosed1) { ctaClosed1.classList.add('hidden'); ctaClosed1.style.display = 'none'; }
-      } else {
-        if (card1) {
-          card1.classList.remove('bg-white', 'md:scale-105', 'border-primary');
-          card1.classList.add('bg-gray-100', 'opacity-75', 'md:scale-100', 'border-gray-300');
-        }
-        if (badge1) badge1.classList.add('hidden');
-        if (overlay1) overlay1.classList.remove('hidden');
-        if (countdown1Wrap) countdown1Wrap.classList.add('hidden');
-        if (ctaLink1) { ctaLink1.classList.add('hidden'); ctaLink1.style.display = 'none'; }
-        if (ctaClosed1) { ctaClosed1.classList.remove('hidden'); ctaClosed1.style.display = 'block'; }
-      }
-
-      if (phase2) {
-        if (card2) {
-          card2.classList.remove('bg-gray-100', 'opacity-75', 'border-gray-300');
-          card2.classList.add('bg-white', 'border-primary', 'md:scale-105', 'relative', 'z-10');
-          card2.style.opacity = '1';
-        }
-        if (overlay2) overlay2.classList.add('hidden');
-        if (badge2) badge2.classList.remove('hidden');
-        if (price2) price2.classList.remove('invisible');
-        if (countdown2Wrap) countdown2Wrap.classList.remove('hidden');
-        if (ctaClosed2) { ctaClosed2.classList.add('hidden'); ctaClosed2.style.display = 'none'; }
-        if (ctaLink2) { ctaLink2.classList.remove('hidden'); ctaLink2.style.display = 'block'; }
-      } else {
-        if (card2) {
-          card2.classList.remove('bg-white', 'border-primary', 'md:scale-105', 'z-10');
-          card2.classList.add('bg-gray-100', 'opacity-75', 'border-gray-300');
-          card2.style.opacity = '';
-        }
-        if (overlay2) overlay2.classList.remove('hidden');
-        if (badge2) badge2.classList.add('hidden');
-        if (price2) price2.classList.add('invisible');
-        if (countdown2Wrap) countdown2Wrap.classList.add('hidden');
-        if (ctaClosed2) { ctaClosed2.classList.remove('hidden'); ctaClosed2.style.display = 'block'; }
-        if (ctaLink2) { ctaLink2.classList.add('hidden'); ctaLink2.style.display = 'none'; }
-      }
-
-      if (phase3) {
-        if (card3) {
-          card3.classList.remove('bg-gray-100', 'opacity-75', 'border-gray-300');
-          card3.classList.add('bg-white', 'border-primary', 'md:scale-105', 'relative', 'z-10');
-          card3.style.opacity = '1';
-        }
-        if (overlay3Prox) overlay3Prox.classList.add('hidden');
-        if (overlay3Closed) overlay3Closed.classList.add('hidden');
-        if (badge3) badge3.classList.remove('hidden');
-        if (price3) price3.classList.remove('invisible');
-        if (countdown3Wrap) countdown3Wrap.classList.remove('hidden');
-        if (ctaClosed3) { ctaClosed3.classList.add('hidden'); ctaClosed3.style.display = 'none'; }
-        if (ctaLink3) { ctaLink3.classList.remove('hidden'); ctaLink3.style.display = 'block'; }
-      } else if (allClosed) {
-        if (card3) {
-          card3.classList.remove('bg-white', 'border-primary', 'md:scale-105', 'z-10');
-          card3.classList.add('bg-gray-100', 'opacity-75', 'border-gray-300');
-          card3.style.opacity = '';
-        }
-        if (overlay3Prox) overlay3Prox.classList.add('hidden');
-        if (overlay3Closed) overlay3Closed.classList.remove('hidden');
-        if (badge3) badge3.classList.add('hidden');
-        if (price3) price3.classList.add('invisible');
-        if (countdown3Wrap) countdown3Wrap.classList.add('hidden');
-        if (ctaClosed3) { ctaClosed3.classList.remove('hidden'); ctaClosed3.style.display = 'block'; }
-        if (ctaLink3) { ctaLink3.classList.add('hidden'); ctaLink3.style.display = 'none'; }
-      } else {
-        if (card3) {
-          card3.classList.remove('bg-white', 'border-primary', 'md:scale-105', 'z-10');
-          card3.classList.add('bg-gray-100', 'opacity-75', 'border-gray-300');
-        }
-        if (overlay3Prox) overlay3Prox.classList.remove('hidden');
-        if (overlay3Closed) overlay3Closed.classList.add('hidden');
-        if (badge3) badge3.classList.add('hidden');
-        if (price3) price3.classList.add('invisible');
-        if (countdown3Wrap) countdown3Wrap.classList.add('hidden');
-        if (ctaClosed3) { ctaClosed3.classList.remove('hidden'); ctaClosed3.style.display = 'block'; }
-        if (ctaLink3) { ctaLink3.classList.add('hidden'); ctaLink3.style.display = 'none'; }
-      }
+    function run() {
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
     }
-
-    function tick() {
-      const phase = getActivePhase();
-      applyPhaseState(phase);
-
-      const countdown1Wrap = document.getElementById('fase1-countdown-wrap');
-      const countdown2Wrap = document.getElementById('fase2-countdown-wrap');
-      const countdown3Wrap = document.getElementById('fase3-countdown-wrap');
-      const countdown1El = document.getElementById('countdown-fase1');
-      const countdown2El = document.getElementById('countdown-fase2');
-      const countdown3El = document.getElementById('countdown-fase3');
-
-      if (phase === 1 && countdown1Wrap && !countdown1Wrap.classList.contains('hidden') && countdown1El) {
-        updateCountdown(FASE2_OPENS_AT, {
-          countdownEl: countdown1El,
-          ids: { days: 'days', hours: 'hours', minutes: 'minutes', seconds: 'seconds' }
-        });
-      }
-      if (phase === 2 && countdown2Wrap && !countdown2Wrap.classList.contains('hidden') && countdown2El) {
-        updateCountdown(FASE3_OPENS_AT, {
-          countdownEl: countdown2El,
-          ids: { days: 'f2-days', hours: 'f2-hours', minutes: 'f2-minutes', seconds: 'f2-seconds' }
-        });
-      }
-      if (phase === 3 && countdown3Wrap && !countdown3Wrap.classList.contains('hidden') && countdown3El) {
-        updateCountdown(FASE3_CLOSES_AT, {
-          countdownEl: countdown3El,
-          ids: { days: 'f3-days', hours: 'f3-hours', minutes: 'f3-minutes', seconds: 'f3-seconds' }
-        });
-      }
-    }
-
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function () { tick(); setInterval(tick, 1000); });
+      document.addEventListener('DOMContentLoaded', run);
     } else {
-      tick();
-      setInterval(tick, 1000);
+      run();
     }
   })();
 </script> 
