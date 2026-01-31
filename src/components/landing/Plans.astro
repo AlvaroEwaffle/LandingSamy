@@ -38,8 +38,9 @@ const {
         <div id="fase1-badge" class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold whitespace-nowrap">
           OFERTA ACTUAL
         </div>
-        <div id="fase1-closed-overlay" class="absolute inset-0 z-10 bg-white/40 rounded-2xl flex items-center justify-center hidden">
+        <div id="fase1-closed-overlay" class="absolute inset-0 z-10 bg-white/40 rounded-2xl flex flex-col items-center justify-center gap-2 hidden">
           <span class="bg-gray-600 text-white px-4 py-2 rounded-lg font-bold rotate-12 shadow-lg">CERRADO</span>
+          <span class="text-2xl font-bold text-primary">107 USD</span>
         </div>
         <div class="text-center relative z-0">
           <h3 class="text-2xl font-bold text-text-dark mb-2">Fase 1</h3>
@@ -107,8 +108,9 @@ const {
 
       <!-- Card 2 -->
       <div id="card-fase2" class="bg-gray-100 rounded-2xl p-6 lg:p-8 shadow-xl border-2 border-gray-300 relative opacity-75 flex flex-col transition-all duration-300">
-        <div id="fase2-overlay" class="absolute inset-0 z-10 bg-white/40 rounded-2xl flex items-center justify-center">
+        <div id="fase2-overlay" class="absolute inset-0 z-10 bg-white/40 rounded-2xl flex flex-col items-center justify-center gap-2">
           <span class="bg-gray-600 text-white px-4 py-2 rounded-lg font-bold rotate-12 shadow-lg">CERRADO</span>
+          <span class="text-2xl font-bold text-primary">127 USD</span>
         </div>
         <div id="fase2-badge-wrap" class="absolute -top-4 left-1/2 -translate-x-1/2 z-20 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold whitespace-nowrap hidden">
           OFERTA ACTUAL
@@ -118,7 +120,7 @@ const {
           <p id="fase2-subtitle" class="text-xs font-semibold text-gray-500 mb-4 uppercase tracking-widest">Oportunidad disponible por 24 horas</p>
           <p class="text-sm text-gray-500 mb-4 font-bold underline">29/01 al 30/01</p>
           
-          <div id="fase2-price-wrap" class="mb-6 flex flex-col items-center invisible">
+          <div id="fase2-price-wrap" class="mb-6 flex flex-col items-center">
             <div class="flex items-center justify-center">
               <span class="text-4xl font-bold text-primary">127</span>
               <span class="text-xl text-gray-500 ml-1">USD</span>
@@ -176,11 +178,13 @@ const {
 
       <!-- Card 3 -->
       <div id="card-fase3" class="bg-gray-100 rounded-2xl p-6 lg:p-8 shadow-xl border-2 border-gray-300 relative opacity-75 flex flex-col transition-all duration-300">
-        <div id="fase3-overlay-prox" class="absolute inset-0 z-10 bg-white/40 rounded-2xl flex items-center justify-center">
+        <div id="fase3-overlay-prox" class="absolute inset-0 z-10 bg-white/40 rounded-2xl flex flex-col items-center justify-center gap-2">
           <span class="bg-primary text-white px-4 py-2 rounded-lg font-bold rotate-12 shadow-lg">PRÓXIMAMENTE</span>
+          <span class="text-2xl font-bold text-primary">147 USD</span>
         </div>
-        <div id="fase3-overlay-closed" class="absolute inset-0 z-10 bg-white/40 rounded-2xl flex items-center justify-center hidden">
+        <div id="fase3-overlay-closed" class="absolute inset-0 z-10 bg-white/40 rounded-2xl flex flex-col items-center justify-center gap-2 hidden">
           <span class="bg-gray-600 text-white px-4 py-2 rounded-lg font-bold rotate-12 shadow-lg">CERRADO</span>
+          <span class="text-2xl font-bold text-primary">147 USD</span>
         </div>
         <div id="fase3-badge-wrap" class="absolute -top-4 left-1/2 -translate-x-1/2 z-20 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold whitespace-nowrap hidden">
           OFERTA ACTUAL
@@ -190,7 +194,7 @@ const {
           <p class="text-xs font-semibold text-gray-500 mb-4 uppercase tracking-widest">Oportunidad disponible por 24 horas</p>
           <p class="text-sm text-gray-500 mb-4 font-bold underline">30/01 al 31/01</p>
           
-          <div id="fase3-price-wrap" class="mb-6 flex flex-col items-center invisible">
+          <div id="fase3-price-wrap" class="mb-6 flex flex-col items-center">
             <div class="flex items-center justify-center">
               <span class="text-4xl font-bold text-primary">147</span>
               <span class="text-xl text-gray-500 ml-1">USD</span>
@@ -341,7 +345,6 @@ const {
         if (card2) { card2.classList.remove('bg-gray-100','opacity-75','border-gray-300'); card2.classList.add('bg-white','border-primary','md:scale-105','relative','z-10'); card2.style.opacity = '1'; }
         if (overlay2) overlay2.classList.add('hidden');
         if (badge2) badge2.classList.remove('hidden');
-        if (price2) price2.classList.remove('invisible');
         if (countdown2Wrap) countdown2Wrap.classList.remove('hidden');
         if (ctaClosed2) { ctaClosed2.classList.add('hidden'); ctaClosed2.style.display = 'none'; }
         if (ctaLink2) { ctaLink2.classList.remove('hidden'); ctaLink2.style.display = 'block'; }
@@ -349,7 +352,6 @@ const {
         if (card2) { card2.classList.remove('bg-white','border-primary','md:scale-105','z-10'); card2.classList.add('bg-gray-100','opacity-75','border-gray-300'); card2.style.opacity = ''; }
         if (overlay2) overlay2.classList.remove('hidden');
         if (badge2) badge2.classList.add('hidden');
-        if (price2) price2.classList.add('invisible');
         if (countdown2Wrap) countdown2Wrap.classList.add('hidden');
         if (ctaClosed2) { ctaClosed2.classList.remove('hidden'); ctaClosed2.style.display = 'block'; }
         if (ctaLink2) { ctaLink2.classList.add('hidden'); ctaLink2.style.display = 'none'; }
@@ -360,7 +362,6 @@ const {
         if (overlay3Prox) overlay3Prox.classList.add('hidden');
         if (overlay3Closed) overlay3Closed.classList.add('hidden');
         if (badge3) badge3.classList.remove('hidden');
-        if (price3) price3.classList.remove('invisible');
         if (countdown3Wrap) countdown3Wrap.classList.remove('hidden');
         if (ctaClosed3) { ctaClosed3.classList.add('hidden'); ctaClosed3.style.display = 'none'; }
         if (ctaLink3) { ctaLink3.classList.remove('hidden'); ctaLink3.style.display = 'block'; }
@@ -369,7 +370,6 @@ const {
         if (overlay3Prox) overlay3Prox.classList.add('hidden');
         if (overlay3Closed) overlay3Closed.classList.remove('hidden');
         if (badge3) badge3.classList.add('hidden');
-        if (price3) price3.classList.add('invisible');
         if (countdown3Wrap) countdown3Wrap.classList.add('hidden');
         if (ctaClosed3) { ctaClosed3.classList.remove('hidden'); ctaClosed3.style.display = 'block'; }
         if (ctaLink3) { ctaLink3.classList.add('hidden'); ctaLink3.style.display = 'none'; }
@@ -378,7 +378,6 @@ const {
         if (overlay3Prox) overlay3Prox.classList.remove('hidden');
         if (overlay3Closed) overlay3Closed.classList.add('hidden');
         if (badge3) badge3.classList.add('hidden');
-        if (price3) price3.classList.add('invisible');
         if (countdown3Wrap) countdown3Wrap.classList.add('hidden');
         if (ctaClosed3) { ctaClosed3.classList.remove('hidden'); ctaClosed3.style.display = 'block'; }
         if (ctaLink3) { ctaLink3.classList.add('hidden'); ctaLink3.style.display = 'none'; }
