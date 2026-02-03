@@ -25,7 +25,12 @@ const carouselImages = [
 <!-- Fixed Payment Banner -->
 <div class="fixed top-0 left-0 w-full bg-primary/90 backdrop-blur-sm z-50 transition-colors duration-300">
   <div class="flex items-center justify-center gap-2 md:gap-4 px-2 md:px-4 py-2 md:py-3 text-white font-semibold flex-nowrap">
-    <span class="text-xs md:text-base whitespace-nowrap">Formación única sobre videos en camilla</span>
+    <span id="banner-phase-text" class="text-xs md:text-base whitespace-nowrap">
+      Cargando fase...
+    </span>
+    <span id="banner-countdown" class="text-xs md:text-base font-extrabold tabular-nums whitespace-nowrap">
+      00:00:00
+    </span>
     <a 
       href="#inversion" 
       class="bg-white text-primary rounded-lg px-3 md:px-6 py-2 md:py-3 font-bold text-sm md:text-base hover:bg-white/90 transition-colors duration-300 whitespace-nowrap flex-shrink-0"
@@ -150,6 +155,47 @@ const carouselImages = [
   // Make function globally available
   (window as any).scrollToPlans = scrollToPlans;
 
+  function pad2(n: number) {
+    return String(n).padStart(2, '0');
+  }
+
+  function formatCountdown(ms: number) {
+    const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    // If days > 0 we show D:HH:MM:SS, else HH:MM:SS
+    if (days > 0) return `${days}d ${pad2(hours)}:${pad2(minutes)}:${pad2(seconds)}`;
+    return `${pad2(hours)}:${pad2(minutes)}:${pad2(seconds)}`;
+  }
+
+  function getPhaseInfo(now = new Date()) {
+    // Chile UTC-3 en feb. Fase 2: 07/02 21:59 → 08/02 12:00 Chile
+    const PHASE2_START_AT = new Date('2026-02-08T00:59:00Z');
+    const PHASE2_END_AT = new Date('2026-02-08T15:00:00Z');
+
+    if (now >= PHASE2_START_AT && now < PHASE2_END_AT) return { phase: 2, endsAt: PHASE2_END_AT };
+    return { phase: 'soldout' as const, endsAt: null as any };
+  }
+
+  function updateBannerCountdown() {
+    const phaseTextEl = document.getElementById('banner-phase-text');
+    const countdownEl = document.getElementById('banner-countdown');
+    if (!phaseTextEl || !countdownEl) return;
+
+    const info = getPhaseInfo(new Date());
+    if (info.phase === 2) {
+      phaseTextEl.textContent = 'Fase 2 cierra en';
+      countdownEl.classList.remove('hidden');
+      countdownEl.textContent = formatCountdown(info.endsAt.getTime() - Date.now());
+      return;
+    }
+
+    phaseTextEl.textContent = 'SOLD OUT · Lista de espera abierta';
+    countdownEl.classList.add('hidden');
+  }
+
   // Intersection Observer for animations
   const observerOptions = {
     threshold: 0.1
@@ -169,5 +215,8 @@ const carouselImages = [
     const quote = document.getElementById('hero-quote');
     if (title) observer.observe(title);
     if (quote) observer.observe(quote);
+
+    updateBannerCountdown();
+    setInterval(updateBannerCountdown, 1000);
   });
 </script>
