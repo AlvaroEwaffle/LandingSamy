@@ -75,7 +75,7 @@ const phase2CheckoutLink = "https://pay.hotmart.com/Y103097499K?off=zi9wfqaz";
               <span class="text-xl md:text-2xl text-white/70 font-bold">USD</span>
             </div>
             <p class="mt-3 text-sm text-white/70">
-              Disponible hasta el 08/02 12:00 (hora Chile)
+              Disponible hasta el 08/02 23:59 (hora Chile)
             </p>
 
             <div class="mt-10">
@@ -100,9 +100,9 @@ const phase2CheckoutLink = "https://pay.hotmart.com/Y103097499K?off=zi9wfqaz";
   (function () {
     // Chile UTC-3 en feb. Usamos UTC para que cambie igual en todo el mundo.
     // Fase 2 empieza: 07/02 21:59 Chile = 08/02 00:59Z
-    // Fase 2 termina: 08/02 12:00 Chile = 08/02 15:00Z
+    // Fase 2 termina: 08/02 23:59 Chile = 09/02 02:59Z
     var PHASE2_START_AT = new Date('2026-02-08T00:59:00Z');
-    var PHASE2_END_AT = new Date('2026-02-08T15:00:00Z');
+    var PHASE2_END_AT = new Date('2026-02-09T02:59:00Z'); // 08/02 23:59 Chile
 
     function getPhase() {
       var now = new Date();

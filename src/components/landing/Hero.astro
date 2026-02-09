@@ -171,9 +171,9 @@ const carouselImages = [
   }
 
   function getPhaseInfo(now = new Date()) {
-    // Chile UTC-3 en feb. Fase 2: 07/02 21:59 → 08/02 12:00 Chile
+    // Chile UTC-3 en feb. Fase 2: 07/02 21:59 → 08/02 23:59 Chile
     const PHASE2_START_AT = new Date('2026-02-08T00:59:00Z');
-    const PHASE2_END_AT = new Date('2026-02-08T15:00:00Z');
+    const PHASE2_END_AT = new Date('2026-02-09T02:59:00Z'); // 08/02 23:59 Chile
 
     if (now >= PHASE2_START_AT && now < PHASE2_END_AT) return { phase: 2, endsAt: PHASE2_END_AT };
     return { phase: 'soldout' as const, endsAt: null as any };
@@ -186,7 +186,7 @@ const carouselImages = [
 
     const info = getPhaseInfo(new Date());
     if (info.phase === 2) {
-      phaseTextEl.textContent = 'Fase 2 cierra en';
+      phaseTextEl.textContent = 'Última Oportunidad · cierra en';
       countdownEl.classList.remove('hidden');
       countdownEl.textContent = formatCountdown(info.endsAt.getTime() - Date.now());
       return;
