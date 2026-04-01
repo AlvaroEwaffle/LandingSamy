@@ -1,0 +1,37 @@
+---
+// UrgencyBanner component for fixed red urgency banner at top with discount CTA
+---
+
+<div class="fixed top-0 left-0 w-full bg-red-600 backdrop-blur-sm z-40 transition-colors duration-300">
+  <div class="flex items-center justify-between gap-4 px-4 md:px-6 py-3 md:py-4 text-white font-semibold flex-wrap md:flex-nowrap">
+    <!-- Left side: Fire emoji + text -->
+    <div class="flex items-center gap-2 md:gap-3 flex-1 min-w-0">
+      <span class="text-lg md:text-xl flex-shrink-0">🔥</span>
+      <span class="text-xs md:text-sm lg:text-base font-extrabold">
+        ¡ÚLTIMAS HORAS! 63% DE DESCUENTO DISPONIBLE
+      </span>
+    </div>
+
+    <!-- Right side: CTA button -->
+    <a
+      href="#inversion"
+      class="bg-white text-red-600 rounded-lg px-3 md:px-6 py-2 md:py-3 font-bold text-xs md:text-sm lg:text-base hover:bg-white/90 transition-colors duration-300 whitespace-nowrap flex-shrink-0 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-block"
+    >
+      APROVECHAR OFERTA AHORA
+    </a>
+  </div>
+</div>
+
+<style>
+  /* Ensure hero and other content doesn't get hidden under fixed banner */
+  :global(body) {
+    padding-top: 3.75rem;
+  }
+
+  /* Remove the extra padding on smaller screens to save space */
+  @media (max-width: 640px) {
+    :global(body) {
+      padding-top: 3.5rem;
+    }
+  }
+</style>
