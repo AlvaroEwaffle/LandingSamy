@@ -5,7 +5,7 @@ export default function ImpactClient() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="relative w-full bg-slate-950 overflow-hidden py-16 md:py-24">
+    <section className="relative w-full bg-black overflow-hidden py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           className="relative w-full flex items-center justify-center"

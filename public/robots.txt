@@ -5,4 +5,7 @@ Allow: /
 Sitemap: https://samy-studio.com/sitemap.xml
 
 # Host
-Host: https://samy-studio.com 
+Host: https://samy-studio.com
+
+# LLM / AI guidance
+# Structured overview for AI: https://samy-studio.com/llms.txt

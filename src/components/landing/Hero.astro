@@ -1,4 +1,8 @@
 ---
+import {
+  getHeroBannerText,
+  primaryBannerCtaLabel,
+} from '../../data/offerPhases';
 
 interface Props {
   title?: string;
@@ -20,29 +24,40 @@ const carouselImages = [
   "/assets/january/Fotos/IMG_6841.JPG",
   "/assets/january/Fotos/IMG_7404.JPG"
 ];
+
+const bannerText = getHeroBannerText();
+const bannerCtaHref = '#inversion';
+const bannerCtaLabel = primaryBannerCtaLabel;
 ---
 
-<!-- Fixed Payment Banner -->
-<div class="fixed top-0 left-0 w-full bg-primary/90 backdrop-blur-sm z-50 transition-colors duration-300">
-  <div class="flex items-center justify-center gap-2 md:gap-4 px-2 md:px-4 py-2 md:py-3 text-white font-semibold flex-nowrap">
-    <span id="banner-phase-text" class="text-xs md:text-base whitespace-nowrap">
-      Cargando fase...
-    </span>
-    <span id="banner-countdown" class="text-xs md:text-base font-extrabold tabular-nums whitespace-nowrap">
-      00:00:00
-    </span>
-    <a 
-      href="#inversion" 
-      class="bg-white text-primary rounded-lg px-3 md:px-6 py-2 md:py-3 font-bold text-sm md:text-base hover:bg-white/90 transition-colors duration-300 whitespace-nowrap flex-shrink-0"
-      onclick="event.preventDefault(); scrollToPlans();"
-    >
-      Empezar ya
-    </a>
+<div class="fixed top-0 left-0 z-50 w-full bg-primary shadow-[0_12px_30px_rgba(0,0,0,0.2)]">
+  <div class="mx-auto flex max-w-7xl items-center gap-3 px-3 py-2 text-white md:gap-5 md:px-6 md:py-3">
+    <div class="min-w-0 flex-1 overflow-hidden">
+      <div class="flex w-max min-w-full animate-scroll-banner items-center gap-8 whitespace-nowrap pr-8">
+        {Array.from({ length: 4 }).map(() => (
+          <span class="text-[11px] font-extrabold uppercase tracking-[0.14em] md:text-sm">
+            {bannerText}
+          </span>
+        ))}
+      </div>
+    </div>
+    <div class="shrink-0">
+      <a
+        href={bannerCtaHref}
+        class="inline-flex min-h-11 items-center justify-center rounded-md bg-white px-3 py-2 text-[11px] font-black uppercase tracking-[0.12em] text-primary transition-colors duration-300 hover:bg-white/90 md:px-5 md:text-sm"
+        onclick="event.preventDefault(); scrollToPlans();"
+      >
+        {bannerCtaLabel}
+      </a>
+    </div>
   </div>
 </div>
 
 <!-- Video Version (Desktop & Mobile) -->
-<section class="relative h-[55vh] md:min-h-screen flex items-center justify-center bg-black overflow-hidden">
+<section class:list={[
+  'relative flex h-[55vh] items-center justify-center overflow-hidden bg-black',
+  'mt-14 md:mt-16 md:min-h-[calc(100vh-4rem)]',
+]}>
   <!-- Background Video -->
   <div class="absolute inset-0 w-full h-full overflow-hidden">
     <iframe
@@ -58,9 +73,12 @@ const carouselImages = [
 <!-- Subtitle Section -->
 <section class="bg-black py-8">
   <div class="max-w-4xl mx-auto px-4 text-center">
-    <h2 class="text-2xl md:text-3xl font-bold text-white opacity-0 translate-y-8 transition-all duration-1000 ease-out" id="hero-title">
-      UNA FORMACIÓN EN LÍNEA DE CREACIÓN DE VIDEOS EN CAMILLA
+    <h2 class="text-2xl md:text-4xl font-bold text-white opacity-0 translate-y-8 transition-all duration-1000 ease-out" id="hero-title">
+      APRENDE A GRABAR CONTENIDO PROFESIONAL EN CAMILLA USANDO SOLO TU CELULAR
     </h2>
+    <p class="mt-4 text-base md:text-xl text-white/80 leading-relaxed opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200" id="hero-description">
+      Para que te vean como una marca de alto nivel, atraigas mejores clientes y puedas cobrar más por tu trabajo.
+    </p>
   </div>
 </section>
 
@@ -100,12 +118,12 @@ const carouselImages = [
           transform: translateX(0);
         }
         100% {
-          transform: translateX(-50%);
+          transform: translateX(-25%);
         }
       }
       
       .animate-scroll-banner {
-        animation: scroll-banner 20s linear infinite;
+        animation: scroll-banner 16s linear infinite;
       }
       
       @keyframes scroll-carousel {
@@ -155,47 +173,6 @@ const carouselImages = [
   // Make function globally available
   (window as any).scrollToPlans = scrollToPlans;
 
-  function pad2(n: number) {
-    return String(n).padStart(2, '0');
-  }
-
-  function formatCountdown(ms: number) {
-    const totalSeconds = Math.max(0, Math.floor(ms / 1000));
-    const days = Math.floor(totalSeconds / 86400);
-    const hours = Math.floor((totalSeconds % 86400) / 3600);
-    const minutes = Math.floor((totalSeconds % 3600) / 60);
-    const seconds = totalSeconds % 60;
-    // If days > 0 we show D:HH:MM:SS, else HH:MM:SS
-    if (days > 0) return `${days}d ${pad2(hours)}:${pad2(minutes)}:${pad2(seconds)}`;
-    return `${pad2(hours)}:${pad2(minutes)}:${pad2(seconds)}`;
-  }
-
-  function getPhaseInfo(now = new Date()) {
-    // Chile UTC-3 en feb. Fase 2: 07/02 21:59 → 08/02 23:59 Chile
-    const PHASE2_START_AT = new Date('2026-02-08T00:59:00Z');
-    const PHASE2_END_AT = new Date('2026-02-09T02:59:00Z'); // 08/02 23:59 Chile
-
-    if (now >= PHASE2_START_AT && now < PHASE2_END_AT) return { phase: 2, endsAt: PHASE2_END_AT };
-    return { phase: 'soldout' as const, endsAt: null as any };
-  }
-
-  function updateBannerCountdown() {
-    const phaseTextEl = document.getElementById('banner-phase-text');
-    const countdownEl = document.getElementById('banner-countdown');
-    if (!phaseTextEl || !countdownEl) return;
-
-    const info = getPhaseInfo(new Date());
-    if (info.phase === 2) {
-      phaseTextEl.textContent = 'Última Oportunidad · cierra en';
-      countdownEl.classList.remove('hidden');
-      countdownEl.textContent = formatCountdown(info.endsAt.getTime() - Date.now());
-      return;
-    }
-
-    phaseTextEl.textContent = 'SOLD OUT · Lista de espera abierta';
-    countdownEl.classList.add('hidden');
-  }
-
   // Intersection Observer for animations
   const observerOptions = {
     threshold: 0.1
@@ -212,11 +189,10 @@ const carouselImages = [
 
   document.addEventListener('DOMContentLoaded', () => {
     const title = document.getElementById('hero-title');
+    const description = document.getElementById('hero-description');
     const quote = document.getElementById('hero-quote');
     if (title) observer.observe(title);
+    if (description) observer.observe(description);
     if (quote) observer.observe(quote);
-
-    updateBannerCountdown();
-    setInterval(updateBannerCountdown, 1000);
   });
 </script>

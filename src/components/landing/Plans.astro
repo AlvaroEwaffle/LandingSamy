@@ -1,136 +1,406 @@
 ---
+import {
+  launchNarrative,
+  offerPhases,
+  waitlistLink,
+} from '../../data/offerPhases';
+
 interface Props {
   title?: string;
 }
 
-const { 
-  title = "Inversión"
+const {
+  title = 'Inversión',
 } = Astro.props;
-
-const waitlistLink =
-  "https://chat.whatsapp.com/CIhFvZC60A662j6QGuxiNs?mode=gi_t";
-
-const phase2CheckoutLink = "https://pay.hotmart.com/Y103097499K?off=zi9wfqaz";
 ---
 
-<section id="inversion" class="py-20 bg-black relative overflow-hidden">
-  <!-- Background Image from january folder -->
+<section id="inversion" class="relative overflow-hidden bg-black py-20">
   <div class="absolute inset-0 z-0">
-    <img 
-      src="/assets/january/Fotos/IMG_4808.JPG" 
-      alt="Background" 
-      class="w-full h-full object-cover opacity-20"
-    />
-    <div class="absolute inset-0 bg-black/80"></div>
+    <div class="absolute inset-0 bg-black"></div>
   </div>
 
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <!-- SOLD OUT (default: ahora y después de Fase 2) -->
-    <div id="plans-soldout">
-      <div class="max-w-4xl mx-auto">
-        <div class="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-2xl overflow-hidden">
-          <div class="p-8 md:p-12 text-center">
-            <h2 class="text-3xl md:text-5xl font-extrabold text-white leading-tight">
-              SOLD OUT
-            </h2>
-
-            <p class="mt-6 text-lg md:text-xl text-white/85 leading-relaxed">
-              <span class="font-semibold">De verdad, gracias.</span><br />
-              El acceso a nuestra formación se agotó en solo 4 días y eso me tiene profundamente agradecida por la confianza.
-            </p>
-
-            <p class="mt-6 text-lg md:text-xl text-white/85 leading-relaxed">
-              Si esta vez no alcanzaste tu cupo, abrí una lista de espera para que seas la primera en enterarte cuando vuelva a abrir.
-            </p>
-
-            <div class="mt-10">
-              <a
-                href={waitlistLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center justify-center px-8 py-4 bg-primary text-white rounded-full font-bold text-lg hover:bg-red-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                No me lo quiero volver a perder
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto mb-14 max-w-5xl text-center">
+      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.32em] text-primary/90 md:text-base">
+        Ventana de beneficios
+      </p>
+      <h2 class="text-3xl font-extrabold leading-tight text-white md:text-5xl">
+        {title}
+      </h2>
+      <p class="mt-6 text-lg leading-relaxed text-white/80 md:text-xl">
+        {launchNarrative}
+      </p>
     </div>
 
-    <!-- FASE 2: solo durante la ventana de reapertura (07/02 21:59 → 08/02 12:00 Chile) -->
-    <div id="plans-phase2" class="hidden">
-      <div class="max-w-4xl mx-auto">
-        <div class="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-2xl overflow-hidden">
-          <div class="p-8 md:p-12 text-center">
-            <h2 class="text-3xl md:text-5xl font-extrabold text-white leading-tight">
-              Hay una nueva oportunidad
-            </h2>
-            <p class="mt-6 text-lg md:text-xl text-white/85 leading-relaxed">
-              Hicimos SOLD OUT en 4 días. No te quedes fuera otra vez.
-            </p>
+    <div class="grid grid-cols-1 items-stretch gap-4 lg:grid-cols-3">
+      {offerPhases.map((phase) => {
+        const isActive = phase.status === 'active';
+        const isClosed = phase.status === 'closed';
+        const isUnavailable = phase.status !== 'active';
+        const upcomingNote = phase.availabilityNote ?? 'Esta caja se activa cuando cierre la oferta anterior.';
 
-            <div class="mt-8 flex items-baseline justify-center gap-2">
-              <span class="text-5xl md:text-6xl font-extrabold text-primary">147</span>
-              <span class="text-xl md:text-2xl text-white/70 font-bold">USD</span>
+        return (
+          <article
+            data-phase-card
+            data-default-state={phase.status}
+            data-start-at={phase.startAt ?? ''}
+            data-end-at={phase.endAt ?? ''}
+            class:list={[
+              'phase-card relative flex h-full min-h-[36rem] overflow-hidden rounded-[1.75rem] border p-5 backdrop-blur-sm transition-all duration-300 md:min-h-[38rem] md:p-6',
+              isActive
+                ? 'border-primary bg-white text-slate-950 shadow-[0_24px_80px_rgba(210,32,31,0.28)]'
+                : 'border-white/15 bg-black/65 text-white',
+              phase.status === 'upcoming' && 'opacity-95',
+              isClosed && 'opacity-60 grayscale',
+            ]}
+          >
+            <div
+              data-phase-closed-badge
+              class:list={[
+                'absolute right-5 top-5 rounded-full bg-primary px-4 py-2 text-xs font-black uppercase tracking-[0.28em] text-white',
+                !isClosed && 'hidden',
+              ]}
+            >
+              Sold Out
             </div>
-            <p class="mt-3 text-sm text-white/70">
-              Disponible hasta el 08/02 23:59 (hora Chile)
-            </p>
 
-            <div class="mt-10">
-              <a
-                href={phase2CheckoutLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center justify-center px-10 py-4 bg-primary text-white rounded-full font-bold text-lg hover:bg-red-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            <div class="flex h-full w-full flex-col">
+              <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <p class:list={[
+                    'phase-label text-xs font-black uppercase tracking-[0.3em]',
+                    isActive ? 'text-primary' : 'text-white/80',
+                  ]}>
+                    {phase.label}
+                  </p>
+                  <h3 class:list={[
+                    'phase-title mt-2 max-w-[14ch] text-xl font-black leading-[1.05] md:max-w-none md:text-[2rem]',
+                    isActive ? 'text-slate-950' : 'text-white',
+                  ]}>
+                    {phase.title}
+                  </h3>
+                </div>
+                <span class:list={[
+                  'phase-status-pill inline-flex w-fit shrink-0 rounded-full px-3 py-2 text-[10px] font-black uppercase tracking-[0.2em]',
+                  isActive && 'bg-primary/10 text-primary',
+                  phase.status === 'upcoming' && 'bg-white/10 text-white/70',
+                  isClosed && 'bg-white/10 text-white/70',
+                ]}>
+                  {isActive ? 'Disponible ahora' : isClosed ? 'Cerrado' : 'Próximamente'}
+                </span>
+              </div>
+
+              <p class:list={[
+                'phase-description mt-4 text-sm leading-relaxed md:text-[15px]',
+                isActive ? 'text-slate-600' : 'text-white/88',
+              ]}>
+                {phase.description}
+              </p>
+
+              <div class="mt-6">
+                <div class:list={[
+                  'phase-price text-4xl font-black tracking-tight md:text-5xl',
+                  isActive ? 'text-slate-950' : 'text-white',
+                ]}>
+                  ${phase.priceUsd} <span class="text-xl font-bold md:text-2xl">USD</span>
+                </div>
+                <p class:list={[
+                  'phase-discount mt-2 text-sm font-semibold uppercase tracking-[0.22em]',
+                  isActive ? 'text-primary' : 'text-white/80',
+                ]}>
+                  {phase.discountLabel}
+                </p>
+                <p class:list={[
+                  'phase-savings mt-2 text-sm',
+                  isActive ? 'text-slate-500' : 'text-white/80',
+                ]}>
+                  {phase.savingsText}
+                </p>
+              </div>
+
+              {(phase.startAt || phase.countdownTarget) && (
+                <div
+                  class="phase-countdown-card mt-5 rounded-2xl border border-primary/20 bg-primary/12 p-4 text-center"
+                  data-countdown-card
+                  data-countdown-start-at={phase.startAt ?? ''}
+                  data-countdown-end-at={phase.endAt ?? phase.countdownTarget ?? ''}
+                >
+                  <p class="phase-countdown-label text-xs font-black uppercase tracking-[0.22em] text-primary">
+                    Tiempo restante de esta oferta
+                  </p>
+                  <p
+                    class="phase-countdown-value mt-3 text-3xl font-black tabular-nums tracking-[0.06em] text-white"
+                    data-countdown-target={phase.countdownTarget ?? phase.startAt}
+                  >
+                    00:00:00
+                  </p>
+                </div>
+              )}
+
+              <p
+                class:list={[
+                  'phase-upcoming-note mt-5 text-xs font-semibold uppercase tracking-[0.15em] text-white/75',
+                  phase.status !== 'upcoming' && 'hidden',
+                ]}
               >
-                QUIERO ACCEDER
-              </a>
+                  {upcomingNote}
+              </p>
+
+              <div class="mt-auto pt-6">
+                <a
+                  href={phase.ctaHref ?? '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-phase-button
+                  data-disabled={isUnavailable ? 'true' : 'false'}
+                  class="phase-button inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-center text-sm font-black transition-all duration-300"
+                >
+                  {phase.ctaLabel}
+                </a>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </article>
+        );
+      })}
     </div>
 
+    <div id="plans-soldout-card" class="mx-auto mt-10 hidden max-w-4xl">
+        <div class="rounded-[2rem] border border-white/10 bg-white/5 p-8 text-center backdrop-blur-sm">
+          <h3 class="text-3xl font-extrabold text-white">
+            SOLD OUT
+          </h3>
+          <p class="mt-4 text-lg leading-relaxed text-white/80">
+            Las inscripciones ya cerraron. Si quieres ser la primera en enterarte cuando vuelva a abrir, súmate a la lista de espera.
+          </p>
+          <a
+            href={waitlistLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-8 inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-sm font-black uppercase tracking-[0.14em] text-white transition-all duration-300 hover:-translate-y-1 hover:bg-red-dark"
+          >
+            No me lo quiero volver a perder
+          </a>
+        </div>
+      </div>
   </div>
 </section>
 
 <script is:inline>
   (function () {
-    // Chile UTC-3 en feb. Usamos UTC para que cambie igual en todo el mundo.
-    // Fase 2 empieza: 07/02 21:59 Chile = 08/02 00:59Z
-    // Fase 2 termina: 08/02 23:59 Chile = 09/02 02:59Z
-    var PHASE2_START_AT = new Date('2026-02-08T00:59:00Z');
-    var PHASE2_END_AT = new Date('2026-02-09T02:59:00Z'); // 08/02 23:59 Chile
+    function resolvePhaseState(startAt, endAt, fallbackState) {
+      if (!startAt || !endAt) {
+        return fallbackState || 'upcoming';
+      }
 
-    function getPhase() {
-      var now = new Date();
-      if (now >= PHASE2_START_AT && now < PHASE2_END_AT) return 2;
-      return 'soldout';
+      var now = Date.now();
+      var start = new Date(startAt).getTime();
+      var end = new Date(endAt).getTime();
+
+      if (now < start) return 'upcoming';
+      if (now >= end) return 'closed';
+      return 'active';
     }
 
-    function showOnly(idToShow) {
-      var soldout = document.getElementById('plans-soldout');
-      var phase2 = document.getElementById('plans-phase2');
-      if (!soldout || !phase2) return;
-      if (idToShow === 'plans-phase2') {
-        soldout.classList.add('hidden');
-        phase2.classList.remove('hidden');
-      } else {
-        soldout.classList.remove('hidden');
-        phase2.classList.add('hidden');
+    function pad2(value) {
+      return String(value).padStart(2, '0');
+    }
+
+    function formatCountdown(ms) {
+      var totalSeconds = Math.max(0, Math.floor(ms / 1000));
+      var days = Math.floor(totalSeconds / 86400);
+      var hours = Math.floor(totalSeconds / 3600);
+      var minutes = Math.floor((totalSeconds % 3600) / 60);
+      var seconds = totalSeconds % 60;
+
+      if (days > 0) {
+        return days + 'd ' + pad2(hours % 24) + ':' + pad2(minutes) + ':' + pad2(seconds);
+      }
+
+      return pad2(hours) + ':' + pad2(minutes) + ':' + pad2(seconds);
+    }
+
+    function updateCountdowns() {
+      document.querySelectorAll('[data-countdown-card]').forEach(function (card) {
+        if (!(card instanceof HTMLElement)) return;
+
+        var phaseCard = card.closest('[data-phase-card]');
+        var valueEl = card.querySelector('[data-countdown-target]');
+        var labelEl = card.querySelector('.phase-countdown-label');
+        if (!(phaseCard instanceof HTMLElement) || !(valueEl instanceof HTMLElement) || !(labelEl instanceof HTMLElement)) {
+          return;
+        }
+
+        var state = phaseCard.dataset.state;
+        var startAt = card.getAttribute('data-countdown-start-at');
+        var endAt = card.getAttribute('data-countdown-end-at');
+        var target = state === 'upcoming' ? startAt : state === 'active' ? endAt : '';
+
+        if (!target) {
+          card.classList.add('hidden');
+          return;
+        }
+
+        var remaining = new Date(target).getTime() - Date.now();
+
+        if (remaining <= 0 || state === 'closed') {
+          card.classList.add('hidden');
+          return;
+        }
+
+        labelEl.textContent = state === 'upcoming'
+          ? 'Se activa en'
+          : 'Tiempo restante de esta oferta';
+        valueEl.textContent = formatCountdown(remaining);
+        card.classList.remove('hidden');
+      });
+    }
+
+    function updatePhaseCards() {
+      var cards = document.querySelectorAll('[data-phase-card]');
+      var allClosed = cards.length > 0;
+
+      cards.forEach(function (card) {
+        if (!(card instanceof HTMLElement)) return;
+
+        var state = resolvePhaseState(
+          card.getAttribute('data-start-at'),
+          card.getAttribute('data-end-at'),
+          card.getAttribute('data-default-state')
+        );
+
+        if (state !== 'closed') {
+          allClosed = false;
+        }
+
+        card.dataset.state = state;
+        card.classList.toggle('opacity-95', state === 'upcoming');
+        card.classList.toggle('opacity-60', state === 'closed');
+        card.classList.remove('opacity-55', 'opacity-45');
+        card.classList.toggle('grayscale', state === 'closed');
+
+        var pill = card.querySelector('.phase-status-pill');
+        if (pill) {
+          pill.textContent = state === 'active' ? 'Disponible ahora' : state === 'closed' ? 'Cerrado' : 'Próximamente';
+        }
+
+        var button = card.querySelector('[data-phase-button]');
+        if (button instanceof HTMLAnchorElement) {
+          var isDisabled = state !== 'active';
+          button.dataset.disabled = isDisabled ? 'true' : 'false';
+          button.setAttribute('aria-disabled', isDisabled ? 'true' : 'false');
+          button.tabIndex = isDisabled ? -1 : 0;
+        }
+
+        var note = card.querySelector('.phase-upcoming-note');
+        if (note instanceof HTMLElement) {
+          note.classList.toggle('hidden', state !== 'upcoming');
+        }
+
+        var soldOutBadge = card.querySelector('[data-phase-closed-badge]');
+        if (soldOutBadge instanceof HTMLElement) {
+          soldOutBadge.classList.toggle('hidden', state !== 'closed');
+        }
+      });
+
+      var soldOutCard = document.getElementById('plans-soldout-card');
+      if (soldOutCard instanceof HTMLElement) {
+        soldOutCard.classList.toggle('hidden', !allClosed);
       }
     }
 
-    function tick() {
-      var phase = getPhase();
-      if (phase === 2) showOnly('plans-phase2');
-      else showOnly('plans-soldout');
+    function run() {
+      updatePhaseCards();
+      updateCountdowns();
+
+      if (document.querySelector('[data-countdown-target]')) {
+        window.setInterval(function () {
+          updatePhaseCards();
+          updateCountdowns();
+        }, 1000);
+      }
     }
 
-    function run() { tick(); setInterval(tick, 1000); }
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
-    else run();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', run);
+    } else {
+      run();
+    }
   })();
 </script>
+
+<style>
+  .phase-card[data-state='active'] {
+    border-color: rgba(210, 32, 31, 1);
+    background: rgba(255, 255, 255, 0.98);
+    color: rgb(15 23 42);
+    box-shadow: 0 24px 80px rgba(210, 32, 31, 0.28);
+  }
+
+  .phase-card[data-state='active'] .phase-label,
+  .phase-card[data-state='active'] .phase-discount,
+  .phase-card[data-state='active'] .phase-status-pill {
+    color: rgb(210 32 31);
+  }
+
+  .phase-card[data-state='active'] .phase-status-pill {
+    background: rgba(210, 32, 31, 0.1);
+  }
+
+  .phase-card[data-state='active'] .phase-title,
+  .phase-card[data-state='active'] .phase-price {
+    color: rgb(15 23 42);
+  }
+
+  .phase-card[data-state='active'] .phase-description,
+  .phase-card[data-state='active'] .phase-savings {
+    color: rgb(71 85 105);
+  }
+
+  .phase-card[data-state='active'] .phase-countdown-value {
+    color: rgb(15 23 42);
+  }
+
+  .phase-card[data-state='upcoming'] .phase-label,
+  .phase-card[data-state='upcoming'] .phase-discount,
+  .phase-card[data-state='closed'] .phase-label,
+  .phase-card[data-state='closed'] .phase-discount {
+    color: rgba(255, 90, 90, 0.95);
+  }
+
+  .phase-card[data-state='upcoming'],
+  .phase-card[data-state='closed'] {
+    background:
+      linear-gradient(180deg, rgba(210, 32, 31, 0.12) 0%, rgba(12, 12, 12, 0.92) 22%, rgba(8, 8, 8, 0.96) 100%);
+    border-color: rgba(210, 32, 31, 0.38);
+    box-shadow: 0 16px 40px rgba(210, 32, 31, 0.12);
+  }
+
+  .phase-card[data-state='upcoming'] .phase-status-pill,
+  .phase-card[data-state='closed'] .phase-status-pill {
+    background: rgba(210, 32, 31, 0.95);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .phase-button[data-disabled='true'] {
+    pointer-events: none;
+    cursor: not-allowed;
+    background: rgba(210, 32, 31, 0.1);
+    border: 1px solid rgba(210, 32, 31, 0.4);
+    color: rgba(255, 255, 255, 0.82);
+    transform: none;
+    box-shadow: none;
+  }
+
+  .phase-button[data-disabled='false'] {
+    cursor: pointer;
+    background: rgb(210 32 31);
+    color: white;
+    border: 1px solid transparent;
+  }
+
+  .phase-button[data-disabled='false']:hover {
+    transform: translateY(-4px);
+    background: rgb(185 28 28);
+  }
+</style>

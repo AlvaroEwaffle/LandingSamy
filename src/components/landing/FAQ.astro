@@ -21,10 +21,6 @@ const faqs = [
     answer: "Sí. Si hoy estás empezando, esta formación te guía desde cero y paso a paso para que sepas qué grabar, cómo grabarlo y cómo editarlo sin complicarte."
   },
   {
-    question: "¿Tendré soporte si me surgen dudas?",
-    answer: "Sí. Tendrás acceso a la formación y soporte de nuestro equipo durante 6 meses. Y además, como bonus, tendrás acompañamiento directo conmigo (Samy) por 30 días dentro del grupo de WhatsApp para todos los participantes."
-  },
-  {
     question: "Me sirve si soy manicurista?",
     answer: "Esta formación es exclusiva para artistas que trabajan en camilla. Si tu servicio no se realiza en camilla, probablemente no sea la mejor opción para ti."
   }
@@ -96,9 +92,10 @@ const faqs = [
     
     if (answer && icon) {
       const isHidden = answer.classList.contains('hidden');
+      const totalFaqs = document.querySelectorAll('[id^="faq-answer-"]').length;
       
       // Close all other FAQs
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < totalFaqs; i++) {
         const otherAnswer = document.getElementById(`faq-answer-${i}`);
         const otherIcon = document.getElementById(`faq-icon-${i}`);
         if (otherAnswer && otherIcon && i !== index) {
