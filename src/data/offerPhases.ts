@@ -93,7 +93,7 @@ const phaseConfigs: OfferPhase[] = [
   {
     id: 'day2',
     label: 'FASE 2',
-    title: '',
+    title: 'Acceso oficial',
     description:
       'Tu trabajo merece ser visto, valorado y reconocido. Empieza a mostrarlo como una profesional.',
     priceUsd: 167,
@@ -110,7 +110,7 @@ const phaseConfigs: OfferPhase[] = [
   {
     id: 'day3',
     label: 'FASE 3',
-    title: '',
+    title: 'Acceso con 50% OFF',
     description:
       'Una formación diseñada con un valor de 397, a la que hoy puedes acceder por 197.',
     priceUsd: 197,
