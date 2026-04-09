@@ -1,7 +1,9 @@
 ---
 import {
+  activeOffer,
   launchNarrative,
   offerPhases,
+  upcomingOffer,
   waitlistLink,
 } from '../../data/offerPhases';
 
@@ -37,7 +39,8 @@ const {
         const isActive = phase.status === 'active';
         const isClosed = phase.status === 'closed';
         const isUnavailable = phase.status !== 'active';
-        const showCountdown = phase.id === 'day1';
+        const isNextUpcoming = !activeOffer && upcomingOffer?.id === phase.id;
+        const showCountdownByDefault = isActive || isNextUpcoming;
         const upcomingNote = phase.availabilityNote ?? 'Esta caja se activa cuando cierre la oferta anterior.';
 
         return (
@@ -127,7 +130,7 @@ const {
                     <div
                       class:list={[
                         'phase-countdown-card rounded-2xl border border-primary/20 bg-primary/12 p-3 text-center',
-                        !showCountdown && 'hidden',
+                        !showCountdownByDefault && 'hidden',
                       ]}
                       data-countdown-card
                       data-phase-id={phase.id}
@@ -135,7 +138,7 @@ const {
                       data-countdown-end-at={phase.endAt ?? phase.countdownTarget ?? ''}
                     >
                       <p class="phase-countdown-label text-[11px] font-black uppercase tracking-[0.2em] text-primary">
-                        {isActive ? 'Tiempo restante de esta oferta' : 'Se activa en'}
+                        {isNextUpcoming ? 'Se activa en' : 'Tiempo restante de esta oferta'}
                       </p>
                       <p
                         class="phase-countdown-value mt-2 text-[2.45rem] font-black tabular-nums tracking-[0.04em] text-white"
@@ -274,6 +277,8 @@ const {
     function updatePhaseCards() {
       var cards = document.querySelectorAll('[data-phase-card]');
       var allClosed = cards.length > 0;
+      var activeCard = null;
+      var nextUpcomingCard = null;
 
       cards.forEach(function (card) {
         if (!(card instanceof HTMLElement)) return;
@@ -289,6 +294,15 @@ const {
         }
 
         card.dataset.state = state;
+
+        if (state === 'active' && !activeCard) {
+          activeCard = card;
+        }
+
+        if (state === 'upcoming' && !nextUpcomingCard) {
+          nextUpcomingCard = card;
+        }
+
         card.classList.toggle('opacity-95', state === 'upcoming');
         card.classList.toggle('opacity-60', state === 'closed');
         card.classList.remove('opacity-55', 'opacity-45');
@@ -331,8 +345,8 @@ const {
 
         var state = card.dataset.state;
         var shouldShowCountdown =
-          countdown.getAttribute('data-phase-id') === 'day1' &&
-          (state === 'active' || state === 'upcoming');
+          (state === 'active' && card === activeCard) ||
+          (!activeCard && state === 'upcoming' && card === nextUpcomingCard);
 
         countdown.dataset.visible = shouldShowCountdown ? 'true' : 'false';
         countdown.classList.toggle('hidden', !shouldShowCountdown);
