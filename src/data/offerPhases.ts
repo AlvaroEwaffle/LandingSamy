@@ -110,9 +110,9 @@ const phaseConfigs: OfferPhase[] = [
   {
     id: 'day3',
     label: 'FASE 3',
-    title: 'Acceso con 50% OFF',
+    title: 'Acompañamiento exclusivo con Samy',
     description:
-      'Una formación diseñada con un valor de 397, a la que hoy puedes acceder por 197.',
+      'Accede a 30 días de asesoría exclusiva con Samy y transforma tu proceso en resultados.',
     priceUsd: 197,
     savingsText: 'Ahorras 50%',
     discountLabel: '50% OFF',
