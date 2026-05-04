@@ -23,15 +23,19 @@ const {
 
   <div class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
     <div class="mx-auto mb-14 max-w-5xl text-center">
-      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.32em] text-primary/90 md:text-base">
-        Ventana de beneficios
-      </p>
       <h2 class="text-3xl font-extrabold leading-tight text-white md:text-5xl">
         {title}
       </h2>
-      <p class="mt-6 text-lg leading-relaxed text-white/80 md:text-xl">
-        {launchNarrative}
-      </p>
+      <div class="mt-6 space-y-4 text-lg leading-relaxed text-white/80 md:text-xl">
+        {launchNarrative.intro.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+      </div>
+      <div class="mt-8 space-y-4 text-xl font-bold leading-relaxed text-primary md:text-2xl lg:text-3xl">
+        {launchNarrative.highlight.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+      </div>
     </div>
 
     <div class="grid grid-cols-1 items-stretch gap-3 lg:grid-cols-3">

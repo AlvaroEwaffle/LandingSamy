@@ -69,8 +69,17 @@ export const trainingItems: TrainingItem[] = [
 
 export const totalTrainingValueUsd = 397;
 
-export const launchNarrative =
-  'Quiero que este camino sea posible para ti ahora mismo. Por eso, en lugar del precio oficial, diseñé una ventana de beneficios de 3 días. Es mi forma de premiar a quienes toman acción rápido: abrimos con el descuento más grande y el precio irá subiendo poco a poco, así que asegúrate de aprovechar el mejor momento.';
+export const launchNarrative = {
+  intro: [
+    'Si sabes que haces un buen trabajo, pero tus videos no lo demuestran…',
+    'Empieza a mostrar tu técnica con contenido que eleve su valor y haga que tu servicio se perciba como una experiencia premium.',
+    'Dentro de Impacto Visual tienes el método exacto para lograrlo, atraer más clientes y aumentar tus ventas.',
+  ],
+  highlight: [
+    'Y aunque este programa está valorado en 397 USD, hoy puedes acceder por solo 167 USD.',
+    'Una oportunidad real para empezar ahora, sin seguir postergándote.',
+  ],
+};
 
 const phaseConfigs: OfferPhase[] = [
   {
