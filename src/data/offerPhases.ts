@@ -81,57 +81,24 @@ export const launchNarrative = {
   ],
 };
 
+// Evergreen single offer at 167 USD (matches launch copy "hoy puedes acceder por
+// solo 167 USD"). No startAt/endAt → resolveOfferStatus returns the literal
+// status ('active'), and the client-side date re-check falls back to 'active'
+// too — so the offer stays permanently open to sell instead of auto-closing on
+// the old April phase dates.
 const phaseConfigs: OfferPhase[] = [
   {
-    id: 'day1',
-    label: 'FASE 1',
-    title: 'Beneficio exclusivo',
-    description:
-      'Un acceso especial creado únicamente para quienes ya son parte de nuestra comunidad, antes de que se abran las puertas al público.',
-    priceUsd: 137,
-    savingsText: 'Ahorras 260 USD',
-    discountLabel: '65% OFF',
-    ctaLabel: primaryOfferCtaLabel,
-    status: 'upcoming',
-    startAt: '2026-04-09T17:00:00-04:00',
-    endAt: '2026-04-10T23:59:00-04:00',
-    countdownTarget: '2026-04-09T17:00:00-04:00',
-    ctaHref: checkoutLink,
-    availabilityNote: 'Se activa el 09/04/2026 a las 17:00 y cierra el 10/04/2026 a las 23:59.',
-  },
-  {
     id: 'day2',
-    label: 'FASE 2',
+    label: 'OFERTA ESPECIAL',
     title: 'Acceso oficial',
     description:
       'Tu trabajo merece ser visto, valorado y reconocido. Empieza a mostrarlo como una profesional.',
     priceUsd: 167,
-    savingsText: 'Ahorras 58%',
+    savingsText: 'Ahorras 230 USD',
     discountLabel: '58% OFF',
     ctaLabel: 'Reservar mi lugar',
-    status: 'upcoming',
-    startAt: '2026-04-11T00:00:00-04:00',
-    endAt: '2026-04-11T23:59:00-04:00',
-    countdownTarget: '2026-04-11T00:00:00-04:00',
+    status: 'active',
     ctaHref: 'https://pay.hotmart.com/Y103097499K?off=pd5w67pt',
-    availabilityNote: 'Se activa el 11/04/2026 a las 00:00 y cierra el mismo día a las 23:59.',
-  },
-  {
-    id: 'day3',
-    label: 'FASE 3',
-    title: 'Acompañamiento exclusivo con Samy',
-    description:
-      'Accede a 30 días de asesoría exclusiva con Samy y transforma tu proceso en resultados.',
-    priceUsd: 197,
-    savingsText: 'Ahorras 50%',
-    discountLabel: '50% OFF',
-    ctaLabel: 'Quiero elevar mi contenido',
-    status: 'upcoming',
-    startAt: '2026-04-12T00:00:00-04:00',
-    endAt: '2026-04-13T23:59:00-04:00',
-    countdownTarget: '2026-04-12T00:00:00-04:00',
-    ctaHref: 'https://pay.hotmart.com/Y103097499K?off=xtunm0a0',
-    availabilityNote: 'Se activa el 12/04/2026 a las 00:00 y cierra el 13/04/2026 a las 23:59.',
   },
 ];
 

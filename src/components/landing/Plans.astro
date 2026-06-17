@@ -38,7 +38,7 @@ const {
       </div>
     </div>
 
-    <div class="grid grid-cols-1 items-stretch gap-3 lg:grid-cols-3">
+    <div class="mx-auto grid max-w-md grid-cols-1 items-stretch gap-3">
       {offerPhases.map((phase) => {
         const isActive = phase.status === 'active';
         const isClosed = phase.status === 'closed';
