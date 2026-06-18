@@ -98,7 +98,7 @@ const phaseConfigs: OfferPhase[] = [
     discountLabel: '58% OFF',
     ctaLabel: 'Reservar mi lugar',
     status: 'active',
-    ctaHref: 'https://pay.hotmart.com/Y103097499K?off=pd5w67pt',
+    ctaHref: 'https://pay.hotmart.com/Y103097499K?off=rc2ycxbr',
   },
 ];
 
